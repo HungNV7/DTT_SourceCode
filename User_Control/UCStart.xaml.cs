@@ -41,9 +41,10 @@ namespace ServerDTT_New_.User_Control
 
         bool IsBackup = false;
         int currentBUQuestionID = 0;
+        string matchID = "";
 
         const int numberOfStudent = 4;
-        public UCStart(MainWindow main, EWMainWindow ewMainWindow, EWStart ewStart, List<Student> students, Server _server)
+        public UCStart(MainWindow main, EWMainWindow ewMainWindow, EWStart ewStart, List<Student> students, Server _server, string matchID)
         {
             InitializeComponent();
 
@@ -52,6 +53,7 @@ namespace ServerDTT_New_.User_Control
             eWStart = ewStart;
             server = _server;
             eWMainWindow = ewMainWindow;
+            this.matchID = matchID;
             InitUC();
         }
 
@@ -65,6 +67,9 @@ namespace ServerDTT_New_.User_Control
                 btnStudentList.Add(btnStudent);
                 gridBtnStudent.Children.Add(btnStudent);
             }
+
+            questionList = DAO.QuestionDAO.Instance.getStartQuestion(matchID);// get question from database
+           // bUQuestionList = DAO.BUQuestionDAO.Instance.getStartQuestion();//get backup question from database
             eWStart.UpdateUC(this);
         }
 

@@ -18,11 +18,11 @@ namespace ServerDTT_New_.DTO
         public string QuestionVideoName;
         public string AnswerImageName;
         public string AnswerVideoName;
-
+        public Boolean Backup { get; set; }
 
         public Question() { }
 
-        public Question(string questionID, string detail, string answer, Int32 questionTypeID, string note, string questionImageName, string questionVideoName, string answerImageName,string answerVideoName)
+        public Question(string questionID, string detail, string answer, Int32 questionTypeID, string note, string questionImageName, string questionVideoName, string answerImageName,string answerVideoName, Boolean backup)
         {
             this.QuestionID = questionID;
             this.Detail = detail;
@@ -33,6 +33,7 @@ namespace ServerDTT_New_.DTO
             this.QuestionVideoName = questionVideoName;
             this.AnswerImageName = answerImageName;
             this.AnswerVideoName = answerVideoName;
+            this.Backup = backup;
         }
 
         public Question(DataRow row)
@@ -46,6 +47,7 @@ namespace ServerDTT_New_.DTO
             this.AnswerVideoName = row["AnswerVideoName"].ToString();
             this.QuestionImageName = row["QuestionImageName"].ToString();
             this.QuestionVideoName = row["QuestionVideoName"].ToString();
+            this.Backup = row["isBackup"].ToString().Equals("1")?true:false;
         }
     }
 }

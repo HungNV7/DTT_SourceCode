@@ -44,10 +44,11 @@ namespace ServerDTT_New_.User_Control
 
         const int numberOfStudent = 4;
         const int numberOfQuestion = 3;
+        string matchID = "";
 
         MediaAct mediaAct = new MediaAct();
 
-        public UCFinish(MainWindow main, EWMainWindow eWMain, EWFinish ewFinish, List<Student> _studentList, Server _server)
+        public UCFinish(MainWindow main, EWMainWindow eWMain, EWFinish ewFinish, List<Student> _studentList, Server _server, string matchID)
         {
             InitializeComponent();
             mainWindow = main;
@@ -55,7 +56,7 @@ namespace ServerDTT_New_.User_Control
             eWMainWindow = eWMain;
             studentList = _studentList;
             server = _server;
-
+            this.matchID = matchID;
             InitUC();
         }
 
@@ -147,7 +148,7 @@ namespace ServerDTT_New_.User_Control
                 return;
             }
 
-            //questionList = DAO.QuestionDAO.Instance.getFinishQuestions(currentStudentID, q1Difficulty, q2Difficulty, q3Difficulty);
+            questionList = DAO.QuestionDAO.Instance.getFinishQuestions(matchID, currentStudentID, q1Difficulty, q2Difficulty, q3Difficulty);
             //bUQuestionList = DAO.BUQuestionDAO.Instance.getFinishQuestions(currentStudentID, q1Difficulty, q2Difficulty, q3Difficulty);
 
             for (int i = 0; i < 9; i++)

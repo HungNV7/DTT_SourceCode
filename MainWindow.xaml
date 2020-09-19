@@ -29,8 +29,7 @@
 
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
-                    <ComboBox Name="cbMatch">
-
+                    <ComboBox Name="cbMatch" SelectionChanged="cbMatch_SelectionChanged">
                     </ComboBox>
                 </Grid>
             </Grid>

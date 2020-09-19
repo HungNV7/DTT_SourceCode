@@ -44,26 +44,12 @@ namespace ServerDTT_New_.DAO
                "UPDATE tblDetailMatch " +
                "SET " +
                "point = N'{0}', " +
-                "WHERE studentid in( select studentid from tblstudent where "+
+                "WHERE studentid in( select studentid from tblstudent where " +
                 "name = N'{1}', "
                 ,
-               Name,Point);
+               Name, Point);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
-        }
-        public void getMatchID()
-        {
-            string query = string.Format(
-               @"SELECT * FROM tblStudent,tblDetailMatch
-                WHERE tblStudent.studentID=tblDetailMatch.studentID
-                      AND tblDetailMatch.matchID='CK'");
-            DataTable data = DataProvider.Instance.ExecuteQuery(query);
-             string result
-            foreach (DataRow row in data.Rows)
-            {
-                result.Add(new Student(row));
-            }
-            
         }
     }
 }

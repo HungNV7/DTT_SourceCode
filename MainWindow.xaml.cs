@@ -17,6 +17,7 @@ using ServerDTT_New_.ExtendedWindow;
 using ServerDTT_New_.User_Control;
 using ServerDTT_New_.DTO;
 using ServerDTT_New_.DAO;
+using System.Data;
 
 namespace ServerDTT_New_
 {
@@ -41,8 +42,10 @@ namespace ServerDTT_New_
         UCAccelerate uCAccelerate;
         UCDecode uCDecode;
         UCFinish uCFinish;
+        UCReadExcel uCReadExcel;
 
         Server server;
+        string matchID = "";
 
         const int numberOfStudent = 4;
         public MainWindow()
@@ -54,7 +57,7 @@ namespace ServerDTT_New_
         void InitMainWindow()
         {
             studentList = StudentDAO.Instance.getStartStudent("'BK'");// get student 
-           
+            GetMatch();
                 for (int i = 0; i < numberOfStudent; i++)
                 {
 
@@ -83,29 +86,54 @@ namespace ServerDTT_New_
                 server = new Server(this);
             try
             {
-                uCStart = new UCStart(this, eWMainWindow, eWStart, studentList, server);
-                uCObstacles = new UCObstacles(this, eWMainWindow, eWObstacles, studentList, server);
-                uCAccelerate = new UCAccelerate(this, eWMainWindow, eWAccelerate, studentList, server);
-                uCDecode = new UCDecode(this, eWMainWindow, eWDecode, studentList, server);
-                uCFinish = new UCFinish(this, eWMainWindow, eWFinish, studentList, server);
+                uCReadExcel = new UCReadExcel();
+                uCStart = new UCStart(this, eWMainWindow, eWStart, studentList, server, matchID);
+                uCObstacles = new UCObstacles(this, eWMainWindow, eWObstacles, studentList, server, matchID);
+                uCAccelerate = new UCAccelerate(this, eWMainWindow, eWAccelerate, studentList, server, matchID);
+                //uCDecode = new UCDecode(this, eWMainWindow, eWDecode, studentList, server, matchID);
+                uCFinish = new UCFinish(this, eWMainWindow, eWFinish, studentList, server, matchID);
+                
+
             }
             catch(Exception error)
             {
                 MessageBox.Show(error.Message);
             }
 
+            
             tabMain.Items.Add(new TabItem { Content = uCStart, Header = "Khởi Động", Width = 80, Height = 20, FontSize = 10 });
             tabMain.Items.Add(new TabItem { Content = uCObstacles, Header = "VCNV", Width = 80, Height = 20, FontSize = 10 });
             tabMain.Items.Add(new TabItem { Content = uCAccelerate, Header = "Tăng Tốc", Width = 80, Height = 20, FontSize = 10 });
             tabMain.Items.Add(new TabItem { Content = uCDecode, Header = "Giải Mã", Width = 80, Height = 20, FontSize = 10 });
             tabMain.Items.Add(new TabItem { Content = uCFinish, Header = "Về Đích", Width = 80, Height = 20, FontSize = 10 });
+            tabMain.Items.Add(new TabItem { Content = uCReadExcel, Header = "Read Excel", Width = 80, Height = 20, FontSize = 10 });
 
-            
+
             //Cap nhap ID cua vong hien tai
             System.IO.StreamWriter streamWriter = new System.IO.StreamWriter("Round.txt");
             streamWriter.Flush();
             streamWriter.Write("0");
             streamWriter.Close();
+        }
+
+        public void GetMatch()
+        {
+            Dictionary<string, string> matches = new Dictionary<string, string>();
+
+            String command = "SELECT * FROM tblMatch";
+
+            DataTable data = DataProvider.Instance.ExecuteQuery(command);
+
+            cbMatch.Items.Add(new ComboBoxItem { IsSelected = true, Content="Choose a name of the match" });
+
+            foreach(DataRow row in data.Rows)
+            {
+                string id = row["matchID"].ToString();
+                string name = row["name"].ToString();
+
+                matches.Add(id, name);
+                cbMatch.Items.Add(name);
+            }
         }
 
         public void SolveMessage(string message)
@@ -160,6 +188,9 @@ namespace ServerDTT_New_
             eWPointSummarized.soundFinishAll.Play();
         }
 
-       
+        private void cbMatch_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

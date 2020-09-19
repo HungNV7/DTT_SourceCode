@@ -46,11 +46,12 @@ namespace ServerDTT_New_.User_Control
         bool isFinished = false; // To mute the showHintSound when the KEY is answered
         const int currentRound = 2;
         bool isBackup = false;
+        string matchID = "";
 
         Server server;
         MediaAct mediaAct = new MediaAct();
 
-        public UCObstacles(MainWindow main, EWMainWindow eWMainWindow, EWObstacles _eWObstacles, List<Student> students, Server _server)
+        public UCObstacles(MainWindow main, EWMainWindow eWMainWindow, EWObstacles _eWObstacles, List<Student> students, Server _server, string matchID)
         {
             InitializeComponent();
 
@@ -59,6 +60,7 @@ namespace ServerDTT_New_.User_Control
             eWindow = eWMainWindow;
             studentList = students;
             server = _server;
+            this.matchID = matchID;
             InitControl();
         }
 
@@ -510,7 +512,7 @@ namespace ServerDTT_New_.User_Control
 
             //Create Rows
             if (isBackup == false)
-                questionList = DAO.QuestionDAO.Instance.getObstacleQuestion();
+                questionList = DAO.QuestionDAO.Instance.getObstacleQuestion(matchID);
            // else questionList = DAO.BUQuestionDAO.Instance.getObstacleQuestion();
 
             for (int i = 0; i < 4; i++)

@@ -51,8 +51,9 @@ namespace ServerDTT_New_.User_Control
         
         const int numberOfStudent = 4;
         int currentQuestionID = 0;
+        string matchID = "";
         
-        public UCAccelerate(MainWindow main, EWMainWindow eWMain, EWAccelerate ewAccelerate, List<Student> _studentList, Server _server)
+        public UCAccelerate(MainWindow main, EWMainWindow eWMain, EWAccelerate ewAccelerate, List<Student> _studentList, Server _server, string matchID)
         {
             InitializeComponent();
 
@@ -61,7 +62,7 @@ namespace ServerDTT_New_.User_Control
             eWMainWindow = eWMain;
             studentList = _studentList;
             server = _server;
-
+            this.matchID = matchID;
             InitUC();
         }
 
@@ -93,7 +94,7 @@ namespace ServerDTT_New_.User_Control
                 checkBoxTrueAnswerList.Add(checkBoxTrueAnswer);
                 gridAnswerInfo.Children.Add(checkBoxTrueAnswer);
             }
-            questionList = DAO.QuestionDAO.Instance.getAccelerateQuestion();
+            questionList = DAO.QuestionDAO.Instance.getAccelerateQuestion(matchID);
            // bUQuestionList = DAO.BUQuestionDAO.Instance.getAccelerateQuestion();
             
             for (int i = 0; i < numberOfStudent; i++)
