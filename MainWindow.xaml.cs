@@ -90,7 +90,7 @@ namespace ServerDTT_New_
                 uCStart = new UCStart(this, eWMainWindow, eWStart, studentList, server, matchID);
                 uCObstacles = new UCObstacles(this, eWMainWindow, eWObstacles, studentList, server, matchID);
                 uCAccelerate = new UCAccelerate(this, eWMainWindow, eWAccelerate, studentList, server, matchID);
-                //uCDecode = new UCDecode(this, eWMainWindow, eWDecode, studentList, server, matchID);
+                uCDecode = new UCDecode(this, eWMainWindow, eWDecode, studentList, server, matchID);
                 uCFinish = new UCFinish(this, eWMainWindow, eWFinish, studentList, server, matchID);
                 
 
