@@ -51,14 +51,16 @@ namespace ServerDTT_New_
         public MainWindow()
         {
             InitializeComponent();
-            InitMainWindow();
+            GetMatch();
+            server = new Server(this);
         }
        
+
         void InitMainWindow()
         {
-            studentList = StudentDAO.Instance.getStartStudent("'BK'");// get student 
-            GetMatch();
-                for (int i = 0; i < numberOfStudent; i++)
+            
+            
+            for (int i = 0; i < numberOfStudent; i++)
                 {
 
                     TextBox txtBoxName = new TextBox { FontSize = 25, Background = Brushes.LightBlue, Text = studentList[i].Name, Margin = new Thickness(5), Width = 125, VerticalAlignment = VerticalAlignment.Center, HorizontalAlignment = HorizontalAlignment.Center, TextAlignment = TextAlignment.Center };
@@ -83,7 +85,7 @@ namespace ServerDTT_New_
                 eWAccelerate = new EWAccelerate();
                 eWDecode = new EWDecode();
                 eWFinish = new EWFinish();
-                server = new Server(this);
+                
             try
             {
                 uCReadExcel = new UCReadExcel();
@@ -159,10 +161,11 @@ namespace ServerDTT_New_
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
+            StudentDAO update = new StudentDAO();
             for (int i = 0; i < numberOfStudent; i++)
             {
-                studentList[i].Name = txtBoxStudentNameList[i].Text;
-                studentList[i].Point = int.Parse(txtBoxStudentPointList[i].Text);
+               int point = int.Parse(txtBoxStudentPointList[i].Text);
+                update.UpdatePoint(studentList[i].StudentID,point,studentList[i].MatchID.ToString());
             }
             uCStart.UpdateInfoOnScreen();
             uCObstacles.UpdateInfoOnScreen();
@@ -190,7 +193,15 @@ namespace ServerDTT_New_
 
         private void cbMatch_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            string s = cbMatch.SelectedItem.ToString();
 
+            //MessageBox.Show(s);
+
+            if (!s.Contains("Choose a name of the match"))
+            {
+                studentList = StudentDAO.Instance.getStartStudent(s);// get student 
+                InitMainWindow();
+            }
         }
     }
 }
