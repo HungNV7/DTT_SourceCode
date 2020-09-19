@@ -29,7 +29,7 @@ namespace ServerDTT_New_.DAO
         {
             string query = string.Format(
                 @"SELECT * FROM tblQuestion q
-                WHERE q.QuestionTypeID = 1");
+                WHERE q.QuestionTypeID = 1" );
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             List<Question> result = new List<Question>();
             foreach (DataRow row in data.Rows)

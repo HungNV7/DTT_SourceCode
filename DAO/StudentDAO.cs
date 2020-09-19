@@ -51,6 +51,19 @@ namespace ServerDTT_New_.DAO
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }
-
+        public void getMatchID()
+        {
+            string query = string.Format(
+               @"SELECT * FROM tblStudent,tblDetailMatch
+                WHERE tblStudent.studentID=tblDetailMatch.studentID
+                      AND tblDetailMatch.matchID='CK'");
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+             string result
+            foreach (DataRow row in data.Rows)
+            {
+                result.Add(new Student(row));
+            }
+            
+        }
     }
 }

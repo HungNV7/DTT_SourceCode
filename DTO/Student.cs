@@ -35,10 +35,6 @@ namespace ServerDTT_New_.DTO
             this.MatchID = row["matchID"].ToString();
             this.Class = row["class"].ToString();
         }
-        public Student()
-        {
-
-        }
 
     }
 }

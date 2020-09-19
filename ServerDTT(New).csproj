@@ -55,13 +55,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="DAO\BUDecodeQuestion.cs" />
-    <Compile Include="DAO\BUQuestionDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\DecodeQuestionDAO.cs" />
     <Compile Include="DAO\QuestionDAO.cs" />
+    <Compile Include="DAO\StudentDAO.cs" />
     <Compile Include="DTO\DecodeQuestion.cs" />
     <Compile Include="DTO\Question.cs" />
+    <Compile Include="DTO\Student.cs" />
     <Compile Include="ExtendedWindow\EWAccelerate.xaml.cs">
       <DependentUpon>EWAccelerate.xaml</DependentUpon>
     </Compile>
@@ -85,7 +85,6 @@
     </Compile>
     <Compile Include="SupportClass\MediaAct.cs" />
     <Compile Include="SupportClass\Server.cs" />
-    <Compile Include="SupportClass\Student.cs" />
     <Compile Include="User_Control\UCAccelerate.xaml.cs">
       <DependentUpon>UCAccelerate.xaml</DependentUpon>
     </Compile>

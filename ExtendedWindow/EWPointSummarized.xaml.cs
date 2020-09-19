@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Threading;
 using ServerDTT_New_.SupportClass;
+using ServerDTT_New_.DTO;
 
 namespace ServerDTT_New_.ExtendedWindow
 {
