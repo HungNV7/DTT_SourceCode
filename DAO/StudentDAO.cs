@@ -24,6 +24,8 @@ namespace ServerDTT_New_.DAO
         {
             //
         }
+
+        //
         public List<Student> getStartStudent(string name)
         {
             string query = string.Format(
@@ -39,6 +41,8 @@ namespace ServerDTT_New_.DAO
             }
             return result;
         }
+
+        //
         public bool UpdatePoint(string studentID, int Point, string matchID)
         {
             string query = string.Format(

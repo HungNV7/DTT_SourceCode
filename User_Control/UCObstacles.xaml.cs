@@ -513,7 +513,7 @@ namespace ServerDTT_New_.User_Control
             //Create Rows
             if (isBackup == false)
                 questionList = DAO.QuestionDAO.Instance.getObstacleQuestion(matchID);
-           // else questionList = DAO.BUQuestionDAO.Instance.getObstacleQuestion();
+            else questionList = DAO.QuestionDAO.Instance.getObstacleQuestion(matchID, 1);
 
             for (int i = 0; i < 4; i++)
             {

@@ -11,7 +11,7 @@ namespace ServerDTT_New_.DTO
     {
         public int RowNo { get; set; }
         public int ColNo { get; set; }
-        public int QuestionTypeID { get; set; }
+        public string QuestionTypeID { get; set; }
         public String Detail { get; set; }
         public String Answer { get; set; }
         public string QuestionVideoName;
@@ -20,7 +20,7 @@ namespace ServerDTT_New_.DTO
 
         public DecodeQuestion() { }
 
-        public DecodeQuestion(int rowNo, int colNo, int QuestionTypeID, String detail, String answer)
+        public DecodeQuestion(int rowNo, int colNo, string QuestionTypeID, String detail, String answer)
         {
             this.RowNo = rowNo;
             this.ColNo = colNo;
@@ -31,13 +31,13 @@ namespace ServerDTT_New_.DTO
 
         public DecodeQuestion(DataRow row)
         {
-            this.RowNo = (int)row["Row"] - 1;
-            this.ColNo = (int)row["Col"] - 1;
-            this.QuestionTypeID = (int)row["QuestionTypeID"];
-            this.Detail = row["Detail"].ToString();
-            this.Answer = row["Answer"].ToString();
-            QuestionImageName = row["QuestionImageName"].ToString();
-            QuestionVideoName = row["QuestionVideoName"].ToString();
+            this.RowNo = (int)row["row"] - 1;
+            this.ColNo = (int)row["col"] - 1;
+            this.QuestionTypeID = row["questionTypeID"].ToString();
+            this.Detail = row["detail"].ToString();
+            this.Answer = row["answer"].ToString();
+            QuestionImageName = row["questionImageName"].ToString();
+            QuestionVideoName = row["questionVideoName"].ToString();
         }
     }
 }

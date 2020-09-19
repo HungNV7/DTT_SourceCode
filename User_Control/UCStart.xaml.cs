@@ -69,7 +69,7 @@ namespace ServerDTT_New_.User_Control
             }
 
             questionList = DAO.QuestionDAO.Instance.getStartQuestion(matchID);// get question from database
-           // bUQuestionList = DAO.BUQuestionDAO.Instance.getStartQuestion();//get backup question from database
+            //bUQuestionList = DAO.QuestionDAO.Instance.getStartQuestion(matchID, 1);//get backup question from database
             eWStart.UpdateUC(this);
         }
 

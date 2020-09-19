@@ -46,6 +46,7 @@ namespace ServerDTT_New_
 
         Server server;
         string matchID = "";
+        Dictionary<string, string> matches;
 
         const int numberOfStudent = 4;
         public MainWindow()
@@ -86,8 +87,7 @@ namespace ServerDTT_New_
                 eWDecode = new EWDecode();
                 eWFinish = new EWFinish();
                 
-            try
-            {
+
                 uCReadExcel = new UCReadExcel();
                 uCStart = new UCStart(this, eWMainWindow, eWStart, studentList, server, matchID);
                 uCObstacles = new UCObstacles(this, eWMainWindow, eWObstacles, studentList, server, matchID);
@@ -96,11 +96,6 @@ namespace ServerDTT_New_
                 uCFinish = new UCFinish(this, eWMainWindow, eWFinish, studentList, server, matchID);
                 
 
-            }
-            catch(Exception error)
-            {
-                MessageBox.Show(error.Message);
-            }
 
             
             tabMain.Items.Add(new TabItem { Content = uCStart, Header = "Khởi Động", Width = 80, Height = 20, FontSize = 10 });
@@ -120,7 +115,7 @@ namespace ServerDTT_New_
 
         public void GetMatch()
         {
-            Dictionary<string, string> matches = new Dictionary<string, string>();
+            matches = new Dictionary<string, string>();
 
             String command = "SELECT * FROM tblMatch";
 
@@ -190,16 +185,22 @@ namespace ServerDTT_New_
             eWMainWindow.Content = eWPointSummarized;
             eWPointSummarized.soundFinishAll.Play();
         }
-
+//
         private void cbMatch_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string s = cbMatch.SelectedItem.ToString();
 
-            //MessageBox.Show(s);
-
             if (!s.Contains("Choose a name of the match"))
             {
                 studentList = StudentDAO.Instance.getStartStudent(s);// get student 
+                foreach(string id in matches.Keys)
+                {
+                    if(s == matches[id])
+                    {
+                        this.matchID = id;
+                    }
+                }
+
                 InitMainWindow();
             }
         }

@@ -39,6 +39,7 @@ namespace ServerDTT_New_.User_Control
         int currentStudentID = 0;
         int numberOfHint = 0;
         int currentTime = 0;
+        string matchID = "";
 
         string mainQuestion = "", mainAnswer = "";
 
@@ -58,7 +59,7 @@ namespace ServerDTT_New_.User_Control
 
         MediaAct mediaAct = new MediaAct();
 
-        public UCDecode(MainWindow main, EWMainWindow eWMain, EWDecode ewDecode, List<Student> _studentList, Server _server)
+        public UCDecode(MainWindow main, EWMainWindow eWMain, EWDecode ewDecode, List<Student> _studentList, Server _server, string matchID)
         {
             InitializeComponent();
 
@@ -67,7 +68,7 @@ namespace ServerDTT_New_.User_Control
             eWMainWindow = eWMain;
             studentList = _studentList;
             server = _server;
-
+            this.matchID = matchID;
             InitUC();
         }
 
@@ -95,7 +96,7 @@ namespace ServerDTT_New_.User_Control
                 gridStudentInfo.Children.Add(txtBoxStudentPoint);
             }
 
-            decodeQuestionList = DAO.DecodeQuestionDAO.Instance.getQuestions();
+            decodeQuestionList = DAO.DecodeQuestionDAO.Instance.getQuestions(matchID);
             maxColLength = decodeQuestionList[0].RowNo + 1;
             maxRowLength = decodeQuestionList[0].ColNo + 1;
             eWDecode.txtBlockMainQuestion.Text = mainQuestion = decodeQuestionList[0].Detail;
@@ -181,13 +182,13 @@ namespace ServerDTT_New_.User_Control
             Brush[] colorOfCell = { Brushes.Green, Brushes.Yellow, Brushes.Red };
             for (int i = 1; i < decodeQuestionList.Count; i++)
             {
-                int difficulty = decodeQuestionList[i].QuestionTypeID / 10 - 1;
+                int difficulty = Convert.ToInt32(decodeQuestionList[i].QuestionTypeID) / 10 - 1;
                 int row = decodeQuestionList[i].RowNo;
                 int col = decodeQuestionList[i].ColNo;
 
                 btnMatrixCellArray[row, col].Background = colorOfCell[difficulty];
                 eWDecode.btnMatrixCellArray[row, col].Background = colorOfCell[difficulty];
-                if (decodeQuestionList[i].QuestionTypeID % 10 == 1)
+                if (Convert.ToInt32(decodeQuestionList[i].QuestionTypeID) % 10 == 1)
                 {
                     timeMatrixCellArray[row, col] = 15 + 5 * difficulty;
                     btnMatrixCellArray[row, col].Uid = "Decode_ImgQuestionIcon.png";
@@ -311,7 +312,7 @@ namespace ServerDTT_New_.User_Control
 
         private void BtnQuestionHint_Click(object sender, RoutedEventArgs e)
         {
-            DecodeQuestion decodeQuestion = DAO.DecodeQuestionDAO.Instance.getQuestion(currentRow, currentCol);
+            DecodeQuestion decodeQuestion = DAO.DecodeQuestionDAO.Instance.getQuestion(currentRow, currentCol, matchID);
             eWDecode.txtBlockQuestion2.Text = eWDecode.txtBlockQuestion1.Text = txtBlockQuestion.Text = decodeQuestion.Detail;
             mediaAct.Upload(eWDecode.imgQuestion, decodeQuestion.QuestionImageName);
             mediaAct.Upload(eWDecode.videoQuestion, decodeQuestion.QuestionVideoName);

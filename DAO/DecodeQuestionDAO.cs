@@ -24,9 +24,9 @@ namespace ServerDTT_New_.DAO
         }
         public DecodeQuestionDAO() { }
 
-        public List<DecodeQuestion> getQuestions()
+        public List<DecodeQuestion> getQuestions(string matchID, int isBackup = 0)
         {
-            string query = string.Format(@"SELECT * FROM DecodeQuestion");
+            string query = string.Format(@"SELECT * FROM tblDecodeQuestion WHERE matchID = '{0}' AND isBackup = {1}", matchID, isBackup);
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             List<DecodeQuestion> result = new List<DecodeQuestion>();
             foreach (DataRow row in data.Rows)
@@ -36,11 +36,11 @@ namespace ServerDTT_New_.DAO
             return result;
         }
 
-        public DecodeQuestion getQuestion(int row, int col)
+        public DecodeQuestion getQuestion(int row, int col, string matchID, int isBackup = 0)
         {
             string query = string.Format(@"
-                           SELECT * FROM DECODEQUESTION
-                           WHERE Row = {0} AND Col = {1}", row + 1, col + 1);
+                           SELECT * FROM tblDECODEQUESTION
+                           WHERE row = {0} AND col = {1} AND matchID = '{2}' AND isBackup = {3}", row + 1, col + 1, matchID, isBackup);
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             DecodeQuestion result = new DecodeQuestion(data.Rows[0]);
             return result;

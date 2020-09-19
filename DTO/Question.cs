@@ -12,7 +12,7 @@ namespace ServerDTT_New_.DTO
         public string QuestionID { get; set; }
         public string Detail { get; set; }
         public string Answer { get; set; }
-        public Int32 QuestionTypeID { get; set; }
+        public string QuestionTypeID { get; set; }
         public string Note { get; set; }
         public string QuestionImageName;
         public string QuestionVideoName;
@@ -22,7 +22,7 @@ namespace ServerDTT_New_.DTO
 
         public Question() { }
 
-        public Question(string questionID, string detail, string answer, Int32 questionTypeID, string note, string questionImageName, string questionVideoName, string answerImageName,string answerVideoName, Boolean backup)
+        public Question(string questionID, string detail, string answer, string questionTypeID, string note, string questionImageName, string questionVideoName, string answerImageName,string answerVideoName, Boolean backup)
         {
             this.QuestionID = questionID;
             this.Detail = detail;
@@ -38,15 +38,15 @@ namespace ServerDTT_New_.DTO
 
         public Question(DataRow row)
         {
-            this.QuestionID = row["QuestionID"].ToString();
-            this.Detail = row["Detail"].ToString();
-            this.Answer = row["Answer"].ToString();
-            this.QuestionTypeID = (Int32)row["QuestionTypeID"];
-            this.Note = row["Note"].ToString();
-            this.AnswerImageName = row["AnswerImageName"].ToString();
-            this.AnswerVideoName = row["AnswerVideoName"].ToString();
-            this.QuestionImageName = row["QuestionImageName"].ToString();
-            this.QuestionVideoName = row["QuestionVideoName"].ToString();
+            this.QuestionID = row["questionID"].ToString();
+            this.Detail = row["detail"].ToString();
+            this.Answer = row["answer"].ToString();
+            this.QuestionTypeID = row["questionTypeID"].ToString();
+            this.Note = row["note"].ToString();
+            this.AnswerImageName = row["answerImageName"].ToString();
+            this.AnswerVideoName = row["answerVideoName"].ToString();
+            this.QuestionImageName = row["questionImageName"].ToString();
+            this.QuestionVideoName = row["questionVideoName"].ToString();
             this.Backup = row["isBackup"].ToString().Equals("1")?true:false;
         }
     }

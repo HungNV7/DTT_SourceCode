@@ -95,7 +95,7 @@ namespace ServerDTT_New_.User_Control
                 gridAnswerInfo.Children.Add(checkBoxTrueAnswer);
             }
             questionList = DAO.QuestionDAO.Instance.getAccelerateQuestion(matchID);
-           // bUQuestionList = DAO.BUQuestionDAO.Instance.getAccelerateQuestion();
+            bUQuestionList = DAO.QuestionDAO.Instance.getAccelerateQuestion(matchID, 1);
             
             for (int i = 0; i < numberOfStudent; i++)
             {

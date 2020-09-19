@@ -73,12 +73,12 @@ namespace ServerDTT_New_.DAO
             return result;
         }
 
-        public List<Question> getFinishQuestions(string matchID, int contestant, int q1Difficulty, int q2Difficulty, int q3Difficulty)
+        public List<Question> getFinishQuestions(string matchID, int contestant, int q1Difficulty, int q2Difficulty, int q3Difficulty, int isBackup = 0)
         {
             string query = string.Empty;
             query = string.Format(
                 @"SELECT* FROM tblQuestion q
-                WHERE q.position = {0} And (q.QuestionTypeID='41' or q.QuestionTypeID='42' or q.QuestionTypeID='43') AND q.matchID = '{1}'", contestant + 1, matchID);
+                WHERE q.position = {0} And (q.QuestionTypeID='41' or q.QuestionTypeID='42' or q.QuestionTypeID='43') AND q.matchID = '{1}' AND q.isBackup = {2}", contestant + 1, matchID, isBackup);
 
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             List<Question> questionData = new List<Question>();
