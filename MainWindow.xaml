@@ -29,7 +29,11 @@
 
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
-                    <ComboBox Name="cbMatch" SelectionChanged="cbMatch_SelectionChanged">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="125*"/>
+                        <ColumnDefinition Width="73*"/>
+                    </Grid.ColumnDefinitions>
+                    <ComboBox Name="cbMatch"  Grid.ColumnSpan="2" Margin="0,0,0.4,-0.2" SelectionChanged="cbMatch_SelectionChanged">
                     </ComboBox>
                 </Grid>
             </Grid>

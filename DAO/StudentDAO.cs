@@ -24,12 +24,13 @@ namespace ServerDTT_New_.DAO
         {
             //
         }
-        public List<Student> getStartStudent(string matchID)
+        public List<Student> getStartStudent(string name)
         {
             string query = string.Format(
-                @"SELECT * FROM tblStudent,tblDetailMatch
+                @"SELECT * FROM tblStudent,tblDetailMatch,tblMatch
                 WHERE tblStudent.studentID=tblDetailMatch.studentID
-                      AND tblDetailMatch.matchID='CK'");
+				      AND tblDetailMatch.matchID=tblMatch.matchID
+                      AND tblMatch.name='{0}'", name);
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             List<Student> result = new List<Student>();
             foreach (DataRow row in data.Rows)
@@ -38,16 +39,11 @@ namespace ServerDTT_New_.DAO
             }
             return result;
         }
-        public bool UpdatePoint(string Name, int Point)
+        public bool UpdatePoint(string studentID, int Point, string matchID)
         {
             string query = string.Format(
-               "UPDATE tblDetailMatch " +
-               "SET " +
-               "point = N'{0}', " +
-                "WHERE studentid in( select studentid from tblstudent where " +
-                "name = N'{1}', "
-                ,
-               Name, Point);
+               "   UPDATE tblDetailMatch SET point={1} WHERE studentID={0} AND matchID=N'{2}'",
+               studentID, Point,matchID);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }
