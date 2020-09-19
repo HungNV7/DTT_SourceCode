@@ -26,7 +26,7 @@ namespace ServerDTT_New_.User_Control
         EWObstacles eWObstacles;
         EWMainWindow eWindow;
 
-        List<Student> studentList = new List<Student>();
+        public List<Student> studentList = new List<Student>();
         List<Question> questionList = new List<Question>();
         List<TextBlock> eWObstacles_textboxAnswer = new List<TextBlock>();
         List<Border> eWObstacles_textboxBorderBell = new List<Border>();
@@ -59,7 +59,6 @@ namespace ServerDTT_New_.User_Control
             eWindow = eWMainWindow;
             studentList = students;
             server = _server;
-
             InitControl();
         }
 
@@ -512,7 +511,7 @@ namespace ServerDTT_New_.User_Control
             //Create Rows
             if (isBackup == false)
                 questionList = DAO.QuestionDAO.Instance.getObstacleQuestion();
-            else questionList = DAO.BUQuestionDAO.Instance.getObstacleQuestion();
+           // else questionList = DAO.BUQuestionDAO.Instance.getObstacleQuestion();
 
             for (int i = 0; i < 4; i++)
             {

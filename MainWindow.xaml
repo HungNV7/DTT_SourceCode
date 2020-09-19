@@ -22,9 +22,21 @@
                 <RowDefinition Height="50*"/>
                 <RowDefinition Height="50*"/>
             </Grid.RowDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <ComboBox Name="cbMatch">
+
+                    </ComboBox>
+                </Grid>
+            </Grid>
             <Border Grid.Row="1" Grid.RowSpan="4" Background="Gray" Margin="2"/>
             <Viewbox Grid.Row="2">
-                <Button Name="btnSave" Content="Save" Background="Brown" Click="BtnSave_Click"/>
+                <Button Name="btnSave" Content="Save" Background="Brown" Click="BtnSave_Click" RenderTransformOrigin="1.271,1.271"/>
             </Viewbox>
             <Viewbox Grid.Row="6">
                 <Button Name="btnFinal" Content="Kết thúc rồi" Background="RosyBrown" Click="BtnFinal_Click"/>

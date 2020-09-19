@@ -28,7 +28,7 @@ namespace ServerDTT_New_.DAO
         public List<Question> getStartQuestion()
         {
             string query = string.Format(
-                @"SELECT * FROM Question q
+                @"SELECT * FROM tblQuestion q
                 WHERE q.QuestionTypeID = 1");
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             List<Question> result = new List<Question>();
@@ -42,7 +42,7 @@ namespace ServerDTT_New_.DAO
         public List<Question> getObstacleQuestion()
         {
             string query = string.Format(
-                @"SELECT * FROM Question q
+                @"SELECT * FROM tblQuestion q
                 WHERE q.QuestionTypeID = 2 or q.QuestionTypeID  = 20");
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             List<Question> result = new List<Question>();
@@ -62,7 +62,7 @@ namespace ServerDTT_New_.DAO
         public List<Question> getAccelerateQuestion()
         {
             string query = string.Format(
-                @"SELECT* FROM Question q
+                @"SELECT* FROM tblQuestion q
                 WHERE q.QuestionTypeID = 3");
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             List<Question> result = new List<Question>();
@@ -77,7 +77,7 @@ namespace ServerDTT_New_.DAO
         {
             string query = string.Empty;
             query = string.Format(
-                @"SELECT* FROM Question q
+                @"SELECT* FROM tblQuestion q
                 WHERE q.StudentID = {0} And (q.QuestionTypeID=41 or q.QuestionTypeID=42 or q.QuestionTypeID=43)", contestant + 1);
 
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
@@ -105,7 +105,7 @@ namespace ServerDTT_New_.DAO
         public bool addQuestion(Int32 questionID, string detail, string answer, Int32 questionTypeID, string note)
         {
             string query = string.Format(
-                "INSERT INTO QUESTION " +
+                "INSERT INTO tblQUESTION " +
                 "VALUES ({0}, N'{1}', N'{2}', {3}, N'{4}')",
                 questionID,
                 detail,
@@ -119,7 +119,7 @@ namespace ServerDTT_New_.DAO
         public bool updateQuestion(Int32 questionID, string detail, string answer, Int32 questionTypeID, string note)
         {
             string query = string.Format(
-                "UPDATE QUESTION " +
+                "UPDATE tblQUESTION " +
                 "SET " +
                 "Detail = N'{1}', " +
                 "Answer = N'{2}', " +
@@ -134,7 +134,7 @@ namespace ServerDTT_New_.DAO
         public bool deleteQuestion(Int32 questionID)
         {
             string query = string.Format(
-                "DELETE FROM QUESTION " +
+                "DELETE FROM tblQUESTION " +
                 "WHERE QuestionID = {0}", questionID);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;

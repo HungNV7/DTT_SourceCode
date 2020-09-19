@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ServerDTT_New_.SupportClass;
 using ServerDTT_New_.ExtendedWindow;
+using ServerDTT_New_.DTO;
 
 namespace ServerDTT_New_.User_Control
 {
@@ -25,7 +26,7 @@ namespace ServerDTT_New_.User_Control
         MediaAct mediaAct = new MediaAct();
         List<Button> btnStudentList = new List<Button>();
         List<DTO.Question> questionList = new List<DTO.Question>();
-        List<DTO.Question> bUQuestionList = new List<DTO.Question>();
+       // List<DTO.Question> bUQuestionList = new List<DTO.Question>();
 
         MainWindow mainWindow;
         EWMainWindow eWMainWindow;
@@ -58,15 +59,12 @@ namespace ServerDTT_New_.User_Control
         {
             for (int i = 0; i < numberOfStudent; i++)
             {
-                Button btnStudent = new Button {Margin=new Thickness(5), Content = "TS" + (i+1).ToString(), Uid=i.ToString(), Background = Brushes.Blue, FontSize = 20, FontWeight = FontWeights.DemiBold };
+                Button btnStudent = new Button {Margin=new Thickness(5), Content = studentList[i].Name, Uid=i.ToString(), Background = Brushes.Blue, FontSize = 20, FontWeight = FontWeights.DemiBold };
                 btnStudent.SetValue(Grid.RowProperty, i + 1);
                 btnStudent.Click += BtnStudent_Click;
                 btnStudentList.Add(btnStudent);
                 gridBtnStudent.Children.Add(btnStudent);
             }
-
-            questionList = DAO.QuestionDAO.Instance.getStartQuestion();
-            bUQuestionList = DAO.BUQuestionDAO.Instance.getStartQuestion();
             eWStart.UpdateUC(this);
         }
 
@@ -117,11 +115,11 @@ namespace ServerDTT_New_.User_Control
                 currentQuestionID++;
             }
 
-            else if (currentBUQuestionID < bUQuestionList.Count)
-            {
-                currentQuestion = bUQuestionList[currentBUQuestionID];
-                currentBUQuestionID++;
-            }
+            //else if (currentBUQuestionID < bUQuestionList.Count)
+            //{
+            //    currentQuestion = bUQuestionList[currentBUQuestionID];
+            //    currentBUQuestionID++;
+            //}
 
             eWStart.txtBlockQuestion.Text = txtBlockQuestion.Text = currentQuestion.Detail;
             txtBlockAnswer.Text = currentQuestion.Answer;

@@ -147,8 +147,8 @@ namespace ServerDTT_New_.User_Control
                 return;
             }
 
-            questionList = DAO.QuestionDAO.Instance.getFinishQuestions(currentStudentID, q1Difficulty, q2Difficulty, q3Difficulty);
-            bUQuestionList = DAO.BUQuestionDAO.Instance.getFinishQuestions(currentStudentID, q1Difficulty, q2Difficulty, q3Difficulty);
+            //questionList = DAO.QuestionDAO.Instance.getFinishQuestions(currentStudentID, q1Difficulty, q2Difficulty, q3Difficulty);
+            //bUQuestionList = DAO.BUQuestionDAO.Instance.getFinishQuestions(currentStudentID, q1Difficulty, q2Difficulty, q3Difficulty);
 
             for (int i = 0; i < 9; i++)
             {

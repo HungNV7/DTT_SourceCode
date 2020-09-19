@@ -520,27 +520,27 @@ namespace ServerDTT_New_.User_Control
 
         private void BtnBUQuestion_Click(object sender, RoutedEventArgs e)
         {
-            DecodeQuestion decodeQuestion = DAO.BUDecodeQuestionDAO.Instance.getQuestion(currentRow, currentCol);
-            eWDecode.txtBlockQuestion2.Text = eWDecode.txtBlockQuestion1.Text = txtBlockQuestion.Text = decodeQuestion.Detail;
-            mediaAct.Upload(eWDecode.imgQuestion, decodeQuestion.QuestionImageName);
-            mediaAct.Upload(eWDecode.videoQuestion, decodeQuestion.QuestionVideoName);
-            txtBlockAnswer.Text = decodeQuestion.Answer;
+            //DecodeQuestion decodeQuestion = DAO.BUDecodeQuestionDAO.Instance.getQuestion(currentRow, currentCol);
+            //eWDecode.txtBlockQuestion2.Text = eWDecode.txtBlockQuestion1.Text = txtBlockQuestion.Text = decodeQuestion.Detail;
+            //mediaAct.Upload(eWDecode.imgQuestion, decodeQuestion.QuestionImageName);
+            //mediaAct.Upload(eWDecode.videoQuestion, decodeQuestion.QuestionVideoName);
+            //txtBlockAnswer.Text = decodeQuestion.Answer;
 
-            if (decodeQuestion.QuestionImageName == "" && decodeQuestion.QuestionVideoName == "")
-                eWDecode.txtBlockQuestion1.Text = "";
-            else eWDecode.txtBlockQuestion2.Text = "";
+            //if (decodeQuestion.QuestionImageName == "" && decodeQuestion.QuestionVideoName == "")
+            //    eWDecode.txtBlockQuestion1.Text = "";
+            //else eWDecode.txtBlockQuestion2.Text = "";
 
-            eWDecode.HideAll();
-            eWDecode.gridQuestion.Visibility = Visibility.Visible;
-            mediaAct.Play(eWDecode.videoQuestionStart);
+            //eWDecode.HideAll();
+            //eWDecode.gridQuestion.Visibility = Visibility.Visible;
+            //mediaAct.Play(eWDecode.videoQuestionStart);
 
-            ResetAnswerList();
-            ResetTxtBlockAnswerAndPoint();
+            //ResetAnswerList();
+            //ResetTxtBlockAnswerAndPoint();
 
-            for (int i = 0; i < server.ClientList.Count; i++)
-            {
-                server.Send(server.ClientList[i], "5_1_" + decodeQuestion.Detail);
-            }
+            //for (int i = 0; i < server.ClientList.Count; i++)
+            //{
+            //    server.Send(server.ClientList[i], "5_1_" + decodeQuestion.Detail);
+            //}
         }
 
         double ConvertFromStringToDouble(string number)

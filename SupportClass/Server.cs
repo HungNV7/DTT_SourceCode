@@ -10,6 +10,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
 using System.Threading;
 using System.Windows.Threading;
+using ServerDTT_New_.DTO;
 
 namespace ServerDTT_New_.SupportClass
 {
@@ -25,7 +26,7 @@ namespace ServerDTT_New_.SupportClass
             mainWindow = main;
             Connect();
         }
-        public void SendTSInfo(int round, List<SupportClass.Student> studentList)
+        public void SendTSInfo(int round, List<Student> studentList)
         {
             for(int i=0;i<ClientList.Count();i++)
             {
