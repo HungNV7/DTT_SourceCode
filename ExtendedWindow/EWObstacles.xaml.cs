@@ -22,15 +22,15 @@ namespace ServerDTT_New_.ExtendedWindow
     public partial class EWObstacles : UserControl
     {
         MediaAct mediaAct = new MediaAct();
+        public string MainObstacle { get; set; }
 
         public EWObstacles()
         {
             InitializeComponent();
-            InitEWControl();
 
         }
 
-        private void InitEWControl()
+        public void InitEWControl()
         {
             ImageBrush imageBrush = new ImageBrush();
             mediaAct.Upload(imageBrush, "EW_Background.jpg");
@@ -44,7 +44,7 @@ namespace ServerDTT_New_.ExtendedWindow
 
             mediaAct.Upload(imgShowAnswer, "Obstacles_ImageShowAnswer.png");
             mediaAct.Upload(imgQuestionBox, "Obstacles_ImageQuestionBox.png");
-            mediaAct.Upload(imgObstacle, "Obstacles_Obstacle.jpg");
+            mediaAct.Upload(imgObstacle, MainObstacle);
             mediaAct.Upload(imgHider1, "Obstacles_Hider1.png");
             mediaAct.Upload(imgHider2, "Obstacles_Hider2.png");
             mediaAct.Upload(imgHider3, "Obstacles_Hider3.png");

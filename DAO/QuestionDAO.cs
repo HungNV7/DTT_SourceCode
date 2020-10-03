@@ -43,7 +43,7 @@ namespace ServerDTT_New_.DAO
         {
             string query = string.Format(
                 @"SELECT * FROM tblQuestion q
-                WHERE q.questionTypeID = '2' or q.QuestionTypeID  = '02' AND q.isBackup = {0} AND q.matchID = '{1}'", isBackup, matchID);
+                WHERE (q.questionTypeID = '2' or q.QuestionTypeID  = '02') AND q.isBackup = {0} AND q.matchID = '{1}'", isBackup, matchID);
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             List<Question> result = new List<Question>();
             foreach (DataRow row in data.Rows)

@@ -266,6 +266,9 @@ namespace ServerDTT_New_.User_Control
             {
                 studentList[currentBellStudentID].Point += pointList[currentQuestionID];
                 studentList[currentStudentID].Point -= pointList[currentQuestionID] - IsHopeStar * pointList[currentQuestionID];
+                //update point to DB
+                DAO.StudentDAO.Instance.UpdatePoint(studentList[currentBellStudentID].StudentID, studentList[currentBellStudentID].Point, studentList[currentBellStudentID].MatchID.ToString());
+                DAO.StudentDAO.Instance.UpdatePoint(studentList[currentStudentID].StudentID, studentList[currentStudentID].Point, studentList[currentStudentID].MatchID.ToString());
                 UpdateInfoOnScreen();
                 server.SendTSInfo(4, studentList);
                 currentBellStudentID = -1;
@@ -276,8 +279,9 @@ namespace ServerDTT_New_.User_Control
             }
 
             studentList[currentStudentID].Point += pointList[currentQuestionID] + IsHopeStar * pointList[currentQuestionID];
-            UpdateInfoOnScreen();
-
+            //update point to DB
+            DAO.StudentDAO.Instance.UpdatePoint(studentList[currentStudentID].StudentID, studentList[currentStudentID].Point, studentList[currentStudentID].MatchID.ToString());
+            UpdateInfoOnScreen();       
 
             IsHopeStar = 0;
             eWFinish.imgHopeStar.Visibility = Visibility.Hidden;
@@ -290,7 +294,10 @@ namespace ServerDTT_New_.User_Control
             {
                 mediaAct.Play(eWFinish.soundOtherStudentChance);
                 studentList[currentStudentID].Point -= IsHopeStar * pointList[currentQuestionID];
+                //update point to DB
+                DAO.StudentDAO.Instance.UpdatePoint(studentList[currentStudentID].StudentID, studentList[currentStudentID].Point, studentList[currentStudentID].MatchID.ToString());
                 UpdateInfoOnScreen();
+                
                 server.SendTSInfo(4, studentList);
                 for (int i = 0; i < server.ClientList.Count; i++)
                 {
@@ -303,8 +310,10 @@ namespace ServerDTT_New_.User_Control
 
             mediaAct.Play(eWFinish.soundFalse);
             studentList[currentBellStudentID].Point -= pointList[currentQuestionID] / 2;
+            //update point to DB
+            DAO.StudentDAO.Instance.UpdatePoint(studentList[currentBellStudentID].StudentID, studentList[currentBellStudentID].Point, studentList[currentBellStudentID].MatchID.ToString());
             UpdateInfoOnScreen();
-
+            
 
             IsHopeStar = 0;
             eWFinish.imgHopeStar.Visibility = Visibility.Hidden;

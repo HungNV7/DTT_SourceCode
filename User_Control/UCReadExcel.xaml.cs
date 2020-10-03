@@ -24,9 +24,68 @@ namespace ServerDTT_New_.ExtendedWindow
     /// </summary>
     public partial class UCReadExcel : UserControl
     {
-        public UCReadExcel()
+        List<TextBox> txtFirstNameList = new List<TextBox>();
+        List<TextBox> txtLastNameList = new List<TextBox>();
+        List<TextBox> txtClassList = new List<TextBox>();
+        List<Label> txtPositionList = new List<Label>();
+        Dictionary<string, string> matches;
+        MainWindow mainWindow;
+
+        public UCReadExcel(MainWindow mainWindow)
         {
+            this.mainWindow = mainWindow;
             InitializeComponent();
+            InitUC();
+        }
+
+        private void InitUC()
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                TextBox txtFirstName = new TextBox { Margin = new Thickness(3), FontSize = 20, VerticalContentAlignment = VerticalAlignment.Center, HorizontalContentAlignment = HorizontalAlignment.Center };
+                txtFirstName.SetValue(Grid.ColumnProperty, 1);
+                txtFirstName.SetValue(Grid.RowProperty, i + 1);
+                txtFirstNameList.Add(txtFirstName);
+                infoStudent.Children.Add(txtFirstName);
+
+                TextBox txtLastName = new TextBox { Margin = new Thickness(3), FontSize = 20, VerticalContentAlignment = VerticalAlignment.Center, HorizontalContentAlignment = HorizontalAlignment.Center };
+                txtLastName.SetValue(Grid.ColumnProperty, 2);
+                txtLastName.SetValue(Grid.RowProperty, i + 1);
+                txtLastNameList.Add(txtLastName);
+                infoStudent.Children.Add(txtLastName);
+
+                TextBox txtClass = new TextBox { Margin = new Thickness(3), FontSize = 20, VerticalContentAlignment = VerticalAlignment.Center, HorizontalContentAlignment = HorizontalAlignment.Center };
+                txtClass.SetValue(Grid.ColumnProperty, 3);
+                txtClass.SetValue(Grid.RowProperty, i + 1);
+                txtClassList.Add(txtClass);
+                infoStudent.Children.Add(txtClass);
+
+                Label txtPosition = new Label { Margin = new Thickness(3), Content = (i + 1).ToString(), FontSize = 20, VerticalContentAlignment = VerticalAlignment.Center, HorizontalContentAlignment = HorizontalAlignment.Center };
+                txtPosition.SetValue(Grid.ColumnProperty, 0);
+                txtPosition.SetValue(Grid.RowProperty, i + 1);
+                txtPositionList.Add(txtPosition);
+                infoStudent.Children.Add(txtPosition);
+            }
+
+            getMatch();
+        }
+
+        private void getMatch()
+        {
+            matches = new Dictionary<string, string>();
+
+            String command = "SELECT * FROM tblMatch";
+
+            DataTable data = DataProvider.Instance.ExecuteQuery(command);
+
+            foreach (DataRow row in data.Rows)
+            {
+                string id = row["matchID"].ToString();
+                string name = row["name"].ToString();
+
+                matches.Add(id, name);
+                cbMatch.Items.Add(name);
+            }
         }
 
         private void BtnLoadQuestion_Click(object sender, RoutedEventArgs e)
@@ -58,7 +117,7 @@ namespace ServerDTT_New_.ExtendedWindow
                 command = string.Empty;
                 command = "SELECT COUNT(questionID) FROM tblQuestion";
 
-                int count = DataProvider.Instance.ExecuteNonQuery(command) + 1;
+                int count = Convert.ToInt32(DataProvider.Instance.ExecuteScalar(command)) + 1;
                 command = string.Empty;
                 for (int i = 2; i <= worksheet.Rows.Length; i++)
                 {
@@ -131,7 +190,7 @@ namespace ServerDTT_New_.ExtendedWindow
                 //DataProvider.Instance.ExecuteQuery(command);
                 command = "SELECT COUNT(questionID) FROM tblDecodeQuestion";
 
-                count = DataProvider.Instance.ExecuteNonQuery(command) + 1;
+                count = Convert.ToInt32(DataProvider.Instance.ExecuteScalar(command)) + 1;
 
                 for (int i = 2; i <= worksheet.Rows.Length; i++)
                 {
@@ -169,6 +228,9 @@ namespace ServerDTT_New_.ExtendedWindow
                 txtBlockFinish.Text = "Finished";
 
             }
+            //reload combox Match
+            mainWindow.GetMatch();
+            getMatch();
         }
 
         private void BtnLoadBUQuestion_Click(object sender, RoutedEventArgs e)
@@ -196,7 +258,7 @@ namespace ServerDTT_New_.ExtendedWindow
                 command = string.Empty;
                 command = "SELECT COUNT(questionID) FROM tblQuestion";
 
-                int count = DataProvider.Instance.ExecuteNonQuery(command) + 1;
+                int count = Convert.ToInt32(DataProvider.Instance.ExecuteScalar(command)) + 1;
                 command = string.Empty;
                 for (int i = 2; i <= worksheet.Rows.Length; i++)
                 {
@@ -269,7 +331,7 @@ namespace ServerDTT_New_.ExtendedWindow
                 //DataProvider.Instance.ExecuteQuery(command);
                 command = "SELECT COUNT(questionID) FROM tblDecodeQuestion";
 
-                count = DataProvider.Instance.ExecuteNonQuery(command) + 1;
+                count = Convert.ToInt32(DataProvider.Instance.ExecuteScalar(command)) + 1;
 
                 for (int i = 2; i <= worksheet.Rows.Length; i++)
                 {
@@ -306,6 +368,41 @@ namespace ServerDTT_New_.ExtendedWindow
 
                 txtBlockFinish.Text = "Finished";
 
+            }
+        }
+
+        private void btnSubmit_Click(object sender, RoutedEventArgs e)
+        {
+            string matchID = "";
+            string s = cbMatch.SelectedItem.ToString();
+            foreach (string id in matches.Keys)
+            {
+                if (s == matches[id])
+                {
+                    matchID = id;
+                }
+            }
+
+            string command = "SELECT COUNT(studentID) FROM tblStudent";
+            int count = Convert.ToInt32(DataProvider.Instance.ExecuteScalar(command));
+
+            command = "SELECT COUNT(No) FROM tblDetailMatch";
+            int no = Convert.ToInt32(DataProvider.Instance.ExecuteScalar(command));
+            for (int i = 0; i < 4; i++)
+            {
+                no++;
+                //command = String.Format("SELECT studentID FROM tblStudent WHERE firstName = N'{0} AND lastName = N'{1} AND class = N'{2}'", txtFirstNameList[i].Text, txtLastNameList[i].Text, txtClassList[i].Text);
+                string studentId = StudentDAO.Instance.checkStudent(txtFirstNameList[i].Text, txtLastNameList[i].Text, txtClassList[i].Text);
+                if(studentId.Equals(""))
+                {
+                    count++;
+                    studentId = count.ToString();
+                    command = String.Format("INSERT INTO tblStudent(studentID, firstName, lastName, class) VALUES({0}, N'{1}', N'{2}', '{3}')", count, txtFirstNameList[i].Text, txtLastNameList[i].Text, txtClassList[i].Text);
+                    DataProvider.Instance.ExecuteNonQuery(command);
+                }
+
+                command = String.Format("INSERT INTO tblDetailMatch(No, studentID, matchID, position, point) VALUES({0}, {1}, N'{2}', {3}, 0)", no, studentId, matchID, i+1);
+                DataProvider.Instance.ExecuteNonQuery(command);
             }
         }
     }

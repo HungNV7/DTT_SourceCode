@@ -28,9 +28,9 @@ namespace ServerDTT_New_.DTO
         }
         public Student(DataRow row)
         {
-            this.Name = row["name"].ToString();
+            this.Name = row["lastName"].ToString();
             this.StudentID = row["studentID"].ToString();
-            this.Point = (Int32)row["point"];
+             this.Point = (Int32)row["point"];
             this.Position = (Int32)row["position"];
             this.MatchID = row["matchID"].ToString();
             this.Class = row["class"].ToString();

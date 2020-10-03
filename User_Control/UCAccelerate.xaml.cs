@@ -210,16 +210,23 @@ namespace ServerDTT_New_.User_Control
             {
                 mainWindow.txtBoxStudentPointList[i].Text = studentList[i].Point.ToString();
                 txtBlockStudentNameList[i].Text = eWAccelerate.txtBlockStudentNameList[i].Text = studentList[i].Name;
-                eWAccelerate.txtBlockStudentAnswerList[i].Text = eWAccelerate.txtBlockStudentTimeList[i].Text = "";
+                eWAccelerate.txtBlockStudentAnswerList[i].Text = eWAccelerate.txtBlockStudentTimeList[i].Text = "";     
             }
         }
+
+
 
         void CheckAnswerAndAddPoint()
         {
             answerList.Sort(CompareTrueAnswerTime);
             for (int i = 0; i < 4; i++)
                 if (checkBoxTrueAnswerList[answerList[i].studentID].IsChecked == true)
+                {
                     studentList[answerList[i].studentID].Point += 40 - 10 * i;
+                    //update point to DB
+                    DAO.StudentDAO.Instance.UpdatePoint(studentList[answerList[i].studentID].StudentID, studentList[answerList[i].studentID].Point, studentList[answerList[i].studentID].MatchID.ToString());
+                }
+                   
             UpdateInfoOnScreen();
             server.SendTSInfo(3, studentList);
         }

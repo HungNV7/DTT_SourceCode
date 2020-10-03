@@ -54,7 +54,7 @@ namespace ServerDTT_New_.User_Control
         public UCObstacles(MainWindow main, EWMainWindow eWMainWindow, EWObstacles _eWObstacles, List<Student> students, Server _server, string matchID)
         {
             InitializeComponent();
-
+            
             this.Main = main;
             eWObstacles = _eWObstacles;
             eWindow = eWMainWindow;
@@ -62,6 +62,16 @@ namespace ServerDTT_New_.User_Control
             server = _server;
             this.matchID = matchID;
             InitControl();
+
+            foreach (Question question in questionList)
+            {
+                if (question.QuestionTypeID == "02")
+                {
+                    eWObstacles.MainObstacle = question.QuestionImageName;
+                }
+            }
+
+            eWObstacles.InitEWControl();
         }
 
         //1. The top part
@@ -177,6 +187,7 @@ namespace ServerDTT_New_.User_Control
                     isFalse = false;
                     studentList[i].Point += 10;
                     Main.txtBoxStudentPointList[i].Text = studentList[i].Point.ToString();
+                    DAO.StudentDAO.Instance.UpdatePoint(studentList[i].StudentID, studentList[i].Point, studentList[i].MatchID.ToString());
                 }
 
             if (isFalse == false)
@@ -254,6 +265,7 @@ namespace ServerDTT_New_.User_Control
                 {
                     studentList[i].Point += getKeyPoint();
                     Main.txtBoxStudentPointList[i].Text = studentList[i].Point.ToString();
+                    Main.BtnSave_Click(null, null);
                 }
 
             TrueKeySound.Stop();
@@ -569,6 +581,15 @@ namespace ServerDTT_New_.User_Control
         {
             isBackup = true;
             InitControl();
+            foreach (Question question in questionList)
+            {
+                if (question.QuestionTypeID == "02")
+                {
+                    eWObstacles.MainObstacle = question.QuestionImageName;
+                }
+            }
+
+            eWObstacles.InitEWControl();
         }
     }
 }

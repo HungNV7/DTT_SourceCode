@@ -429,13 +429,20 @@ namespace ServerDTT_New_.User_Control
                 eWDecode.txtBlockStudentNameList[i].Text = studentList[i].Name;
                 btnStudentList[i].Content = studentList[i].Name;
                 eWDecode.txtBlockStudentAnswerList[i].Text = eWDecode.txtBlockStudentTimeList[i].Text = "";
+      
             }
         }
 
         private void BtnSendPoint_Click(object sender, RoutedEventArgs e)
         {
             for (int i = 0; i < numberOfStudent; i++)
+            {
                 studentList[i].Point += int.Parse(txtBoxStudentPointList[i].Text);
+                //update point to DB
+                DAO.StudentDAO.Instance.UpdatePoint(studentList[i].StudentID, studentList[i].Point, studentList[i].MatchID.ToString());
+            }
+               
+
             UpdateInfoOnScreen();
             server.SendTSInfo(5, studentList);
             ResetTxtBlockAnswerAndPoint();
@@ -521,27 +528,27 @@ namespace ServerDTT_New_.User_Control
 
         private void BtnBUQuestion_Click(object sender, RoutedEventArgs e)
         {
-            //DecodeQuestion decodeQuestion = DAO.BUDecodeQuestionDAO.Instance.getQuestion(currentRow, currentCol);
-            //eWDecode.txtBlockQuestion2.Text = eWDecode.txtBlockQuestion1.Text = txtBlockQuestion.Text = decodeQuestion.Detail;
-            //mediaAct.Upload(eWDecode.imgQuestion, decodeQuestion.QuestionImageName);
-            //mediaAct.Upload(eWDecode.videoQuestion, decodeQuestion.QuestionVideoName);
-            //txtBlockAnswer.Text = decodeQuestion.Answer;
+            DecodeQuestion decodeQuestion = DAO.DecodeQuestionDAO.Instance.getQuestion(currentRow, currentCol, matchID, 1);
+            eWDecode.txtBlockQuestion2.Text = eWDecode.txtBlockQuestion1.Text = txtBlockQuestion.Text = decodeQuestion.Detail;
+            mediaAct.Upload(eWDecode.imgQuestion, decodeQuestion.QuestionImageName);
+            mediaAct.Upload(eWDecode.videoQuestion, decodeQuestion.QuestionVideoName);
+            txtBlockAnswer.Text = decodeQuestion.Answer;
 
-            //if (decodeQuestion.QuestionImageName == "" && decodeQuestion.QuestionVideoName == "")
-            //    eWDecode.txtBlockQuestion1.Text = "";
-            //else eWDecode.txtBlockQuestion2.Text = "";
+            if (decodeQuestion.QuestionImageName == "" && decodeQuestion.QuestionVideoName == "")
+                eWDecode.txtBlockQuestion1.Text = "";
+            else eWDecode.txtBlockQuestion2.Text = "";
 
-            //eWDecode.HideAll();
-            //eWDecode.gridQuestion.Visibility = Visibility.Visible;
-            //mediaAct.Play(eWDecode.videoQuestionStart);
+            eWDecode.HideAll();
+            eWDecode.gridQuestion.Visibility = Visibility.Visible;
+            mediaAct.Play(eWDecode.videoQuestionStart);
 
-            //ResetAnswerList();
-            //ResetTxtBlockAnswerAndPoint();
+            ResetAnswerList();
+            ResetTxtBlockAnswerAndPoint();
 
-            //for (int i = 0; i < server.ClientList.Count; i++)
-            //{
-            //    server.Send(server.ClientList[i], "5_1_" + decodeQuestion.Detail);
-            //}
+            for (int i = 0; i < server.ClientList.Count; i++)
+            {
+                server.Send(server.ClientList[i], "5_1_" + decodeQuestion.Detail);
+            }
         }
 
         double ConvertFromStringToDouble(string number)

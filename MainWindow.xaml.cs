@@ -54,7 +54,10 @@ namespace ServerDTT_New_
             InitializeComponent();
             GetMatch();
             server = new Server(this);
+            uCReadExcel = new UCReadExcel(this);
+            tabMain.Items.Add(new TabItem { Content = uCReadExcel, Header = "Read Excel", Width = 80, Height = 20, FontSize = 10 });
         }
+
        
 
         void InitMainWindow()
@@ -88,16 +91,17 @@ namespace ServerDTT_New_
                 eWFinish = new EWFinish();
                 
 
-                uCReadExcel = new UCReadExcel();
+                uCReadExcel = new UCReadExcel(this);
                 uCStart = new UCStart(this, eWMainWindow, eWStart, studentList, server, matchID);
                 uCObstacles = new UCObstacles(this, eWMainWindow, eWObstacles, studentList, server, matchID);
                 uCAccelerate = new UCAccelerate(this, eWMainWindow, eWAccelerate, studentList, server, matchID);
                 uCDecode = new UCDecode(this, eWMainWindow, eWDecode, studentList, server, matchID);
                 uCFinish = new UCFinish(this, eWMainWindow, eWFinish, studentList, server, matchID);
-                
+            while(tabMain.Items.Count != 0)
+            {
+                tabMain.Items.RemoveAt(0);
+            }
 
-
-            
             tabMain.Items.Add(new TabItem { Content = uCStart, Header = "Khởi Động", Width = 80, Height = 20, FontSize = 10 });
             tabMain.Items.Add(new TabItem { Content = uCObstacles, Header = "VCNV", Width = 80, Height = 20, FontSize = 10 });
             tabMain.Items.Add(new TabItem { Content = uCAccelerate, Header = "Tăng Tốc", Width = 80, Height = 20, FontSize = 10 });
@@ -120,8 +124,6 @@ namespace ServerDTT_New_
             String command = "SELECT * FROM tblMatch";
 
             DataTable data = DataProvider.Instance.ExecuteQuery(command);
-
-            cbMatch.Items.Add(new ComboBoxItem { IsSelected = true, Content="Choose a name of the match" });
 
             foreach(DataRow row in data.Rows)
             {
@@ -154,13 +156,16 @@ namespace ServerDTT_New_
             }
         }
 
-        private void BtnSave_Click(object sender, RoutedEventArgs e)
+        public void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-            StudentDAO update = new StudentDAO();
             for (int i = 0; i < numberOfStudent; i++)
             {
                int point = int.Parse(txtBoxStudentPointList[i].Text);
-                update.UpdatePoint(studentList[i].StudentID,point,studentList[i].MatchID.ToString());
+                studentList[i].Name = txtBoxStudentNameList[i].Text;
+                studentList[i].Point = int.Parse(txtBoxStudentPointList[i].Text);
+                DAO.StudentDAO.Instance.UpdatePoint(studentList[i].StudentID, point, studentList[i].MatchID.ToString());
+                DAO.StudentDAO.Instance.UpdateName(studentList[i].StudentID, studentList[i].Name);
+                
             }
             uCStart.UpdateInfoOnScreen();
             uCObstacles.UpdateInfoOnScreen();
@@ -173,6 +178,7 @@ namespace ServerDTT_New_
             stream.Close();
             server.SendTSInfo(round, studentList);
         }
+
 
         private void BtnSummarizedPoint_Click(object sender, RoutedEventArgs e)
         {
@@ -188,10 +194,11 @@ namespace ServerDTT_New_
 //
         private void cbMatch_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            //if(eWMainWindow != null)
+            //{
+            //    eWMainWindow.Visibility = Visibility.Hidden;
+            //}
             string s = cbMatch.SelectedItem.ToString();
-
-            if (!s.Contains("Choose a name of the match"))
-            {
                 studentList = StudentDAO.Instance.getStartStudent(s);// get student 
                 foreach(string id in matches.Keys)
                 {
@@ -202,7 +209,6 @@ namespace ServerDTT_New_
                 }
 
                 InitMainWindow();
-            }
         }
     }
 }

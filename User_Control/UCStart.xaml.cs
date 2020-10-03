@@ -26,7 +26,7 @@ namespace ServerDTT_New_.User_Control
         MediaAct mediaAct = new MediaAct();
         List<Button> btnStudentList = new List<Button>();
         List<DTO.Question> questionList = new List<DTO.Question>();
-       // List<DTO.Question> bUQuestionList = new List<DTO.Question>();
+        List<DTO.Question> bUQuestionList = new List<DTO.Question>();
 
         MainWindow mainWindow;
         EWMainWindow eWMainWindow;
@@ -69,8 +69,9 @@ namespace ServerDTT_New_.User_Control
             }
 
             questionList = DAO.QuestionDAO.Instance.getStartQuestion(matchID);// get question from database
-            //bUQuestionList = DAO.QuestionDAO.Instance.getStartQuestion(matchID, 1);//get backup question from database
+            bUQuestionList = DAO.QuestionDAO.Instance.getStartQuestion(matchID, 1);//get backup question from database
             eWStart.UpdateUC(this);
+            UpdateInfoOnScreen();
         }
 
 
@@ -120,11 +121,11 @@ namespace ServerDTT_New_.User_Control
                 currentQuestionID++;
             }
 
-            //else if (currentBUQuestionID < bUQuestionList.Count)
-            //{
-            //    currentQuestion = bUQuestionList[currentBUQuestionID];
-            //    currentBUQuestionID++;
-            //}
+            else if (currentBUQuestionID < bUQuestionList.Count)
+            {
+                currentQuestion = bUQuestionList[currentBUQuestionID];
+                currentBUQuestionID++;
+            }
 
             eWStart.txtBlockQuestion.Text = txtBlockQuestion.Text = currentQuestion.Detail;
             txtBlockAnswer.Text = currentQuestion.Answer;
@@ -152,6 +153,8 @@ namespace ServerDTT_New_.User_Control
             studentList[currentStudentID].Point += 10;
             eWStart.txtBlockPoint.Text = studentList[currentStudentID].Point.ToString();
             mainWindow.txtBoxStudentPointList[currentStudentID].Text = studentList[currentStudentID].Point.ToString();
+            //update point to DB
+            DAO.StudentDAO.Instance.UpdatePoint(studentList[currentStudentID].StudentID, studentList[currentStudentID].Point, studentList[currentStudentID].MatchID.ToString());
             ShowNextQuestion(1);
 
             server.SendTSInfo(1, studentList);

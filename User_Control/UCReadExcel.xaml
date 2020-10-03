@@ -10,16 +10,49 @@
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="4*"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Name="btnLoadQuestion" Content="Offical" Click="BtnLoadQuestion_Click"/>
+            <Button Grid.Column="1" Name="btnLoadBUQuestion" Content="Backup" Click="BtnLoadBUQuestion_Click"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBox Grid.Column="0" x:Name="txtMatch" />
+            <TextBox Grid.Column="1" x:Name="txtName"/>
+        </Grid>
+        <Grid Grid.Row="2" x:Name="infoStudent">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
 
-        <Button Grid.Row="0" Name="btnLoadQuestion" Content="Offical" Click="BtnLoadQuestion_Click"/>
-        <Button Grid.Row="1" Name="btnLoadBUQuestion" Content="Backup" Click="BtnLoadBUQuestion_Click"/>
-        <TextBox Grid.Row="4" Name="txtBlockFinish" />
-        <TextBox Grid.Row="2" x:Name="txtMatch"/>
-        <TextBox Grid.Row="3" x:Name="txtName"/>
+            <Label Grid.Row="0" Grid.Column="0" FontSize="24" Foreground="White" HorizontalAlignment="Center">Position</Label>
+            <Label Grid.Row="0" Grid.Column="1" FontSize="24" Foreground="White" HorizontalAlignment="Center">Last Name</Label>
+            <Label Grid.Row="0" Grid.Column="2" FontSize="24" Foreground="White" HorizontalAlignment="Center">Class</Label>
+            <Label Grid.Row="0" Grid.Column="3" FontSize="24" Foreground="White" HorizontalAlignment="Center">First Name</Label>
 
+            <Button x:Name="btnSubmit" Grid.Row="4" Grid.Column="0" Height="43" Margin="0,0,0,-0.2" Grid.RowSpan="2" VerticalAlignment="Bottom" Click="btnSubmit_Click">Submit</Button>
+            <ComboBox x:Name="cbMatch" Grid.Row="5" Grid.Column="3"></ComboBox>
+        </Grid>
+        <TextBox Grid.Row="3" Name="txtBlockFinish" />
     </Grid>
 </UserControl>
