@@ -165,12 +165,12 @@ namespace ServerDTT_New_.User_Control
             for (int i = 0; i < maxRowLength; i++)
                 for (int j = 0; j < maxColLength; j++)
                 {
-                    btnMatrixCellArray[i, j] = new Button { BorderThickness = new Thickness(1.5), BorderBrush = Brushes.Black, Name = string.Format("Matrix_{0}_{1}", i, j), Background = Brushes.White, FontSize = 40, FontFamily = new FontFamily("Open Sans"), Content = string.Empty };
+                    btnMatrixCellArray[i, j] = new Button { BorderThickness = new Thickness(1.5), BorderBrush = Brushes.Black, Name = string.Format("Matrix_{0}_{1}", i, j), Background = Brushes.White, FontSize = 40, FontFamily = new FontFamily("Open Sans"), Content = string.Empty, Width = 65, Height = 65, Foreground=Brushes.Black, };// t có fix ở đây 
                     btnMatrixCellArray[i, j].SetValue(Grid.RowProperty, i + 1);
                     btnMatrixCellArray[i, j].SetValue(Grid.ColumnProperty, j + 1);
                     gridMatrixTable.Children.Add(btnMatrixCellArray[i, j]);
 
-                    eWDecode.btnMatrixCellArray[i, j] = new Button { BorderThickness = new Thickness(1.5), BorderBrush = Brushes.Black, Name = string.Format("Matrix_{0}_{1}", i, j), Background = Brushes.White, FontSize = 40, FontFamily = new FontFamily("Open Sans"), Content = string.Empty };
+                    eWDecode.btnMatrixCellArray[i, j] = new Button { BorderThickness = new Thickness(1.5), BorderBrush = Brushes.Black, Name = string.Format("Matrix_{0}_{1}", i, j), Background = Brushes.White, FontSize = 40, FontFamily = new FontFamily("Open Sans"), Content = string.Empty, Width = 70, Height = 70, Foreground = Brushes.Black, };// và cả ở dây 
                     eWDecode.btnMatrixCellArray[i, j].SetValue(Grid.RowProperty, i + 1);
                     eWDecode.btnMatrixCellArray[i, j].SetValue(Grid.ColumnProperty, j + 1);
                     eWDecode.gridMatrixTable.Children.Add(eWDecode.btnMatrixCellArray[i, j]);
@@ -300,10 +300,7 @@ namespace ServerDTT_New_.User_Control
             mediaAct.Play(eWDecode.soundShowMatrix);
         }
 
-        private void BtnSave_Click(object sender, RoutedEventArgs e)
-        {
-            //Trống vì matrix đã được lấy từ file sql;
-        }
+        
 
         private void BtnStudent_Click(object sender, RoutedEventArgs e)
         {

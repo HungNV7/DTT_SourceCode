@@ -4,67 +4,143 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ServerDTT_New_"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+         TextElement.FontWeight="Regular"
+         TextElement.FontSize="13"
+         TextOptions.TextFormattingMode="Ideal"
+         TextOptions.TextRenderingMode="Auto"
+        ResizeMode="NoResize"
+        WindowStyle="None"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="800">
+        Title="MainWindow">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200*"/>
-            <ColumnDefinition Width="600*"/>
-        </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0" Background="#0B0B61">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="50*"/>
-                <RowDefinition Height="250*"/>
-                <RowDefinition Height="50*"/>
-                <RowDefinition Height="30*"/>
-                <RowDefinition Height="60*"/>
-                <RowDefinition Height="50*"/>
-                <RowDefinition Height="50*"/>
-                <RowDefinition Height="50*"/>
-            </Grid.RowDefinitions>
-            <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" >
+            </RowDefinition>
+            <RowDefinition>
+            </RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <materialDesign:ColorZone
+            Mode="Dark"
+            Height="auto">
+                <DockPanel >
+                    <StackPanel Orientation="Horizontal" DockPanel.Dock="Right">
+                        <StackPanel.Resources>
+                            <Style TargetType="Button">
+                                <Setter Property="Width" Value="40"></Setter>
+                                <Setter Property="Margin" Value="2 5 5 4"></Setter>
+                                <Setter Property="Background" Value="Transparent"></Setter>
+                                <Setter Property="BorderBrush" Value="Transparent"></Setter>
+                            </Style>
+                        </StackPanel.Resources>
+                        <Button ToolTip="minimize" Name="miniBtn"  Foreground="LightGray" Click="miniBtn_Click" >
+                            <materialDesign:PackIcon Kind="WindowMinimize"  />
+                        </Button>
+                        <Button ToolTip="maximize" Name="maxiBtn"  Foreground="LightGray" Click="maxiBtn_Click">
+                            <materialDesign:PackIcon Kind="WindowMaximize"   />
+                        </Button>
+                        <Separator />
+                        <Button ToolTip="close" Name="closeBtn"  Foreground="LightGray" Click="closeBtn_Click">
+                            <materialDesign:PackIcon Kind="WindowClose"  />
+                        </Button>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" DockPanel.Dock="Left" >
+                        <ToggleButton Style="{DynamicResource MaterialDesignHamburgerToggleButton}" />
+                        <TextBlock VerticalAlignment="Center"
+                                   Margin="16 0 0 0" Text="Server" 
+                                   FontSize="20" 
+                                   FontFamily="Times new roman"
+                                   Foreground="LightGray"
+                                   ></TextBlock>
+                    </StackPanel>
+                </DockPanel>
+            </materialDesign:ColorZone>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200*"/>
+                <ColumnDefinition Width="600*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Background="Gray" >
                 <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-
+                    <RowDefinition Height="20*"/>
+                    <RowDefinition Height="250*"/>
+                    <RowDefinition Height="50*"/>
+                    <RowDefinition Height="60*"/>
+                    <RowDefinition Height="50*"/>
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="125*"/>
-                        <ColumnDefinition Width="73*"/>
-                    </Grid.ColumnDefinitions>
-                    <ComboBox Name="cbMatch"  Grid.ColumnSpan="2" Margin="0,0,0.4,-0.2" SelectionChanged="cbMatch_SelectionChanged">
+                    <ComboBox Name="cbMatch"  Grid.ColumnSpan="2"  SelectionChanged="cbMatch_SelectionChanged">
                     </ComboBox>
                 </Grid>
+                <Border Grid.Row="1"  Background="LightGray" />
+                <Viewbox Grid.Row="2" Margin=" 0 2 0 2" >
+                    <Button Name="btnSave" Content="Save"
+                            Background="#bdbdbd" 
+                             Foreground="#f5f5f5" 
+                            Style="{StaticResource MaterialDesignRaisedButton}" 
+                            materialDesign:ButtonProgressAssist.Value="-1" 
+                            
+                            materialDesign:ButtonProgressAssist.IsIndeterminate="True" 
+                            Width="150" FontFamily="Times new roman"  
+                            
+                            materialDesign:RippleAssist.Feedback="#DD000000" 
+                            Click="BtnSave_Click"
+                            />
+                </Viewbox>
+                <Viewbox Grid.Row="6"  Margin="0 2 0 2">
+                    <Button Name="btnFinal" 
+                            Content="Kết thúc rồi" 
+                            Background="#616161"
+                            Foreground="Black"
+                            Style="{StaticResource MaterialDesignRaisedButton}" 
+                            materialDesign:ButtonProgressAssist.Value="-1" 
+                            
+                            materialDesign:ButtonProgressAssist.IsIndeterminate="True" 
+                            Width="150" 
+                            FontFamily="Times new roman" 
+                             materialDesign:RippleAssist.Feedback="#DD000000"
+                            Click="BtnFinal_Click"
+                            />
+                </Viewbox>
+                <Grid Grid.Row="1" Name="gridStudentInformation" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="133*"/>
+                        <ColumnDefinition Width="60 *"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50*"/>
+                        <RowDefinition Height="50*"/>
+                        <RowDefinition Height="50*"/>
+                        <RowDefinition Height="50*"/>
+                        <RowDefinition Height="50*"/>
+                    </Grid.RowDefinitions >
+                    <Viewbox Grid.Column="0" Grid.Row="0">
+                        <TextBlock  Background="Transparent" Foreground="Black" FontFamily="Times new roman" Text="Họ và tên" VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="0 0 10 5 "/>
+                    </Viewbox>
+                    <Viewbox  Grid.Column="1" Grid.Row="0" >
+                        <TextBlock Background="Transparent" Foreground="Black" FontFamily="Times new roman" Text="Điểm" VerticalAlignment="Center" HorizontalAlignment="Center"   Margin="0 0 5 5 "/>
+                    </Viewbox>
+                </Grid>
+                <Viewbox Grid.Row="3" Margin="0 2 0 2" >
+                    <Button Name="btnSummarizedPoint"
+                            Content="Tổng Kết Điểm" 
+                            Background="#757575" 
+                            Foreground="LightGray" 
+                            Style="{StaticResource MaterialDesignRaisedButton}"
+                            materialDesign:ButtonProgressAssist.Value="-1"
+                            
+                            materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+                            Width="150" FontFamily="Times new roman" 
+                             materialDesign:RippleAssist.Feedback="#DD000000"
+                            Click="BtnSummarizedPoint_Click"
+                            ></Button>
+                </Viewbox>
             </Grid>
-            <Border Grid.Row="1" Grid.RowSpan="4" Background="Gray" Margin="2"/>
-            <Viewbox Grid.Row="2">
-                <Button Name="btnSave" Content="Save" Background="Brown" Click="BtnSave_Click" RenderTransformOrigin="1.271,1.271"/>
-            </Viewbox>
-            <Viewbox Grid.Row="6">
-                <Button Name="btnFinal" Content="Kết thúc rồi" Background="RosyBrown" Click="BtnFinal_Click"/>
-            </Viewbox>
-            <Grid Grid.Row="1" Name="gridStudentInformation">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="125*"/>
-                    <ColumnDefinition Width="75*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="50*"/>
-                    <RowDefinition Height="50*"/>
-                    <RowDefinition Height="50*"/>
-                    <RowDefinition Height="50*"/>
-                    <RowDefinition Height="50*"/>
-                </Grid.RowDefinitions>
-                <TextBlock Grid.Column="0" Grid.Row="0" Background="RoyalBlue" Margin="5,0,5,0"
-                           Text="Họ và tên" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30"/>
-                <TextBlock Grid.Column="1" Grid.Row="0" Background="DeepSkyBlue" Margin="5,0,5,0"
-                           Text="Điểm" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30"/>
-            </Grid>
-            <Viewbox Grid.Row="4">
-                <Button Name="btnSummarizedPoint" Content="Tổng Kết Điểm" Background="DarkSalmon" Click="BtnSummarizedPoint_Click"/>
-            </Viewbox>
+            <TabControl Name="tabMain" Grid.Column="1" Width="auto"/>
         </Grid>
-        <TabControl Name="tabMain" Grid.Column="1"/>
+
     </Grid>
 </Window>
