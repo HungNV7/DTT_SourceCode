@@ -85,8 +85,9 @@ namespace ServerDTT_New_.ExtendedWindow
                 if (!matches.ContainsKey(id))
                 {
                     matches.Add(id, name);
+                    cbMatch.Items.Add(name);
                 }
-                cbMatch.Items.Add(name);
+                
             }
         }
 
@@ -405,46 +406,13 @@ namespace ServerDTT_New_.ExtendedWindow
 
                 command = String.Format("INSERT INTO tblDetailMatch(No, studentID, matchID, position, point) VALUES({0}, {1}, N'{2}', {3}, 0)", no, studentId, matchID, i+1);
                 DataProvider.Instance.ExecuteNonQuery(command);
+                mainWindow.GetMatch();
             }
         }
 
         private void btnCreateDB_Click(object sender, RoutedEventArgs e)
         {
-            String command = String.Empty;
-
-            command = String.Format(" USE DTT\n");
-            //command += String.Format("CREATE TABLE tblMatch(matchID nvarchar(50) PRIMARY KEY NOT NULL,name nvarchar(50) NOT NULL)\n");
-            command += String.Format("CREATE TABLE tblQuestionType(questionTypeID nvarchar(50) PRIMARY KEY NOT NULL, name nvarchar(50) NOT NULL)\n");
-            command += String.Format("CREATE TABLE tblStudent(studentID int PRIMARY KEY NOT NULL, firstName nvarchar(50) NULL, lastName nvarchar(50) NOT NULL, class nvarchar(50) NULL)\n");
-            command += String.Format("CREATE TABLE tblQuestion(questionID int PRIMARY KEY NOT NULL, detail nvarchar(MAX) NOT NULL,questionImageName nvarchar(MAX) NULL,"
-                + "questionVideoName nvarchar(MAX) NULL, answer nvarchar(MAX) NOT NULL,"
-                + "answerImageName nvarchar(MAX) NULL, answerVideoName nvarchar(MAX) NULL, questionTypeID nvarchar(50) NOT NULL REFERENCES tblQuestionType(questionTypeID),"
-                + "position int NULL, matchID nvarchar(50) NOT NULL REFERENCES tblMatch(matchID), isBackup bit NOT NULL, note nvarchar(MAX) NULL)");
-            command += String.Format("CREATE TABLE tblDetailMatch(No int PRIMARY KEY NOT NULL, studentID int NOT NULL REFERENCES tblStudent(studentID),"
-                    + "matchID nvarchar(50) NOT NULL REFERENCES tblMatch(matchID), point int NOT NULL, position int NOT NULL)");
-            command += String.Format("CREATE TABLE tblDecodeQuestion(questionID int PRIMARY KEY NOT NULL, row int NOT NULL, col int NOT NULL,"
-                + "detail nvarchar(MAX) NOT NULL, questionImageName nvarchar(MAX) NULL, questionVideoName nvarchar(MAX) NULL,"
-                + "answer nvarchar(MAX) NOT NULL, questionTypeID nvarchar(50) NOT NULL  REFERENCES tblQuestionType(questionTypeID),"
-                + "matchID nvarchar(50) NOT NULL REFERENCES tblMatch(matchID), isBackup bit NOT NULL)");
-            DataProvider.Instance.ExecuteQuery(command);
-
-
-            command = String.Empty;
-            command = String.Format("INSERT [dbo].[tblQuestionType] ([questionTypeID], [name]) VALUES (N'0', N'Câu hỏi chính vòng giải mã')");
-            command += String.Format("INSERT [dbo].[tblQuestionType] ([questionTypeID], [name]) VALUES (N'02', N'Câu hỏi chính vòng vượt chướng ngại vật')");
-            command += String.Format("INSERT [dbo].[tblQuestionType] ([questionTypeID], [name]) VALUES (N'1', N'Câu hỏi vòng khởi động')");
-            command += String.Format("INSERT [dbo].[tblQuestionType] ([questionTypeID], [name]) VALUES (N'10', N'Gợi ý ô màu xanh vòng giải mã')");
-            command += String.Format("INSERT [dbo].[tblQuestionType] ([questionTypeID], [name]) VALUES (N'11', N'Câu hỏi ô màu xanh vòng giải mã')");
-            command += String.Format("INSERT [dbo].[tblQuestionType] ([questionTypeID], [name]) VALUES (N'2', N'Câu hỏi gợi ý vòng vượt chướng ngại vật')");
-            command += String.Format("INSERT [dbo].[tblQuestionType] ([questionTypeID], [name]) VALUES (N'20', N'Gợi ý ô màu vàng vòng giải mã')");
-            command += String.Format("INSERT [dbo].[tblQuestionType] ([questionTypeID], [name]) VALUES (N'21', N'Câu hỏi ô màu vàng vòng giải mã')");
-            command += String.Format("INSERT [dbo].[tblQuestionType] ([questionTypeID], [name]) VALUES (N'3', N'Câu hỏi vòng tăng tốc')");
-            command += String.Format("INSERT [dbo].[tblQuestionType] ([questionTypeID], [name]) VALUES (N'31', N'Câu hỏi ô màu đỏ vòng giải mã')");
-            command += String.Format("INSERT [dbo].[tblQuestionType] ([questionTypeID], [name]) VALUES (N'41', N'Câu hỏi vòng về đích 10đ')");
-            command += String.Format("INSERT [dbo].[tblQuestionType] ([questionTypeID], [name]) VALUES (N'42', N'Câu hỏi vòng về đích 20đ')");
-            command += String.Format("INSERT [dbo].[tblQuestionType] ([questionTypeID], [name]) VALUES (N'43', N'Câu hỏi vòng về đích 30đ')");
-
-            DataProvider.Instance.ExecuteNonQuery(command);
+            
         }
     }
 }
