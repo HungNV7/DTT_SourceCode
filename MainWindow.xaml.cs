@@ -65,13 +65,13 @@ namespace ServerDTT_New_
             for (int i = 0; i < numberOfStudent; i++)
                 {
 
-                    TextBox txtBoxName = new TextBox { FontSize = 25, Background = Brushes.LightBlue, Text = studentList[i].Name, Margin = new Thickness(5), Width = 125, VerticalAlignment = VerticalAlignment.Center, HorizontalAlignment = HorizontalAlignment.Center, TextAlignment = TextAlignment.Center };
+                    TextBox txtBoxName = new TextBox { FontSize = 35, Background = Brushes.Transparent,Foreground=Brushes.Black, Text = studentList[i].Name, TextAlignment = TextAlignment.Center, Margin=new Thickness(0,15,0,5) };
                     txtBoxName.SetValue(Grid.RowProperty, i + 1);
                     txtBoxName.SetValue(Grid.ColumnProperty, 0);
                     gridStudentInformation.Children.Add(txtBoxName);
                     txtBoxStudentNameList.Add(txtBoxName);
 
-                    TextBox txtBoxPoint = new TextBox { FontSize = 25, Background = Brushes.AliceBlue, Text = studentList[i].Point.ToString(), Margin = new Thickness(5), Width = 125, VerticalAlignment = VerticalAlignment.Center, HorizontalAlignment = HorizontalAlignment.Center, TextAlignment = TextAlignment.Center };
+                    TextBox txtBoxPoint = new TextBox { FontSize = 35, Background = Brushes.Transparent, Foreground = Brushes.Black, Text = studentList[i].Point.ToString(),TextAlignment = TextAlignment.Center, Margin = new Thickness(0,15,0,5) };
                     txtBoxPoint.SetValue(Grid.RowProperty, i + 1);
                     txtBoxPoint.SetValue(Grid.ColumnProperty, 1);
                     gridStudentInformation.Children.Add(txtBoxPoint);
@@ -118,12 +118,19 @@ namespace ServerDTT_New_
         public void GetMatch()
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
             String command = "SELECT DISTINCT A.matchID, B.name FROM tblDetailMatch A, tblMatch B WHERE A.matchID = B.matchID";
 =======
             matches = new Dictionary<string, string>();
 
             String command = "SELECT * FROM tblMatch";
 >>>>>>> ADD
+=======
+
+            matches = new Dictionary<string, string>();
+
+            String command = "SELECT DISTINCT A.matchID, B.name FROM tblDetailMatch A, tblMatch B WHERE A.matchID = B.matchID";
+>>>>>>> 4aa17011ab93fff031e7649e7db9d7dc76d76c5a
 
             DataTable data = DataProvider.Instance.ExecuteQuery(command);
 
@@ -131,19 +138,26 @@ namespace ServerDTT_New_
             {
                 string id = row["matchID"].ToString();
                 string name = row["name"].ToString();
+<<<<<<< HEAD
 
 <<<<<<< HEAD
+=======
+>>>>>>> 4aa17011ab93fff031e7649e7db9d7dc76d76c5a
                 if (!matches.ContainsKey(id))
                 {
                     matches.Add(id, name);
                     cbMatch.Items.Add(name);
                 }
+<<<<<<< HEAD
                 
                 
 =======
                 matches.Add(id, name);
                 cbMatch.Items.Add(name);
 >>>>>>> ADD
+=======
+               
+>>>>>>> 4aa17011ab93fff031e7649e7db9d7dc76d76c5a
             }
         }
 
@@ -243,6 +257,11 @@ namespace ServerDTT_New_
         private void closeBtn_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void ColorZone_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
         }
     }
 }

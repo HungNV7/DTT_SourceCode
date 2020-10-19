@@ -84,16 +84,22 @@ namespace ServerDTT_New_.ExtendedWindow
                 string name = row["name"].ToString();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 4aa17011ab93fff031e7649e7db9d7dc76d76c5a
                 if (!matches.ContainsKey(id))
                 {
                     matches.Add(id, name);
                     cbMatch.Items.Add(name);
                 }
+<<<<<<< HEAD
                 
 =======
                 matches.Add(id, name);
                 cbMatch.Items.Add(name);
 >>>>>>> ADD
+=======
+>>>>>>> 4aa17011ab93fff031e7649e7db9d7dc76d76c5a
             }
         }
 
@@ -416,12 +422,18 @@ namespace ServerDTT_New_.ExtendedWindow
             }
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 4aa17011ab93fff031e7649e7db9d7dc76d76c5a
 
         private void btnCreateDB_Click(object sender, RoutedEventArgs e)
         {
             
         }
+<<<<<<< HEAD
 =======
 >>>>>>> ADD
+=======
+>>>>>>> 4aa17011ab93fff031e7649e7db9d7dc76d76c5a
     }
 }
