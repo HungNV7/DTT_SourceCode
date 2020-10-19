@@ -67,13 +67,13 @@ namespace ServerDTT_New_
             for (int i = 0; i < numberOfStudent; i++)
                 {
 
-                    TextBox txtBoxName = new TextBox { FontSize = 25, Background = Brushes.LightBlue, Text = studentList[i].Name, Margin = new Thickness(5), Width = 125, VerticalAlignment = VerticalAlignment.Center, HorizontalAlignment = HorizontalAlignment.Center, TextAlignment = TextAlignment.Center };
+                    TextBox txtBoxName = new TextBox { FontSize = 35, Background = Brushes.Transparent,Foreground=Brushes.Black, Text = studentList[i].Name, TextAlignment = TextAlignment.Center, Margin=new Thickness(0,15,0,5) };
                     txtBoxName.SetValue(Grid.RowProperty, i + 1);
                     txtBoxName.SetValue(Grid.ColumnProperty, 0);
                     gridStudentInformation.Children.Add(txtBoxName);
                     txtBoxStudentNameList.Add(txtBoxName);
 
-                    TextBox txtBoxPoint = new TextBox { FontSize = 25, Background = Brushes.AliceBlue, Text = studentList[i].Point.ToString(), Margin = new Thickness(5), Width = 125, VerticalAlignment = VerticalAlignment.Center, HorizontalAlignment = HorizontalAlignment.Center, TextAlignment = TextAlignment.Center };
+                    TextBox txtBoxPoint = new TextBox { FontSize = 35, Background = Brushes.Transparent, Foreground = Brushes.Black, Text = studentList[i].Point.ToString(),TextAlignment = TextAlignment.Center, Margin = new Thickness(0,15,0,5) };
                     txtBoxPoint.SetValue(Grid.RowProperty, i + 1);
                     txtBoxPoint.SetValue(Grid.ColumnProperty, 1);
                     gridStudentInformation.Children.Add(txtBoxPoint);
@@ -235,6 +235,11 @@ namespace ServerDTT_New_
         private void closeBtn_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void ColorZone_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
         }
     }
 }

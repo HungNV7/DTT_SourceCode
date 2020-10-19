@@ -24,7 +24,7 @@
         <Grid Grid.Row="0">
             <materialDesign:ColorZone
             Mode="Dark"
-            Height="auto">
+            Height="auto" MouseLeftButtonDown="ColorZone_MouseLeftButtonDown">
                 <DockPanel >
                     <StackPanel Orientation="Horizontal" DockPanel.Dock="Right">
                         <StackPanel.Resources>
@@ -71,13 +71,18 @@
                     <RowDefinition Height="60*"/>
                     <RowDefinition Height="50*"/>
                 </Grid.RowDefinitions>
-                <Grid Grid.Row="0">
+                <Border Grid.Row="0" BorderBrush="Black" BorderThickness="0.5" >
+                <Grid >
                     <ComboBox Name="cbMatch"  Grid.ColumnSpan="2"  SelectionChanged="cbMatch_SelectionChanged">
                     </ComboBox>
                 </Grid>
+                </Border>
                 <Border Grid.Row="1"  Background="LightGray" />
-                <Viewbox Grid.Row="2" Margin=" 0 2 0 2" >
+                <Border Grid.Row="2"  BorderBrush="Black" BorderThickness="0.5" >
+                <Viewbox  >
                     <Button Name="btnSave" Content="Save"
+                            BorderBrush="Transparent"
+                            BorderThickness="0"
                             Background="#bdbdbd" 
                              Foreground="#f5f5f5" 
                             Style="{StaticResource MaterialDesignRaisedButton}" 
@@ -90,8 +95,12 @@
                             Click="BtnSave_Click"
                             />
                 </Viewbox>
-                <Viewbox Grid.Row="6"  Margin="0 2 0 2">
+                </Border>
+                <Border Grid.Row="6"   BorderBrush="Black" BorderThickness="0.5" >
+                <Viewbox >
                     <Button Name="btnFinal" 
+                            BorderBrush="Transparent"
+                            BorderThickness="0"
                             Content="Kết thúc rồi" 
                             Background="#616161"
                             Foreground="Black"
@@ -105,7 +114,9 @@
                             Click="BtnFinal_Click"
                             />
                 </Viewbox>
-                <Grid Grid.Row="1" Name="gridStudentInformation" >
+                </Border>
+                <Border Grid.Row="1" BorderBrush="Black" BorderThickness="0.5" CornerRadius="7" > 
+                <Grid  Name="gridStudentInformation" >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="133*"/>
                         <ColumnDefinition Width="60 *"/>
@@ -118,15 +129,19 @@
                         <RowDefinition Height="50*"/>
                     </Grid.RowDefinitions >
                     <Viewbox Grid.Column="0" Grid.Row="0">
-                        <TextBlock  Background="Transparent" Foreground="Black" FontFamily="Times new roman" Text="Họ và tên" VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="0 0 10 5 "/>
+                            <TextBlock  Background="Transparent" FontSize="20"  Foreground="Black" FontFamily="Times new roman" Text="Họ và tên" VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="5 0 10 5 "/>
                     </Viewbox>
                     <Viewbox  Grid.Column="1" Grid.Row="0" >
-                        <TextBlock Background="Transparent" Foreground="Black" FontFamily="Times new roman" Text="Điểm" VerticalAlignment="Center" HorizontalAlignment="Center"   Margin="0 0 5 5 "/>
+                        <TextBlock Background="Transparent" FontSize="30" Foreground="Black" FontFamily="Times new roman" Text="Điểm" VerticalAlignment="Center" HorizontalAlignment="Center"   Margin="0 0 5 5 "/>
                     </Viewbox>
                 </Grid>
-                <Viewbox Grid.Row="3" Margin="0 2 0 2" >
+                </Border>
+                <Border Grid.Row="3" BorderBrush="Black" BorderThickness="0.5">
+                <Viewbox  >
                     <Button Name="btnSummarizedPoint"
                             Content="Tổng Kết Điểm" 
+                            BorderBrush="Transparent"
+                            BorderThickness="0"
                             Background="#757575" 
                             Foreground="LightGray" 
                             Style="{StaticResource MaterialDesignRaisedButton}"
@@ -138,6 +153,7 @@
                             Click="BtnSummarizedPoint_Click"
                             ></Button>
                 </Viewbox>
+                </Border>
             </Grid>
             <TabControl Name="tabMain" Grid.Column="1" Width="auto"/>
         </Grid>
