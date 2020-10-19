@@ -46,8 +46,7 @@ namespace ServerDTT_New_
 
         Server server;
         string matchID = "";
-        Dictionary<string, string> matches = new Dictionary<string, string>();
-
+        Dictionary<string, string> matches;
 
         const int numberOfStudent = 4;
         public MainWindow()
@@ -118,7 +117,13 @@ namespace ServerDTT_New_
 
         public void GetMatch()
         {
+<<<<<<< HEAD
             String command = "SELECT DISTINCT A.matchID, B.name FROM tblDetailMatch A, tblMatch B WHERE A.matchID = B.matchID";
+=======
+            matches = new Dictionary<string, string>();
+
+            String command = "SELECT * FROM tblMatch";
+>>>>>>> ADD
 
             DataTable data = DataProvider.Instance.ExecuteQuery(command);
 
@@ -127,6 +132,7 @@ namespace ServerDTT_New_
                 string id = row["matchID"].ToString();
                 string name = row["name"].ToString();
 
+<<<<<<< HEAD
                 if (!matches.ContainsKey(id))
                 {
                     matches.Add(id, name);
@@ -134,6 +140,10 @@ namespace ServerDTT_New_
                 }
                 
                 
+=======
+                matches.Add(id, name);
+                cbMatch.Items.Add(name);
+>>>>>>> ADD
             }
         }
 
@@ -207,6 +217,32 @@ namespace ServerDTT_New_
                 }
 
                 InitMainWindow();
+        }
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
+
+        private void miniBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+        
+        private void maxiBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if(this.WindowState == WindowState.Maximized)
+            {
+                this.WindowState = WindowState.Normal;
+            }
+            else
+            {
+                this.WindowState = WindowState.Maximized;
+            }
+        }
+
+        private void closeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

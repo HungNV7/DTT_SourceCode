@@ -28,7 +28,7 @@ namespace ServerDTT_New_.ExtendedWindow
         List<TextBox> txtLastNameList = new List<TextBox>();
         List<TextBox> txtClassList = new List<TextBox>();
         List<Label> txtPositionList = new List<Label>();
-        Dictionary<string, string> matches = new Dictionary<string, string>();
+        Dictionary<string, string> matches;
         MainWindow mainWindow;
 
         public UCReadExcel(MainWindow mainWindow)
@@ -71,7 +71,8 @@ namespace ServerDTT_New_.ExtendedWindow
         }
 
         private void getMatch()
-        {   
+        {
+            matches = new Dictionary<string, string>();
 
             String command = "SELECT * FROM tblMatch";
 
@@ -82,12 +83,17 @@ namespace ServerDTT_New_.ExtendedWindow
                 string id = row["matchID"].ToString();
                 string name = row["name"].ToString();
 
+<<<<<<< HEAD
                 if (!matches.ContainsKey(id))
                 {
                     matches.Add(id, name);
                     cbMatch.Items.Add(name);
                 }
                 
+=======
+                matches.Add(id, name);
+                cbMatch.Items.Add(name);
+>>>>>>> ADD
             }
         }
 
@@ -409,10 +415,13 @@ namespace ServerDTT_New_.ExtendedWindow
                 mainWindow.GetMatch();
             }
         }
+<<<<<<< HEAD
 
         private void btnCreateDB_Click(object sender, RoutedEventArgs e)
         {
             
         }
+=======
+>>>>>>> ADD
     }
 }
