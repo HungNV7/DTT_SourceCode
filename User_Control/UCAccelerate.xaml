@@ -4,115 +4,348 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ServerDTT_New_.User_Control"
+              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Background="DarkBlue">
+             d:DesignHeight="450" d:DesignWidth="800" Background="LightGray">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50*"/>
-            <RowDefinition Height="50*"/>
-            <RowDefinition Height="50*"/>
-            <RowDefinition Height="40*"/>
-            <RowDefinition Height="60*"/>
-            <RowDefinition Height="200*"/>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="100*"/>
-                <ColumnDefinition Width="200*"/>
-                <ColumnDefinition Width="200*"/>
-                <ColumnDefinition Width="300*"/>
-            </Grid.ColumnDefinitions>
-            <Button Name="btnIntroVideo" Grid.Column="1" Margin="5" Content="Intro Video" Foreground="Black" FontSize="30" Background="Yellow" FontWeight="DemiBold" Click="BtnIntroVideo_Click"/>
-            <Button Name="btnIntroSound" Grid.Column="2" Margin="5" Content="Intro Sound" Foreground="Black" FontSize="30" Background="Yellow" FontWeight="DemiBold" Click="BtnIntroSound_Click"/>
-            <Viewbox Grid.Column="3">
-                <TextBlock Text="TĂNG TỐC" Foreground="White" FontWeight="DemiBold"/>
+            <Viewbox >
+                <TextBlock Text="TĂNG TỐC" Foreground="Black" FontWeight="DemiBold"/>
             </Viewbox>
         </Grid>
         <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="100*"/>
-                <ColumnDefinition Width="150*"/>
-                <ColumnDefinition Width="150*"/>
-                <ColumnDefinition Width="150*"/>
-                <ColumnDefinition Width="150*"/>
-                <ColumnDefinition Width="100*"/>
-            </Grid.ColumnDefinitions>
-            <Border Grid.ColumnSpan="4" Grid.Column="1" Background="Gray"/>
-            <Button Uid="0" Grid.Column="1" Content="Câu hỏi 1" FontSize="30" Background="Coral" Margin="3" BorderThickness="1.5" BorderBrush="Black" FontWeight="DemiBold" Click="Question_Click"/>
-            <Button Uid="1" Grid.Column="2" Content="Câu hỏi 2" FontSize="30" Background="Coral" Margin="3" BorderThickness="1.5" BorderBrush="Black" FontWeight="DemiBold" Click="Question_Click"/>
-            <Button Uid="2" Grid.Column="3" Content="Câu hỏi 3" FontSize="30" Background="Coral" Margin="3" BorderThickness="1.5" BorderBrush="Black" FontWeight="DemiBold" Click="Question_Click"/>
-            <Button Uid="3" Grid.Column="4" Content="Câu hỏi 4" FontSize="30" Background="Coral" Margin="3" BorderThickness="1.5" BorderBrush="Black" FontWeight="DemiBold" Click="Question_Click"/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.5*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" BorderBrush="Black" BorderThickness="0.5" CornerRadius="7" Margin="1">
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="15*"/>
+                    <ColumnDefinition Width="100*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Viewbox Margin="0,0,5,50" >
+                        <TextBlock  Text="Câu hỏi:" Foreground="#424242" FontFamily="Times new roman" />
+                    </Viewbox>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <TextBlock Name="txtBlockQuestion" 
+                               Background="White"
+                               Foreground="Black" 
+                               Margin="5 5 2 5"
+                               FontSize="25"
+                               FontFamily="Times new roman"/>
+                </Grid>
+            </Grid>
+            </Border>
+            <Border Grid.Row="1"  BorderBrush="Black" BorderThickness="0.5" CornerRadius="7" Margin="1">
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="15*"/>
+                    <ColumnDefinition Width="100*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Viewbox Margin="0,0,5,0">
+                        <TextBlock Text="Đáp án: " Foreground="#424242"  FontFamily="Times new roman"/>
+                    </Viewbox>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <TextBlock Name="txtBlockAnswer"
+                           Background="White" 
+                           Foreground="Black"
+                           Margin="5 5 2 5"
+                            FontFamily="Times new roman"
+                           FontSize="25"/>
+                </Grid>
+            </Grid>
+            </Border>
         </Grid>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="130*"/>
-                <ColumnDefinition Width="135*"/>
-                <ColumnDefinition Width="135*"/>
-                <ColumnDefinition Width="135*"/>
-                <ColumnDefinition Width="135*"/>
-                <ColumnDefinition Width="130*"/>
+                <ColumnDefinition Width="0.7*"></ColumnDefinition>
+                <ColumnDefinition Width="1.2*" ></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="0.8*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Border Background="Green" Grid.Column="1" Grid.ColumnSpan="4"/>
-            <Button Name="btnTimeVideo" Grid.Column="1" Content="Time Start" Margin="30,3,30,3" FontSize="25" FontWeight="DemiBold" Click="BtnTimeVideo_Click"/>
-            <Button Name="btnNameAnswer" Grid.Column="2" Margin="30,3,30,3" Content="Đáp án của thí sinh" FontSize="25" FontWeight="DemiBold" BorderThickness="1.5" BorderBrush="Black" Click="BtnNameAnswer_Click"/>
-            <Button Name="btnShowAnswer" Grid.Column="3" Margin="30,3,30,3" Content="Đáp án câu hỏi" FontSize="25" FontWeight="DemiBold" BorderThickness="1.5" BorderBrush="Black" Click="BtnShowAnswer_Click"/>
-            <Button Name="btnBUQuestion" Grid.Column="4" Margin="30,3,30,3" Content="Backup Question" FontSize="25" FontWeight="DemiBold" BorderThickness="1.5" BorderBrush="Black" Click="BtnBUQuestion_Click"/>
-        </Grid>
-        <Grid Grid.Row="3">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="100*"/>
-                <ColumnDefinition Width="700*"/>
-            </Grid.ColumnDefinitions>
-            <TextBlock Text="Câu hỏi" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="18"/>
-            <TextBlock Name="txtBlockQuestion" TextWrapping="Wrap" Background="White" Grid.Column="1" Margin="3"/>
-        </Grid>
-        <Grid Grid.Row="4">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="100*"/>
-                <ColumnDefinition Width="700*"/>
-            </Grid.ColumnDefinitions>
-            <TextBlock Text="Đáp án" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="18"/>
-            <TextBlock Name="txtBlockAnswer" TextWrapping="Wrap" Background="White" Grid.Column="1" Margin="3"/>
-        </Grid>
-        <Grid Grid.Row="5">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="650*"/>
-                <ColumnDefinition Width="150*"/>
-            </Grid.ColumnDefinitions>
-            <Border Background="Black"/>
-            <Grid Grid.Column="0" Name="gridAnswerInfo">
+            <Border Grid.Column="1" Margin="5,0,5,0" BorderBrush="Black" BorderThickness="0.5" >
+            <Grid >
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="50*"/>
-                    <RowDefinition Height="50*"/>
-                    <RowDefinition Height="50*"/>
-                    <RowDefinition Height="50*"/>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="150*"/>
-                    <ColumnDefinition Width="100*"/>
-                    <ColumnDefinition Width="300*"/>
-                    <ColumnDefinition Width="50*"/>
-                </Grid.ColumnDefinitions>
-                <Border Grid.Row="0" Background="Aqua" Margin="3"/>
-                <Border Grid.Row="1" Background="Aquamarine" Margin="3"/>
-                <Border Grid.Row="2" Background="Chartreuse" Margin="3"/>
-                <Border Grid.Row="3" Background="DarkGreen" Margin="3"/>
-                
-            </Grid>
-            <Grid Grid.Column="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="75*"/>
-                    <ColumnDefinition Width="75*"/>
-                </Grid.ColumnDefinitions>
+                    <Border Grid.Row="0" Margin="0,5,0,0" BorderBrush="Black" BorderThickness="0.5">
+                <Viewbox >
+                    <Button Name="btnTimeVideo" 
+                             FontSize="4"
+                             BorderBrush="Transparent"
+                            BorderThickness="0"
+                            Foreground="Black" Background="Transparent" Content="Time Start"  FontWeight="DemiBold" Click="BtnTimeVideo_Click"                          
+                            >
+
+
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="Gray"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </Viewbox>
+                    </Border>
+                    <Border Grid.Row="1" BorderBrush="Black" BorderThickness="0.5">
+                    <Viewbox >
+                    <Button Name="btnNameAnswer"
+                             BorderBrush="Transparent"
+                            BorderThickness="0"
+                            Foreground="Black" Background="Transparent" Content="Đáp án của thí sinh"  FontWeight="DemiBold"  Click="BtnNameAnswer_Click">
+
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="Gray"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </Viewbox>
+                    </Border>
+                    <Border Grid.Row="2" BorderBrush="Black" BorderThickness="0.5">
+                        <Viewbox >
+                    <Button Name="btnShowAnswer" Foreground="Black"
+                             FontSize="1.8"
+                             BorderBrush="Transparent"
+                           BorderThickness="0"
+                            Background="Transparent" Content="Đáp án câu hỏi"  FontWeight="DemiBold"  Click="BtnShowAnswer_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="Gray"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </Viewbox>
+                    </Border>
+                    <Border Grid.Row="3" BorderBrush="Black" BorderThickness="0.5">
+                    <Viewbox >
+                    <Button Name="btnBUQuestion" 
+                            FontSize="2"
+                             BorderBrush="Transparent"
+                           BorderThickness="0"
+                            Foreground="Black" Background="Transparent" Content="Backup Question"  FontWeight="DemiBold"  Click="BtnBUQuestion_Click">
+
+
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="Gray"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </Viewbox>
+                    </Border>
+                </Grid>
+            </Border>
+            <Border Grid.Row="0" Margin="2,1,2,0" BorderBrush="Black" BorderThickness="0.5" >
+            <Grid >
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="2*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="2*"/>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
-                <Button Name="btnTrue" Grid.Column="0" Grid.Row="1" Content="Đúng" Background="Green" FontSize="20" Margin="3" Click="BtnTrue_Click"/>
-                <Button Name="btnFalse" Grid.Column="1" Grid.Row="1" Content="Sai" Background="Red" FontSize="20" Margin="3" Click="BtnFalse_Click"/>
-                
+                    <Border Grid.Row="0" BorderBrush="Black" BorderThickness="0.5">
+                <Viewbox >
+                    <Button Uid="0" Foreground="Black"
+                             Content="Câu hỏi 1"
+                            FontSize="3.1"
+                             BorderBrush="Transparent"
+                            BorderThickness="0"
+                             
+                            Background="Transparent"  FontWeight="DemiBold" Click="Question_Click">
+
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="Gray"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                   
+                    </Viewbox>
+                    </Border>
+                    <Border Grid.Row="1" BorderBrush="Black" BorderThickness="0.5">
+                    <Viewbox >
+                    <Button Uid="1" Foreground="Black" 
+                             FontSize="3"
+                             BorderBrush="Transparent"
+                            BorderThickness="0"
+                            Content="Câu hỏi 2" Background="Transparent"
+                            FontWeight="DemiBold" Click="Question_Click"
+                        >
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="Gray"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </Viewbox>
+                    </Border>
+                    <Border Grid.Row="2" BorderBrush="Black" BorderThickness="0.5">
+                    <Viewbox >
+                    <Button Uid="2" Foreground="Black" 
+                            FontSize="3" 
+                             BorderBrush="Transparent"
+                            BorderThickness="0"
+                            Content="Câu hỏi 3" Background="Transparent"   FontWeight="DemiBold" Click="Question_Click">
+
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="Gray"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </Viewbox>
+                    </Border>
+                    <Border Grid.Row="3" BorderBrush="Black" BorderThickness="0.5">
+                    <Viewbox >
+                    <Button Uid="3" Foreground="Black"
+                            FontSize="3"
+                             BorderBrush="Transparent"
+                             BorderThickness="0"
+                            Content="Câu hỏi 4" Background="Transparent" FontWeight="DemiBold" Click="Question_Click">
+
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="Gray"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </Viewbox>
+                    </Border>
+                </Grid>
+            </Border>
+            <Border Grid.Column="2" BorderBrush="Black" BorderThickness="0.5" CornerRadius="7" Margin="1,0,5,0">
+            <Grid >
+                <Grid  Name="gridAnswerInfo">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50*"/>
+                        <RowDefinition Height="50*"/>
+                        <RowDefinition Height="50*"/>
+                        <RowDefinition Height="50*"/>
+                    </Grid.RowDefinitions>
+                    
+                    <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150*"></ColumnDefinition>
+                            <ColumnDefinition Width="100*"></ColumnDefinition>
+                            <ColumnDefinition Width="300*"></ColumnDefinition>
+                            <ColumnDefinition Width="50*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Row="0" Grid.Column="0" Background="Aqua" Margin="1"/>
+                    <Border Grid.Row="1" Grid.Column="0" Background="Aquamarine" Margin="1"/>
+                    <Border Grid.Row="2" Grid.Column="0" Background="Chartreuse" Margin="1"/>
+                    <Border Grid.Row="3" Grid.Column="0" Background="DarkGreen" Margin="1"/>
+                </Grid>
             </Grid>
+            </Border>
+            <Border Grid.Column="3" BorderBrush="Black" BorderThickness="0.5" >
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                    <Border Grid.Row="0" BorderBrush="Black" BorderThickness="0.5">
+                <Viewbox >
+                        <Button Name="btnIntroVideo" 
+                                FontSize="3"
+                            BorderBrush="Transparent"
+                           BorderThickness="0"
+                            Content="Intro Video" Foreground="Black"  Background="Transparent" FontWeight="DemiBold" Click="BtnIntroVideo_Click">
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Background" Value="Transparent"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="Gray"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                    </Viewbox>
+                    </Border>
+                    <Border Grid.Row="1"  BorderBrush="Black" BorderThickness="0.5">
+                    <Viewbox >
+                        <Button Name="btnIntroSound" 
+                                FontSize="3"
+                            BorderBrush="Transparent"
+                           BorderThickness="0"
+                            Content="Intro Sound" Foreground="Black"  Background="Transparent" FontWeight="DemiBold" Click="BtnIntroSound_Click">
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Background" Value="Transparent"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="Gray"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+
+                    </Viewbox>
+                    </Border>
+                    <Viewbox Grid.Row="2">
+                    <DockPanel>
+                        <Button Name="btnTrue"   Content="Đúng" Background="Green"   Click="BtnTrue_Click"/>
+                        <Button Name="btnFalse"   Content="Sai" Background="Red"   Click="BtnFalse_Click"/>
+                    </DockPanel>
+
+                </Viewbox>
+            </Grid>
+            </Border>
         </Grid>
     </Grid>
 </UserControl>

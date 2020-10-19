@@ -80,13 +80,13 @@ namespace ServerDTT_New_.User_Control
                 txtBlockStudentAnswer.SetValue(Grid.ColumnProperty, 2);
                 txtBlockStudentAnswer.SetValue(Grid.RowProperty, i);
                 txtBlockStudentAnswerList.Add(txtBlockStudentAnswer);
-                gridAnswerInfo.Children.Add(txtBlockStudentAnswer);
+                gridAnswerInfo.Children.Add(txtBlockStudentAnswer);//may be here
 
                 TextBlock txtBlockStudentTime = new TextBlock { Margin = new Thickness(3), FontSize = 20, Background = Brushes.White, TextAlignment = TextAlignment.Center, HorizontalAlignment=HorizontalAlignment.Center };
                 txtBlockStudentTime.SetValue(Grid.ColumnProperty, 1);
                 txtBlockStudentTime.SetValue(Grid.RowProperty, i);
                 txtBlockStudentTimeList.Add(txtBlockStudentTime);
-                gridAnswerInfo.Children.Add(txtBlockStudentTime);
+                gridAnswerInfo.Children.Add(txtBlockStudentTime);//may be here
 
                 CheckBox checkBoxTrueAnswer = new CheckBox { Background = Brushes.White, HorizontalAlignment = HorizontalAlignment.Center, VerticalAlignment = VerticalAlignment.Center };
                 checkBoxTrueAnswer.SetValue(Grid.ColumnProperty, 3);
