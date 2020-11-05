@@ -14,9 +14,9 @@
              d:DesignHeight="450" d:DesignWidth="800" Background="#9e9e9e">
     <Grid Name="mainGrid">
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="2*"></RowDefinition>
-            <RowDefinition Height="0.6*"></RowDefinition>
+            <RowDefinition Height="0.42*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Viewbox>
@@ -31,28 +31,82 @@
             <Border Grid.Column="0" BorderBrush="Black" BorderThickness="1" CornerRadius="10">
             <Grid Name="gridMatrixTable"  Margin="0,0,8,4"/>
             </Border>
+          
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="0.8*"></RowDefinition>
                     <RowDefinition Height="2.3*"></RowDefinition>
                     <RowDefinition Height="2*"></RowDefinition>
                     
                 </Grid.RowDefinitions>
+                <Border Margin="3" Grid.Row="0" BorderBrush="Black" BorderThickness="1" CornerRadius="5">
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition  Width="0.01*"></ColumnDefinition>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition  Width="0.01*"></ColumnDefinition>
+                        <ColumnDefinition  Width="0.8*"></ColumnDefinition>
+                        <ColumnDefinition  Width="0.01*"></ColumnDefinition>
+                        <ColumnDefinition  Width="0.6*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    
+                    <Viewbox Grid.Column="0" Margin="10,0,0,0">
+                        <Button Name="btnIntroVideo"  Background="#caf0f8"
+                     Style="{StaticResource MaterialDesignRaisedLightButton}"
+                     materialDesign:ButtonAssist.CornerRadius="5"
+                      
+                    Content="Intro Video"  Foreground="#333533" FontWeight="DemiBold" Click="BtnIntroVideo_Click"/>
+                    </Viewbox>
 
-                <Border BorderBrush="Black" BorderThickness="1" CornerRadius="15" >
-                <Grid Grid.Row="0" Margin="3">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="10 *"/>
-                        <RowDefinition Height="30*"/>
-                        <RowDefinition Height="10*"/>
-                        <RowDefinition Height="30*"/>
-                    </Grid.RowDefinitions>
-                    <TextBlock Text="Câu hỏi" Foreground="Black"/>
-                    <TextBlock Name="txtBlockQuestion" Margin="5,0,0,0" Background="White" Grid.Row="1"/>
-                    <TextBlock Text="Trả lời" Foreground="Black" Grid.Row="2"/>
-                    <TextBlock Name="txtBlockAnswer"  Margin="5,0,0,2" Background="White" Grid.Row="4"/>
+                    <Viewbox Grid.Column="2" Margin="0,0,2,0">
+                        <Button Name="btnIntroSound"  Background="#caf0f8"
+                              Style="{StaticResource MaterialDesignRaisedLightButton}"
+                     materialDesign:ButtonAssist.CornerRadius="5"
+                    Content="Intro Sound"  Foreground="#333533" FontWeight="DemiBold" Click="BtnIntroSound_Click"/>
+                    </Viewbox>
+                    <Viewbox Grid.Column="4" Margin="1,0,1,0">
+                        <Button Name="btnRule"
+                            Style="{StaticResource MaterialDesignRaisedLightButton}"
+                            materialDesign:ButtonAssist.CornerRadius="5"
+                             Background="#90e0ef"
+                    Content="Luật chơi"  Foreground="Black" FontWeight="DemiBold" Click="BtnRule_Click"/>
+                    </Viewbox>
+                    <Viewbox Grid.Column="6">
+                        <Button Name="btnStart" 
+                             Style="{StaticResource MaterialDesignRaisedLightButton}"
+                            materialDesign:ButtonAssist.CornerRadius="5"
+                            Background="Black"
+                    Content="Start"  Foreground="White" FontWeight="DemiBold" Click="BtnStart_Click"/>
+                    </Viewbox>
                 </Grid>
                 </Border>
-                <Border  Grid.Row="1" BorderBrush="Black" BorderThickness="1" CornerRadius="15">
+                <Border Margin="3" Grid.Row="1" BorderBrush="Black" BorderThickness="1" CornerRadius="15" >
+                <Grid  Margin="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10*"/>
+                        <RowDefinition Height="25*"/>
+                        <RowDefinition Height="10*"/>
+                        <RowDefinition Height="15*"/>
+                         <RowDefinition Height="15*"/>
+                     </Grid.RowDefinitions>
+                    <TextBlock Text="Câu hỏi" Foreground="Black" FontSize="15"/>
+                    <TextBlock Name="txtBlockQuestion" Margin="5,0,0,0" Background="White" Grid.Row="1"/>
+                        <TextBlock Text="Trả lời" Foreground="Black" Grid.Row="2" FontSize="15"/>
+                    <TextBlock Name="txtBlockAnswer"  Margin="5,0,0,2" FontSize="15" Background="White" Grid.Row="3"/>
+
+                        <Viewbox Grid.Row="4" HorizontalAlignment="Right" Margin="0,3,4,0">
+                            <Button Name="btnBUQuestion"
+                            Style="{StaticResource MaterialDesignRaisedLightButton}"
+                            materialDesign:ButtonAssist.CornerRadius="5"
+                             Foreground="#001427"
+                            Content="Backup Question"  Background="#0077b6"
+                            Click="BtnBUQuestion_Click"/>
+
+                        </Viewbox>
+                    </Grid>
+                </Border>
+                <Border Margin="3" Grid.Row="2" BorderBrush="Black" BorderThickness="1" CornerRadius="15">
                 <Grid   Name="gridStudentInfo" Background="Aqua" Margin="7,4,3,3">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="110*"/>
@@ -75,14 +129,14 @@
         <Border Grid.Row="2" BorderBrush="Black" BorderThickness="1" CornerRadius="10">
         <Grid >
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.04*"></ColumnDefinition>
-                <ColumnDefinition Width="0.65*"></ColumnDefinition>
-                <ColumnDefinition Width="0.05*"></ColumnDefinition>
-                <ColumnDefinition Width="0.52*"></ColumnDefinition>
-                <ColumnDefinition Width="0.05*"></ColumnDefinition>
-                <ColumnDefinition Width="0.77*"></ColumnDefinition>
                 <ColumnDefinition Width="0.06*"></ColumnDefinition>
-                <ColumnDefinition Width="0.9*"></ColumnDefinition>
+                <ColumnDefinition Width="0.6*"></ColumnDefinition>
+                <ColumnDefinition Width="0.07*"></ColumnDefinition>
+                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                <ColumnDefinition Width="0.06*"></ColumnDefinition>
+                <ColumnDefinition Width="0.7*"></ColumnDefinition>
+                <ColumnDefinition Width="0.06*"></ColumnDefinition>
+                <ColumnDefinition Width="0.8*"></ColumnDefinition>
                 <ColumnDefinition Width="0.06*"></ColumnDefinition>
                 <ColumnDefinition Width="0.75*"></ColumnDefinition>
                 <ColumnDefinition Width="0.06*"></ColumnDefinition>
@@ -92,23 +146,16 @@
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
+                 
                 </Grid.RowDefinitions>
-                <Viewbox Grid.Row="0">
-                        <Button Name="btnIntroVideo"  Background="#caf0f8"
-                     Style="{StaticResource MaterialDesignRaisedLightButton}"
-                     materialDesign:ButtonAssist.CornerRadius="5"
-                      
-                    Content="Intro Video"  Foreground="#333533" FontWeight="DemiBold" Click="BtnIntroVideo_Click"/>
-                </Viewbox>
-
-                <Viewbox Grid.Row="1">
-                        <Button Name="btnIntroSound"  Background="#caf0f8"
-                              Style="{StaticResource MaterialDesignRaisedLightButton}"
-                     materialDesign:ButtonAssist.CornerRadius="5"
-                    Content="Intro Sound"  Foreground="#333533" FontWeight="DemiBold" Click="BtnIntroSound_Click"/>
-                </Viewbox>
-                <Viewbox Grid.Row="2">
+                    <Viewbox Grid.Row="0">
+                        <Button Name="btnQuestionHint" 
+                            Style="{StaticResource MaterialDesignRaisedLightButton}"
+                            materialDesign:ButtonAssist.CornerRadius="5"
+                            Foreground="#242423"
+                            Content="Câu hỏi/Gợi ý"  Background="#00b4d8" Click="BtnQuestionHint_Click"/>
+                    </Viewbox>
+                    <Viewbox Grid.Row="1">
                     <Button Name="btnDisable" Grid.Row="4" 
                               Style="{StaticResource MaterialDesignRaisedLightButton}"
                              materialDesign:ButtonAssist.CornerRadius="5"
@@ -120,43 +167,38 @@
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
+                  
                 </Grid.RowDefinitions>
-                <Viewbox Grid.Column="0">
+                <Viewbox Grid.Column="0" Margin="0,1,0,1">
                     <Button Name="btnMatrix" Grid.Row="1"
                             Style="{StaticResource MaterialDesignRaisedLightButton}"
                             materialDesign:ButtonAssist.CornerRadius="5"
                             Content="Ma Trận" Background="#90e0ef" Click="BtnMatrix_Click"/>
                 </Viewbox>
 
-                <Viewbox Grid.Row="1">
+                <Viewbox Grid.Row="1" Margin="0,1,0,1">
                     <Button Name="btnQuestionTime" 
                              Style="{StaticResource MaterialDesignRaisedLightButton}"
                             materialDesign:ButtonAssist.CornerRadius="5"
                             Grid.Row="2" Content="Qst Time"  Background="#90e0ef" Click="BtnQuestionTime_Click"/>
                 </Viewbox>
-                <Viewbox Grid.Row="2">
-                    <Button Name="btnRule"
-                            Style="{StaticResource MaterialDesignRaisedLightButton}"
-                            materialDesign:ButtonAssist.CornerRadius="5"
-                             Background="#90e0ef"
-                    Content="Luật chơi"  Foreground="Black" FontWeight="DemiBold" Click="BtnRule_Click"/>
-                </Viewbox>
+                
             </Grid>
             <Grid Grid.Column="5">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
+                 
                 </Grid.RowDefinitions>
-                <Viewbox Grid.Row="0">
-                    <Button Name="btnQuestionHint" 
+             
+                    <Viewbox Grid.Row="0">
+                        <Button Name="btnChooseHintTime" 
                             Style="{StaticResource MaterialDesignRaisedLightButton}"
                             materialDesign:ButtonAssist.CornerRadius="5"
-                            Foreground="#242423"
-                            Content="Câu hỏi/Gợi ý"  Background="#00b4d8" Click="BtnQuestionHint_Click"/>
-                </Viewbox>
-                <Viewbox Grid.Row="1">
+                             Foreground="#242423"
+                            Content="Choose hint Time" Background="#00b4d8" Click="BtnChooseHintTime_Click"/>
+                    </Viewbox>
+                    <Viewbox Grid.Row="1">
                     <Button Name="btnFinalHint"
                             Style="{StaticResource MaterialDesignRaisedLightButton}"
                             materialDesign:ButtonAssist.CornerRadius="5"
@@ -165,19 +207,13 @@
                     Content="Gợi ý cuối cùng"   FontWeight="DemiBold" Click="BtnFinalHint_Click"/>
 
                 </Viewbox>
-                <Viewbox Grid.Row="2">
-                    <Button Name="btnChooseHintTime" 
-                            Style="{StaticResource MaterialDesignRaisedLightButton}"
-                            materialDesign:ButtonAssist.CornerRadius="5"
-                             Foreground="#242423"
-                            Content="Choose hint Time" Background="#00b4d8" Click="BtnChooseHintTime_Click"/>
-                </Viewbox>
+                
             </Grid>
             <Grid Grid.Column="7">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
+            
                 </Grid.RowDefinitions>
                 <Viewbox Grid.Row="0">
                     <Button Name="btnStudentAnswer" 
@@ -194,20 +230,12 @@
                     Content="Đáp án cuối cùng"   Foreground="#001427" FontWeight="DemiBold" Click="BtnFinalAns_Click"/>
             
                 </Viewbox>
-                <Viewbox Grid.Row="2">
-                    <Button Name="btnBUQuestion"
-                            Style="{StaticResource MaterialDesignRaisedLightButton}"
-                            materialDesign:ButtonAssist.CornerRadius="5"
-                             Foreground="#001427"
-                            Content="Backup Question"  Background="#0077b6"
-                            Click="BtnBUQuestion_Click"/>
-
-                </Viewbox>
+               
             </Grid>
             <Grid Grid.Column="9">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="2*"></RowDefinition>
-                        <RowDefinition Height="1*"></RowDefinition>
+                       
                     </Grid.RowDefinitions>
                     <Border BorderBrush="Beige" BorderThickness="2" CornerRadius="10">
                     <Grid Grid.Row="0">
@@ -245,13 +273,7 @@
                     </Grid>
                     </Border>
 
-                    <Viewbox Grid.Row="2">
-                    <Button Name="btnStart" 
-                             Style="{StaticResource MaterialDesignRaisedLightButton}"
-                            materialDesign:ButtonAssist.CornerRadius="5"
-                            Background="Black"
-                    Content="Start"  Foreground="White" FontWeight="DemiBold" Click="BtnStart_Click"/>
-                </Viewbox>
+                    
             </Grid>
             
         </Grid>
