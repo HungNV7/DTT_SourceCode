@@ -74,7 +74,7 @@ namespace ServerDTT_New_.User_Control
 
                 Viewbox viewboxPackQuestion = new Viewbox();
                 viewboxPackQuestion.SetValue(Grid.ColumnProperty, i);
-                Button btnPackQuestion = new Button { Background = Brushes.CornflowerBlue, Foreground = Brushes.Black, Content = "Câu hỏi" + (i + 1).ToString(), Uid = i.ToString() };
+                Button btnPackQuestion = new Button { Background = Brushes.Transparent, Foreground = Brushes.Black, Content = "Câu hỏi " + (i + 1).ToString(), Uid = i.ToString() };
                 viewboxPackQuestion.Child = btnPackQuestion;
                 btnPackQuestion.Click += BtnPackQuestion_Click;
                 gridPackQuestion.Children.Add(viewboxPackQuestion);
@@ -82,10 +82,10 @@ namespace ServerDTT_New_.User_Control
 
             for (int i = 0; i < numberOfStudent; i++)
             {
-                Button btnChooseStudent = new Button { Background = Brushes.LightBlue, Foreground = Brushes.Black, Content = "Thí sinh" + (i + 1).ToString(), Uid = i.ToString() };
+                Button btnChooseStudent = new Button { Background = Brushes.Transparent, Foreground = Brushes.Black, Content = "Thí sinh " + (i + 1).ToString(), Uid = i.ToString() };
                 btnChooseStudent.Click += BtnChooseStudent_Click;
                 Viewbox viewboxChooseStudent = new Viewbox();
-                viewboxChooseStudent.SetValue(Grid.RowProperty, 2 + i);
+                viewboxChooseStudent.SetValue(Grid.RowProperty, 1 + i);// thay doi vi tri add vao 
                 viewboxChooseStudent.Child = btnChooseStudent;
                 gridChooseStudent.Children.Add(viewboxChooseStudent);
                 btnChooseStudentList.Add(btnChooseStudent);

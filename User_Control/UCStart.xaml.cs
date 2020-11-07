@@ -61,7 +61,7 @@ namespace ServerDTT_New_.User_Control
         {
             for (int i = 0; i < numberOfStudent; i++)
             {
-                Button btnStudent = new Button {Margin=new Thickness(5), Content = studentList[i].Name, Uid=i.ToString(), Background = Brushes.Blue, FontSize = 20, FontWeight = FontWeights.DemiBold };
+                Button btnStudent = new Button {Content = studentList[i].Name, Uid=i.ToString(), Background = Brushes.Transparent , FontWeight = FontWeights.DemiBold,Foreground=Brushes.Black, Height=65 ,FontSize=30 ,BorderBrush=Brushes.Black};
                 btnStudent.SetValue(Grid.RowProperty, i + 1);
                 btnStudent.Click += BtnStudent_Click;
                 btnStudentList.Add(btnStudent);
