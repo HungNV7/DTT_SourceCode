@@ -6,17 +6,28 @@
              xmlns:local="clr-namespace:ServerDTT_New_.User_Control"
              mc:Ignorable="d" 
                d:DesignHeight="450" d:DesignWidth="800"
+
              Background="DarkBlue">
+
     <Grid>
-        <!--Khung lớn-->
+           
         <Grid.RowDefinitions>
+
             <RowDefinition Height="50"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="4*"/>
 
         </Grid.RowDefinitions>
-
+             <!--Media-->
+        <MediaElement Name="IntroMusic" LoadedBehavior="Manual" Grid.Column="1" HorizontalAlignment="Left" Height="29" Margin="10,10,0,0" VerticalAlignment="Top" Width="41"/>
+        <MediaElement Name="ShowRowsSound" LoadedBehavior="Manual" Grid.Column="1" HorizontalAlignment="Left" Height="29" Margin="56,10,0,0" VerticalAlignment="Top" Width="41"/>
+        <MediaElement Name="RowChosenSound" LoadedBehavior="Manual" Grid.Column="1" HorizontalAlignment="Left" Height="29" Margin="56,10,0,0" VerticalAlignment="Top" Width="41"/>
+        <MediaElement Name="TrueRowSound" LoadedBehavior="Manual" Grid.Column="1" HorizontalAlignment="Left" Height="29" Margin="102,10,0,0" VerticalAlignment="Top" Width="41"/>
+        <MediaElement Name="ShowHintSound" LoadedBehavior="Manual" Grid.Column="1" HorizontalAlignment="Left" Height="29" Margin="148,10,0,0" VerticalAlignment="Top" Width="41"/>
+        <MediaElement Name="TrueKeySound" LoadedBehavior="Manual" Grid.Column="1" HorizontalAlignment="Left" Height="29" Margin="10,10,0,0" VerticalAlignment="Top" Width="41" Grid.Row="2"/>
+        <MediaElement Name="EliminateSound" LoadedBehavior="Manual" Grid.Column="1" HorizontalAlignment="Left" Height="29" Margin="56,10,0,0" VerticalAlignment="Top" Width="41" Grid.Row="2"/>
+        <MediaElement Name="BellSound" LoadedBehavior="Manual" Grid.Column="1" HorizontalAlignment="Left" Height="29" Margin="102,10,0,0" VerticalAlignment="Top" Width="41" Grid.Row="2"/>
         
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5*"/>
@@ -79,8 +90,8 @@
 
         <Grid Grid.Column="1" Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*"/>
-                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <ComboBox Name="comboBoxNumber" Grid.Column="1" Background="White" SelectedIndex="0" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" Height="51" Width="86" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
             <TextBlock Text="Chọn câu hỏi số"  FontSize="15" Foreground="#EBEBEB" TextAlignment="Center" HorizontalAlignment="Right" Height="44" Margin="18,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="129"/>
@@ -209,14 +220,11 @@
             </Grid>
             </Border>
         </Grid>
-
-        <!--Nút điều khiển chuông-->
-        <!--Câu hỏi và đáp án-->
-        <Grid Grid.Column="1" Grid.Row="3">
+        <Grid Grid.Row="2">
             <Grid.RowDefinitions>
-                <RowDefinition Height="50*"/>
-                <RowDefinition Height="50*"/>
-                <RowDefinition Height="122*"/>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <Border Grid.Row="0" Grid.Column="0" BorderBrush="Black" BorderThickness="0.5" Margin="3,0,3,0">
                          
@@ -285,7 +293,6 @@
         <MediaElement Name="TrueKeySound" LoadedBehavior="Manual"  Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Height="29" Margin="10,10,0,0" VerticalAlignment="Top" Width="41" />
         <MediaElement Name="EliminateSound" LoadedBehavior="Manual" Grid.Column="1" HorizontalAlignment="Left" Height="29" Margin="56,10,0,0" VerticalAlignment="Top" Width="41" Grid.Row="2"/>
         <MediaElement Name="BellSound" LoadedBehavior="Manual" Grid.Column="1" HorizontalAlignment="Left" Height="29" Margin="102,10,0,0" VerticalAlignment="Top" Width="41" Grid.Row="2"/>
-
 
 
 

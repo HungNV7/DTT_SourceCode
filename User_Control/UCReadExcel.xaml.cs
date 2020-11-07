@@ -83,8 +83,11 @@ namespace ServerDTT_New_.ExtendedWindow
                 string id = row["matchID"].ToString();
                 string name = row["name"].ToString();
 
-                matches.Add(id, name);
-                cbMatch.Items.Add(name);
+                if (!matches.ContainsKey(id))
+                {
+                    matches.Add(id, name);
+                    cbMatch.Items.Add(name);
+                }
             }
         }
 
@@ -403,7 +406,13 @@ namespace ServerDTT_New_.ExtendedWindow
 
                 command = String.Format("INSERT INTO tblDetailMatch(No, studentID, matchID, position, point) VALUES({0}, {1}, N'{2}', {3}, 0)", no, studentId, matchID, i+1);
                 DataProvider.Instance.ExecuteNonQuery(command);
+                mainWindow.GetMatch();
             }
+        }
+
+        private void btnCreateDB_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

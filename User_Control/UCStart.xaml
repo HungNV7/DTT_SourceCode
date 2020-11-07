@@ -8,10 +8,13 @@
              d:DesignHeight="450" d:DesignWidth="800" Background="LightGray">
     <Grid>
         <Grid.RowDefinitions>
+
             <RowDefinition Height="50"/>
             <RowDefinition Height="160*"/>
+
             <RowDefinition Height="100*"/>
             <RowDefinition Height="50*"/>
+            <RowDefinition Height="160*"/>
             <RowDefinition Height="50*"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" >
@@ -19,7 +22,9 @@
                 <TextBlock Text="KHỞI ĐỘNG" Foreground="Black"  FontFamily="Times new roman"/>
             </Viewbox>
         </Grid>
+
         <Grid Grid.Row="1" Margin="10,0,10,10">
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200*"/>
                 <ColumnDefinition Width="50*"/>
@@ -65,7 +70,9 @@
                 </StackPanel>
             </Grid>
             </Border>
+
             <Border Grid.Column="0" BorderBrush="Black" BorderThickness="0.5" CornerRadius="7" Margin="2">
+
             <Grid  Name="gridBtnStudent" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="20*"/>
@@ -81,7 +88,9 @@
             </Grid>
             </Border>
         </Grid>
+
         <Border Grid.Row="2" BorderBrush="Black" BorderThickness="0.5" CornerRadius="7" Margin="10,0,10,0">
+
         <Grid >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="15*"/>
@@ -104,7 +113,9 @@
 
         </Grid>
         </Border >
+
         <Border Grid.Row="3" BorderBrush="Black" BorderThickness="0.5" CornerRadius="7" Margin="10">
+
         <Grid >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="15*"/>
@@ -125,7 +136,9 @@
             </Grid>
         </Grid>
         </Border>
+
         <Border Grid.Row="4" BorderBrush="Black" BorderThickness="2" CornerRadius="7" Margin="10">
+
         <Grid >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>

@@ -14,9 +14,11 @@
              d:DesignHeight="450" d:DesignWidth="800" Background="#9e9e9e">
     <Grid Name="mainGrid">
         <Grid.RowDefinitions>
+
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="2*"></RowDefinition>
             <RowDefinition Height="0.42*"></RowDefinition>
+
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Viewbox>
@@ -30,15 +32,16 @@
             </Grid.ColumnDefinitions>
             <Border Grid.Column="0" BorderBrush="Black" BorderThickness="1" CornerRadius="10">
             <Grid Name="gridMatrixTable"  Margin="0,0,8,4"/>
-            </Border>
-          
+            </Border>    
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="0.8*"></RowDefinition>
+
                     <RowDefinition Height="2.3*"></RowDefinition>
                     <RowDefinition Height="2*"></RowDefinition>
                     
                 </Grid.RowDefinitions>
+
                 <Border Margin="3" Grid.Row="0" BorderBrush="Black" BorderThickness="1" CornerRadius="5">
                 <Grid >
                     <Grid.ColumnDefinitions>
@@ -107,6 +110,7 @@
                     </Grid>
                 </Border>
                 <Border Margin="3" Grid.Row="2" BorderBrush="Black" BorderThickness="1" CornerRadius="15">
+
                 <Grid   Name="gridStudentInfo" Background="Aqua" Margin="7,4,3,3">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="110*"/>
@@ -129,6 +133,7 @@
         <Border Grid.Row="2" BorderBrush="Black" BorderThickness="1" CornerRadius="10">
         <Grid >
             <Grid.ColumnDefinitions>
+
                 <ColumnDefinition Width="0.06*"></ColumnDefinition>
                 <ColumnDefinition Width="0.6*"></ColumnDefinition>
                 <ColumnDefinition Width="0.07*"></ColumnDefinition>
@@ -137,6 +142,7 @@
                 <ColumnDefinition Width="0.7*"></ColumnDefinition>
                 <ColumnDefinition Width="0.06*"></ColumnDefinition>
                 <ColumnDefinition Width="0.8*"></ColumnDefinition>
+
                 <ColumnDefinition Width="0.06*"></ColumnDefinition>
                 <ColumnDefinition Width="0.75*"></ColumnDefinition>
                 <ColumnDefinition Width="0.06*"></ColumnDefinition>
@@ -156,6 +162,7 @@
                             Content="Câu hỏi/Gợi ý"  Background="#00b4d8" Click="BtnQuestionHint_Click"/>
                     </Viewbox>
                     <Viewbox Grid.Row="1">
+
                     <Button Name="btnDisable" Grid.Row="4" 
                               Style="{StaticResource MaterialDesignRaisedLightButton}"
                              materialDesign:ButtonAssist.CornerRadius="5"
@@ -182,7 +189,7 @@
                             materialDesign:ButtonAssist.CornerRadius="5"
                             Grid.Row="2" Content="Qst Time"  Background="#90e0ef" Click="BtnQuestionTime_Click"/>
                 </Viewbox>
-                
+               
             </Grid>
             <Grid Grid.Column="5">
                 <Grid.RowDefinitions>
@@ -199,6 +206,7 @@
                             Content="Choose hint Time" Background="#00b4d8" Click="BtnChooseHintTime_Click"/>
                     </Viewbox>
                     <Viewbox Grid.Row="1">
+
                     <Button Name="btnFinalHint"
                             Style="{StaticResource MaterialDesignRaisedLightButton}"
                             materialDesign:ButtonAssist.CornerRadius="5"
@@ -207,13 +215,12 @@
                     Content="Gợi ý cuối cùng"   FontWeight="DemiBold" Click="BtnFinalHint_Click"/>
 
                 </Viewbox>
-                
             </Grid>
             <Grid Grid.Column="7">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
-            
+
                 </Grid.RowDefinitions>
                 <Viewbox Grid.Row="0">
                     <Button Name="btnStudentAnswer" 
@@ -230,12 +237,11 @@
                     Content="Đáp án cuối cùng"   Foreground="#001427" FontWeight="DemiBold" Click="BtnFinalAns_Click"/>
             
                 </Viewbox>
-               
             </Grid>
             <Grid Grid.Column="9">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="2*"></RowDefinition>
-                       
+
                     </Grid.RowDefinitions>
                     <Border BorderBrush="Beige" BorderThickness="2" CornerRadius="10">
                     <Grid Grid.Row="0">
@@ -273,7 +279,6 @@
                     </Grid>
                     </Border>
 
-                    
             </Grid>
             
         </Grid>
