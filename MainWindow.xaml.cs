@@ -117,20 +117,10 @@ namespace ServerDTT_New_
 
         public void GetMatch()
         {
-<<<<<<< HEAD
-<<<<<<< HEAD
-            String command = "SELECT DISTINCT A.matchID, B.name FROM tblDetailMatch A, tblMatch B WHERE A.matchID = B.matchID";
-=======
-            matches = new Dictionary<string, string>();
-
-            String command = "SELECT * FROM tblMatch";
->>>>>>> ADD
-=======
 
             matches = new Dictionary<string, string>();
 
             String command = "SELECT DISTINCT A.matchID, B.name FROM tblDetailMatch A, tblMatch B WHERE A.matchID = B.matchID";
->>>>>>> 4aa17011ab93fff031e7649e7db9d7dc76d76c5a
 
             DataTable data = DataProvider.Instance.ExecuteQuery(command);
 
@@ -138,26 +128,13 @@ namespace ServerDTT_New_
             {
                 string id = row["matchID"].ToString();
                 string name = row["name"].ToString();
-<<<<<<< HEAD
 
-<<<<<<< HEAD
-=======
->>>>>>> 4aa17011ab93fff031e7649e7db9d7dc76d76c5a
                 if (!matches.ContainsKey(id))
                 {
                     matches.Add(id, name);
                     cbMatch.Items.Add(name);
                 }
-<<<<<<< HEAD
-                
-                
-=======
-                matches.Add(id, name);
-                cbMatch.Items.Add(name);
->>>>>>> ADD
-=======
-               
->>>>>>> 4aa17011ab93fff031e7649e7db9d7dc76d76c5a
+
             }
         }
 

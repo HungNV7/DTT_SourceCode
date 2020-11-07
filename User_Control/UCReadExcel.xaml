@@ -50,19 +50,9 @@
             <Label Grid.Row="0" Grid.Column="2" FontSize="24" Foreground="White" HorizontalAlignment="Center">Class</Label>
             <Label Grid.Row="0" Grid.Column="3" FontSize="24" Foreground="White" HorizontalAlignment="Center">First Name</Label>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
             <Button x:Name="btnSubmit" Grid.Row="5" Grid.Column="0" Height="43" Margin="0,0,0,-0.2" Grid.RowSpan="2" VerticalAlignment="Bottom" Click="btnSubmit_Click">Submit</Button>
             <ComboBox x:Name="cbMatch" Grid.Row="5" Grid.Column="1"></ComboBox>
-=======
-            <Button x:Name="btnSubmit" Grid.Row="4" Grid.Column="0" Height="43" Margin="0,0,0,-0.2" Grid.RowSpan="2" VerticalAlignment="Bottom" Click="btnSubmit_Click">Submit</Button>
-            <ComboBox x:Name="cbMatch" Grid.Row="5" Grid.Column="3"></ComboBox>
->>>>>>> ADD
-=======
-            <Button x:Name="btnSubmit" Grid.Row="5" Grid.Column="0" Height="43" Margin="0,0,0,-0.2" Grid.RowSpan="2" VerticalAlignment="Bottom" Click="btnSubmit_Click">Submit</Button>
-            <ComboBox x:Name="cbMatch" Grid.Row="5" Grid.Column="1"></ComboBox>
->>>>>>> 4aa17011ab93fff031e7649e7db9d7dc76d76c5a
         </Grid>
-        <TextBox Grid.Row="3" Name="txtBlockFinish" />
+        <TextBox Grid.Row="3" Name="txtBlockFinish"/>
     </Grid>
 </UserControl>
