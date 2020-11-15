@@ -57,9 +57,7 @@ namespace ServerDTT_New_
             uCReadExcel = new UCReadExcel(this);
             tabMain.Items.Add(new TabItem { Content = uCReadExcel, Header = "Read Excel", Width = 80, Height = 20, FontSize = 10 });
         }
-
        
-
         void InitMainWindow()
         {
             
@@ -119,9 +117,10 @@ namespace ServerDTT_New_
 
         public void GetMatch()
         {
+
             matches = new Dictionary<string, string>();
 
-            String command = "SELECT * FROM tblMatch";
+            String command = "SELECT DISTINCT A.matchID, B.name FROM tblDetailMatch A, tblMatch B WHERE A.matchID = B.matchID";
 
             DataTable data = DataProvider.Instance.ExecuteQuery(command);
 
@@ -129,9 +128,12 @@ namespace ServerDTT_New_
             {
                 string id = row["matchID"].ToString();
                 string name = row["name"].ToString();
-
-                matches.Add(id, name);
-                cbMatch.Items.Add(name);
+                if (!matches.ContainsKey(id))
+                {
+                    matches.Add(id, name);
+                    cbMatch.Items.Add(name);
+                }
+               
             }
         }
 
@@ -194,10 +196,6 @@ namespace ServerDTT_New_
 //
         private void cbMatch_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //if(eWMainWindow != null)
-            //{
-            //    eWMainWindow.Visibility = Visibility.Hidden;
-            //}
             string s = cbMatch.SelectedItem.ToString();
                 studentList = StudentDAO.Instance.getStartStudent(s);// get student 
                 foreach(string id in matches.Keys)

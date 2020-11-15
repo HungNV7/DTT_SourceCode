@@ -72,14 +72,18 @@
                     <RowDefinition Height="50*"/>
                 </Grid.RowDefinitions>
                 <Border Grid.Row="0" BorderBrush="Black" BorderThickness="0.5" >
+
                 <Grid Background="White">
+
                     <ComboBox Name="cbMatch"  Grid.ColumnSpan="2"  SelectionChanged="cbMatch_SelectionChanged">
                     </ComboBox>
                 </Grid>
                 </Border>
+
                 <Border Grid.Row="1"  Background="LightGray" Margin="2" />
                 <Border Grid.Row="2"  BorderBrush="Black" BorderThickness="0.5" >
                 <Viewbox Margin="5" >
+
                     <Button Name="btnSave" Content="Save"
                             BorderBrush="Transparent"
                             BorderThickness="0"
@@ -97,7 +101,9 @@
                 </Viewbox>
                 </Border>
                 <Border Grid.Row="6"   BorderBrush="Black" BorderThickness="0.5" >
+
                 <Viewbox Margin="5">
+
                     <Button Name="btnFinal" 
                             BorderBrush="Transparent"
                             BorderThickness="0"
@@ -142,6 +148,7 @@
                 </Border>
                 <Border Grid.Row="3" BorderBrush="Black" BorderThickness="0.5">
                 <Viewbox Margin="5" >
+
                     <Button Name="btnSummarizedPoint"
                             Content="Tổng Kết Điểm" 
                             BorderBrush="Transparent"
