@@ -14,188 +14,167 @@
              d:DesignHeight="450" d:DesignWidth="800" Background="LightGray">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="35"></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" >
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Grid.ColumnSpan="2" >
             <Viewbox>
-                <TextBlock Text="VỀ ĐÍCH" Foreground="Black"  FontFamily="Times new roman"/>
+                <TextBlock Text="VỀ ĐÍCH" Foreground="Black"  FontFamily="Calibri "/>
             </Viewbox>
         </Grid>
+
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <Border Grid.Row="0" BorderBrush="Black" BorderThickness="0.5" CornerRadius="7">
-            <Grid >
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.3*"></ColumnDefinition>
-                    <ColumnDefinition Width="1.8*"></ColumnDefinition>
-                    <ColumnDefinition Width="0.2*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Viewbox Grid.Column="0">
-                    <TextBlock Text="Câu hỏi :" Foreground="Black"/>
-                </Viewbox>
-                <Grid Grid.Column="1" Margin="3,2,5,2">
-                    <TextBlock Name="txtBlockQuestion" Grid.Column="1" Background="White" Foreground="Black" FontSize="18"/>
-                </Grid>
-                <Viewbox Grid.Column="2">
-                    <Button Name="btnPlayMedia" Content="Play" Background="LightBlue" IsEnabled="False" Click="BtnPlayMedia_Click"/>
-                </Viewbox>
-            </Grid>
-            </Border >
-            <Border Grid.Row="1" BorderBrush="Black" BorderThickness="0.5" CornerRadius="7">
-            <Grid >
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.3*"></ColumnDefinition>
-                    <ColumnDefinition Width="2*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Viewbox Grid.Column="0">
-                    <TextBlock Text="Đáp án :" Foreground="Black"/>
-                </Viewbox>
-                <Grid Grid.Column="1" Margin="2">
-                    <TextBlock Name="txtBlockAnswer" Grid.Column="1" Background="White" Foreground="Black" FontSize="18"/>
-                </Grid>
-            </Grid>
-            </Border>
-        </Grid>
-        
-        <Grid Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.5*"></ColumnDefinition>
-                <ColumnDefinition Width="1.5*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Border  Grid.Column="0" BorderBrush="Black" BorderThickness="0.5" CornerRadius="5" Margin="1">
-            <Grid Name="gridChooseStudent" >
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="2*"/>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="3*"/>
-                </Grid.RowDefinitions>
-                <Viewbox Grid.Row="0">
-                    <TextBlock Text="Thi Sinh" Foreground="Black"/>
-                </Viewbox>
-            </Grid>
-            </Border>
-            <Border Grid.Column="1" BorderBrush="Black" BorderThickness="0.5" CornerRadius="5">
-            <Grid >
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="0.8*"></RowDefinition>
-                    <RowDefinition Height="1.2*"></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
-                    <Border Grid.Row="0" BorderBrush="Black" BorderThickness="0.5" CornerRadius="7" Margin="0,0.5,0,0">
+            <Border Grid.Row="0"  BorderBrush="Black" BorderThickness="0.5" CornerRadius="7">
                 <Grid >
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="0.25*"></ColumnDefinition>
+                        <ColumnDefinition Width="1.3*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.2*"></ColumnDefinition>
+
                     </Grid.ColumnDefinitions>
                     <Viewbox Grid.Column="0">
-                            <Button Name="btnTrue" Background="Green" Foreground="White" Content="    Đúng   " Click="BtnTrue_Click"/>
-                        </Viewbox>
-                        <Viewbox Grid.Column="1">
-                            <Button Name="btnFalse" Background="Red" Foreground="White" Content="   Sai   " Click="BtnFalse_Click"/>
-                        </Viewbox>
-                    <Viewbox Grid.Column="2">
-                        <Button Name="btnFinish" Background="Transparent" Foreground="Black" Content="Kết thúc" Click="BtnFinish_Click"/>
+                        <TextBlock Text="Câu hỏi :" Foreground="Black"/>
                     </Viewbox>
+                    <Grid Grid.Column="1" Margin="3,2,5,2">
+                        <TextBlock Name="txtBlockQuestion" Grid.Column="1" Background="White" Foreground="Black" FontSize="18"/>
+                    </Grid>
+                    <Viewbox Grid.Column="2">
+                        <Button Name="btnPlayMedia" Content="Play" Background="LightBlue" IsEnabled="False" Click="BtnPlayMedia_Click"/>
+                    </Viewbox>
+
                 </Grid>
+            </Border >
+            <Border Grid.Row="1" BorderBrush="Black" BorderThickness="0.5" CornerRadius="7">
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.25*"></ColumnDefinition>
+                        <ColumnDefinition Width="1.3*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.21*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Viewbox Grid.Column="0">
+                        <TextBlock Text="Đáp án :" Foreground="Black"/>
+                    </Viewbox>
+                    <Grid Grid.Column="1" Margin="2">
+                        <TextBlock Name="txtBlockAnswer" Grid.Column="1" Background="White" Foreground="Black" FontSize="18"/>
+                    </Grid>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <Border Grid.Row="1" Grid.Column="1" BorderBrush="Black" BorderThickness="0.5" CornerRadius="7" >
+            <Grid Name="gridChooseQuestionPack"   Background="Transparent">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Viewbox Grid.Row="0"  >
+                    <TextBlock Text="Câu hỏi 1" Background="Transparent" Foreground="Black"/>
+                </Viewbox>
+                <Viewbox Grid.Row="1"  >
+                    <TextBlock Text="Câu hỏi 2" Background="Transparent" Foreground="Black"/>
+                </Viewbox>
+                <Viewbox Grid.Row="2"  >
+                    <TextBlock Text="Câu hỏi 3" Background="Transparent" Foreground="Black"/>
+                </Viewbox>
+                <Viewbox Grid.Row="3" Grid.ColumnSpan="2" >
+                    <Button Name="btnSaveQuestionPack" Foreground="Black"
+                                
+                                Background="Transparent" Content="Lưu" Click="BtnSaveQuestionPack_Click"/>
+                </Viewbox>
+            </Grid>
+        </Border>
+
+        <Grid Grid.Row="2">
+            <Border Grid.Column="1" BorderBrush="Black" BorderThickness="0.5" CornerRadius="5">
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="3" BorderBrush="Black" BorderThickness="0.5" CornerRadius="7" Margin="0,0.5,0,0">
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Viewbox Grid.Column="0">
+                                <Button Name="btnTrue" Background="Green" Foreground="White" Content="    Đúng   " Click="BtnTrue_Click"/>
+                            </Viewbox>
+                            <Viewbox Grid.Column="1">
+                                <Button Name="btnFalse" Background="Red" Foreground="White" Content="   Sai   " Click="BtnFalse_Click"/>
+                            </Viewbox>
+                            <Viewbox Grid.Column="2">
+                                <Button Name="btnFinish" Background="Transparent" Foreground="Black" Content="Kết thúc" Click="BtnFinish_Click"/>
+                            </Viewbox>
+                        </Grid>
                     </Border>
-                    <Border Grid.Row="3" BorderBrush="Black" BorderThickness="0.5" CornerRadius="7">
+                    <Border Grid.Row="0" BorderBrush="Black" BorderThickness="0.5" CornerRadius="7">
                         <Grid >
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
+
                             <Viewbox Grid.Column="0">
-                                <Button 
-                                    BorderBrush="Transparent" BorderThickness="0"
-                                    FontSize="3"
-                                    Name="btnIntroVideo" Background="Transparent" Content="Intro Video" Click="BtnIntroVideo_Click" Foreground="Black">
-                                    <Button.Style>
-                                        <Style TargetType="Button">
-                                            <Setter Property="Background" Value="Transparent"/>
-                                            <Style.Triggers>
-                                                <Trigger Property="IsMouseOver" Value="True">
-                                                    <Setter Property="Background" Value="Gray"/>
-                                                </Trigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </Button.Style>
-                                </Button>
+                                <Button Name="btnIntroVideo" 
+                                Content="Intro Video"
+                                
+                                Width="Auto"
+                                Height="Auto"
+                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                Click="BtnIntroVideo_Click" 
+                                Foreground="White" 
+                                Background="#757575"/>
                             </Viewbox>
+
                             <Viewbox Grid.Column="1">
                                 <Button Name="btnIntroSound" 
-                                        FontSize="3"
-                                        BorderBrush="Transparent" BorderThickness="0"
-                                        Background="Transparent" Content="Intro Sound" Click="BtnIntroSound_Click" Foreground="Black">
-                                    <Button.Style>
-                                        <Style TargetType="Button">
-                                            <Setter Property="Background" Value="Transparent"/>
-                                            <Style.Triggers>
-                                                <Trigger Property="IsMouseOver" Value="True">
-                                                    <Setter Property="Background" Value="Gray"/>
-                                                </Trigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </Button.Style>
-                                </Button>
+                                Content="Intro Sound"
+                                
+                                Width="Auto"
+                                Height="Auto"
+                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                Click="BtnIntroSound_Click" 
+                                Foreground="White" 
+                                Background="#9e9e9e"/>
                             </Viewbox>
                             <Viewbox Grid.Column="2">
                                 <Button Name="btnStart" 
-                                        FontSize="3"
-                                        BorderBrush="Transparent" BorderThickness="0"
-                                        Background="Transparent" Content="    Start    " Click="BtnStart_Click" Foreground="Black">
-                                    <Button.Style>
-                                        <Style TargetType="Button">
-                                            <Setter Property="Background" Value="Transparent"/>
-                                            <Style.Triggers>
-                                                <Trigger Property="IsMouseOver" Value="True">
-                                                    <Setter Property="Background" Value="Gray"/>
-                                                </Trigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </Button.Style>
-                                </Button>
+                                Content="      Start      "
+                                
+                                Width="Auto"
+                                Height="Auto"
+                                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                                Click="BtnStart_Click" 
+                                Foreground="White" 
+                                Background="#bdbdbd"/>
                             </Viewbox>
+
                         </Grid>
                     </Border>
-                    <Border Grid.Row="1" BorderBrush="Black" BorderThickness="0.5" CornerRadius="7" >
-                <Grid Name="gridChooseQuestionPack"   Background="Transparent">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Viewbox Grid.Column="0"  >
-                        <TextBlock Text="Câu hỏi 1" Background="Transparent" Foreground="Black"/>
-                    </Viewbox>
-                    <Viewbox Grid.Column="1"  >
-                        <TextBlock Text="Câu hỏi 2" Background="Transparent" Foreground="Black"/>
-                    </Viewbox>
-                    <Viewbox Grid.Column="2"  >
-                        <TextBlock Text="Câu hỏi 3" Background="Transparent" Foreground="Black"/>
-                    </Viewbox>
-                    <Viewbox Grid.Column="3" Grid.RowSpan="2" >
-                        <Button Name="btnSaveQuestionPack" Foreground="Black"
-                                
-                                Background="Transparent" Content="Lưu" Click="BtnSaveQuestionPack_Click"/>
-                    </Viewbox>
-                </Grid>
-                    </Border>
+
                     <Border Grid.Row="2" BorderBrush="Black" BorderThickness="0.5" CornerRadius="7">
                         <Grid Name="gridPackQuestion" Grid.Row="2" >
                             <Grid.ColumnDefinitions>
@@ -269,6 +248,19 @@
 
                 </Grid>
             </Border>
+        </Grid>
+
+        <Grid x:Name="gridChooseStudent" Grid.Row="2" Grid.Column="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="3*"/>
+            </Grid.RowDefinitions>
+            <Viewbox Grid.Row="0">
+                <TextBlock Text="Thí Sinh" Foreground="Black"/>
+            </Viewbox>
         </Grid>
     </Grid>
 </UserControl>

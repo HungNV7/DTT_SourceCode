@@ -72,14 +72,18 @@
                     <RowDefinition Height="50*"/>
                 </Grid.RowDefinitions>
                 <Border Grid.Row="0" BorderBrush="Black" BorderThickness="0.5" >
-                <Grid >
+
+                <Grid Background="White">
+
                     <ComboBox Name="cbMatch"  Grid.ColumnSpan="2"  SelectionChanged="cbMatch_SelectionChanged">
                     </ComboBox>
                 </Grid>
                 </Border>
-                <Border Grid.Row="1"  Background="LightGray" />
+
+                <Border Grid.Row="1"  Background="LightGray" Margin="2" />
                 <Border Grid.Row="2"  BorderBrush="Black" BorderThickness="0.5" >
-                <Viewbox  >
+                <Viewbox Margin="5" >
+
                     <Button Name="btnSave" Content="Save"
                             BorderBrush="Transparent"
                             BorderThickness="0"
@@ -97,7 +101,9 @@
                 </Viewbox>
                 </Border>
                 <Border Grid.Row="6"   BorderBrush="Black" BorderThickness="0.5" >
-                <Viewbox >
+
+                <Viewbox Margin="5">
+
                     <Button Name="btnFinal" 
                             BorderBrush="Transparent"
                             BorderThickness="0"
@@ -128,16 +134,21 @@
                         <RowDefinition Height="50*"/>
                         <RowDefinition Height="50*"/>
                     </Grid.RowDefinitions >
-                    <Viewbox Grid.Column="0" Grid.Row="0">
-                            <TextBlock  Background="Transparent" FontSize="20"  Foreground="Black" FontFamily="Times new roman" Text="Họ và tên" VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="5 0 10 5 "/>
+                        <Border Grid.Column="0" Grid.Row="0" BorderThickness="0.5" BorderBrush="Black" Margin="2,0,0,0">
+                    <Viewbox >
+                            <TextBlock  Background="Transparent" FontSize="20"  Foreground="Black" FontFamily="Times new roman" Text="Họ và tên" VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="5 0 5 5 "/>
                     </Viewbox>
-                    <Viewbox  Grid.Column="1" Grid.Row="0" >
-                        <TextBlock Background="Transparent" FontSize="30" Foreground="Black" FontFamily="Times new roman" Text="Điểm" VerticalAlignment="Center" HorizontalAlignment="Center"   Margin="0 0 5 5 "/>
+                        </Border>
+                        <Border Grid.Column="1" Grid.Row="0" BorderThickness="0.5" BorderBrush="Black" >
+                        <Viewbox   >
+                        <TextBlock Background="Transparent" FontSize="30" Foreground="Black" FontFamily="Times new roman" Text="Điểm" VerticalAlignment="Center" HorizontalAlignment="Center"   Margin="5 0 0 5 "/>
                     </Viewbox>
-                </Grid>
+                        </Border>
+                    </Grid>
                 </Border>
                 <Border Grid.Row="3" BorderBrush="Black" BorderThickness="0.5">
-                <Viewbox  >
+                <Viewbox Margin="5" >
+
                     <Button Name="btnSummarizedPoint"
                             Content="Tổng Kết Điểm" 
                             BorderBrush="Transparent"
