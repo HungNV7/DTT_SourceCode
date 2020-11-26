@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ServerDTT_New_.ExtendedWindow"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Background="gray">
+             d:DesignHeight="450" d:DesignWidth="800" Background="#439889">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
@@ -56,10 +56,10 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Row="0" Grid.Column="0" FontSize="24" Foreground="White" HorizontalAlignment="Center">Position</Label>
-            <Label Grid.Row="0" Grid.Column="1" FontSize="24" Foreground="White" HorizontalAlignment="Center">Last Name</Label>
-            <Label Grid.Row="0" Grid.Column="2" FontSize="24" Foreground="White" HorizontalAlignment="Center">First Name</Label>
-            <Label Grid.Row="0" Grid.Column="3" FontSize="24" Foreground="White" HorizontalAlignment="Center">Class</Label>
+            <Label Grid.Row="0" Grid.Column="0" FontSize="24" Foreground="Black" HorizontalAlignment="Center">Position</Label>
+                <Label Grid.Row="0" Grid.Column="1" FontSize="24" Foreground="Black" HorizontalAlignment="Center">Last Name</Label>
+                <Label Grid.Row="0" Grid.Column="2" FontSize="24" Foreground="Black" HorizontalAlignment="Center">First Name</Label>
+                <Label Grid.Row="0" Grid.Column="3" FontSize="24" Foreground="Black" HorizontalAlignment="Center">Class</Label>
 
             <Button x:Name="btnSubmit" Grid.Row="4" Grid.Column="0" Height="43" Margin="0,0,0,-0.2" Grid.RowSpan="2" VerticalAlignment="Bottom" Click="btnSubmit_Click">Submit</Button>
             <ComboBox x:Name="cbMatch" Grid.Row="5" Grid.Column="3" Background="White"></ComboBox>
