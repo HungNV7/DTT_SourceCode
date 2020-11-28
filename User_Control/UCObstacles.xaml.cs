@@ -344,6 +344,8 @@ namespace ServerDTT_New_.User_Control
         {
             switch (rowChosenCount)
             {
+                case 0:
+                    return 80; //when no row is opened
                 case 1:
                     return 80;
                 case 2:
@@ -352,10 +354,8 @@ namespace ServerDTT_New_.User_Control
                     return 40;
                 case 4:
                     return 20;
-                case 5:
-                    return 10;
                 default:
-                    return 80; //when no row is opened
+                    return 10;                
             }
         }
 

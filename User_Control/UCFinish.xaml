@@ -11,7 +11,7 @@
              TextOptions.TextFormattingMode="Ideal"
              TextOptions.TextRenderingMode="Auto"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Background="#439889">
+             d:DesignHeight="450" d:DesignWidth="800" Background="#079">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>

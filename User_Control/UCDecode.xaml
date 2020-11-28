@@ -11,7 +11,7 @@
              TextOptions.TextFormattingMode="Ideal"
              TextOptions.TextRenderingMode="Auto"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Background="#439889">
+             d:DesignHeight="450" d:DesignWidth="800" Background="#079">
     <Grid Name="mainGrid">
         <Grid.RowDefinitions>
 
@@ -102,8 +102,8 @@
                             <Button Name="btnBUQuestion"
                             Style="{StaticResource MaterialDesignRaisedLightButton}"
                             materialDesign:ButtonAssist.CornerRadius="5"
-                             Foreground="#001427"
-                            Content="Backup Question"  Background="#0077b6"
+                             Foreground="White"
+                            Content="Backup Question"  Background="#001845"
                             Click="BtnBUQuestion_Click"/>
 
                         </Viewbox>
@@ -259,14 +259,14 @@
                                      Style="{StaticResource MaterialDesignRaisedLightButton}"
                                     materialDesign:ButtonAssist.CornerRadius="5"
                                     Content="Đúng" 
-                                    Background="#03045e" Foreground="White"  Click="BtnTrue_Click"  Grid.RowSpan="3"/>
+                                    Background="green" Foreground="White"  Click="BtnTrue_Click"  Grid.RowSpan="3"/>
                             </Viewbox>
                             <Viewbox Grid.Column="1">
                                 <Button Name="btnFalse"
                                     Style="{StaticResource MaterialDesignRaisedLightButton}"
                                     materialDesign:ButtonAssist.CornerRadius="5"
                                     Content="Sai" Foreground="White"
-                                    Background="#03045e"  Click="BtnFalse_Click" Grid.ColumnSpan="2"  Grid.RowSpan="3"/>
+                                    Background="red"  Click="BtnFalse_Click" Grid.ColumnSpan="2"  Grid.RowSpan="3"/>
                             </Viewbox>
                         </Grid>
                         <Viewbox Grid.Row="1">

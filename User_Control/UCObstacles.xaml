@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:ServerDTT_New_.User_Control"
              mc:Ignorable="d" 
                d:DesignHeight="450" d:DesignWidth="800"
-             Background="#439889">
+             Background="#079">
     <Grid>
         <!--Khung lớn-->
         <Grid.RowDefinitions>
@@ -111,7 +111,7 @@
             </Border>
             <Border Margin="5,0,0,0" Grid.Row="1" Grid.Column="0" BorderBrush="Black" BorderThickness="1">
                 <Grid>
-                    <TextBlock Name="textboxName1" Text="Thí sinh 1" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="15" Foreground="Black"/>
+                    <TextBlock Name="textboxName1" Text="Thí sinh 1" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="15" Foreground="Black" Margin="13,10,-0.2,22"/>
                 </Grid>
             </Border>
             <Border Margin="5,0,0,0" Grid.Row="2" Grid.Column="0" BorderBrush="Black" BorderThickness="1">
