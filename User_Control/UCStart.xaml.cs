@@ -61,7 +61,7 @@ namespace ServerDTT_New_.User_Control
         {
             for (int i = 0; i < numberOfStudent; i++)
             {
-                Button btnStudent = new Button {Content = studentList[i].Name, Uid=i.ToString(), Background = Brushes.Transparent , FontWeight = FontWeights.DemiBold,Foreground=Brushes.Black, Height=65 ,FontSize=30 ,BorderBrush=Brushes.Black};
+                Button btnStudent = new Button {Content = studentList[i].Name, Uid=i.ToString(), Background = Brushes.Transparent , FontWeight = FontWeights.DemiBold,Foreground=Brushes.Black, Height=45 ,FontSize=20 ,BorderBrush=Brushes.Black};
                 btnStudent.SetValue(Grid.RowProperty, i + 1);
                 btnStudent.Click += BtnStudent_Click;
                 btnStudentList.Add(btnStudent);
@@ -193,6 +193,27 @@ namespace ServerDTT_New_.User_Control
         private void BtnBackupQuestion_Click(object sender, RoutedEventArgs e)
         {
             IsBackup = true;
+        }
+
+        private void UserControl_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            if(this.mainWindow.WindowState == WindowState.Maximized)
+            {
+                foreach (Button btn in btnStudentList)
+                {
+                    btn.Height = 70;
+                    btn.FontSize = 30;
+                }
+
+            }
+            else
+            {
+                foreach (Button btn in btnStudentList)
+                {
+                    btn.Height = 45;
+                    btn.FontSize = 20;
+                }
+            }
         }
     }
 }
