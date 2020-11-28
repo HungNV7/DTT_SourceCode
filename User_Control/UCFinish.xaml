@@ -11,7 +11,7 @@
              TextOptions.TextFormattingMode="Ideal"
              TextOptions.TextRenderingMode="Auto"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Background="LightGray">
+             d:DesignHeight="450" d:DesignWidth="800" Background="#439889">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
@@ -94,9 +94,9 @@
                     <TextBlock Text="Câu hỏi 3" Background="Transparent" Foreground="Black" Margin="0,5,0,5"/>
                 </Viewbox>
                 <Viewbox Grid.Row="3" Grid.ColumnSpan="2" >
-                    <Button Name="btnSaveQuestionPack" Foreground="Black"
+                    <Button Name="btnSaveQuestionPack" Style="{StaticResource MaterialDesignRaisedDarkButton}"
                                 
-                                Background="Transparent" Content="Lưu" Click="BtnSaveQuestionPack_Click" Margin="0,5,0,5"/>
+                                 Content="Lưu" Click="BtnSaveQuestionPack_Click" Margin="0,5,0,5"/>
                 </Viewbox>
             </Grid>
         </Border>
@@ -116,10 +116,9 @@
                             Margin="0,5,0,5 "
                             Width="Auto"
                             Height="Auto"
-                            Style="{StaticResource MaterialDesignRaisedButton}"
+                            Style="{StaticResource MaterialDesignRaisedLightButton}"
                             Click="BtnIntroVideo_Click" 
-                            Foreground="#424242" 
-                            Background="#bdbdbd"/>
+                            />
                     </Viewbox>
 
                     <Viewbox Grid.Column="1">
@@ -128,10 +127,9 @@
                             Margin="0,5,0,5 "
                             Width="Auto"
                             Height="Auto"
-                            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                            Style="{StaticResource MaterialDesignRaisedButton}"
                             Click="BtnIntroSound_Click" 
-                            Foreground="White" 
-                            Background="#9e9e9e"/>
+                           />
                     </Viewbox>
                     <Viewbox Grid.Column="2">
                         <Button Name="btnStart" 
@@ -141,8 +139,7 @@
                             Height="Auto"
                             Style="{StaticResource MaterialDesignRaisedDarkButton}"
                             Click="BtnStart_Click" 
-                            Foreground="White" 
-                            Background="#bdbdbd"/>
+                            />
                     </Viewbox>
                 </Grid>
             </Border>
@@ -170,7 +167,7 @@
                             <Button Name="btnFalse" Background="Red" Foreground="White" Content="   Sai   " Click="BtnFalse_Click" Margin="0,5,0,5 "/>
                         </Viewbox>
                         <Viewbox Grid.Column="2">
-                            <Button Name="btnFinish" Background="Transparent" Foreground="Black" Content="Kết thúc" Click="BtnFinish_Click" Margin="0,5,0,5 "/>
+                            <Button Name="btnFinish"  Content="Kết thúc" Style="{StaticResource MaterialDesignRaisedDarkButton}" Click="BtnFinish_Click" Margin="0,5,0,5 "/>
                         </Viewbox>
                     </Grid>
 

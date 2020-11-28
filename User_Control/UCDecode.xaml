@@ -11,7 +11,7 @@
              TextOptions.TextFormattingMode="Ideal"
              TextOptions.TextRenderingMode="Auto"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Background="#9e9e9e">
+             d:DesignHeight="450" d:DesignWidth="800" Background="#439889">
     <Grid Name="mainGrid">
         <Grid.RowDefinitions>
 
@@ -22,7 +22,7 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Viewbox>
-                <TextBlock Text="GIẢI MÃ" Foreground="Black"  FontFamily="Times new roman"/>
+                <TextBlock Text="GIẢI MÃ" Foreground="Black"  FontFamily="Calibri "/>
             </Viewbox>
         </Grid>
         <Grid Grid.Row="1">
@@ -77,9 +77,9 @@
                     </Viewbox>
                     <Viewbox Grid.Column="6">
                         <Button Name="btnStart" 
-                             Style="{StaticResource MaterialDesignRaisedLightButton}"
+                             Style="{StaticResource MaterialDesignRaisedButton}"
                             materialDesign:ButtonAssist.CornerRadius="5"
-                            Background="Black"
+                            
                     Content="Start"  Foreground="White" FontWeight="DemiBold" Click="BtnStart_Click"/>
                     </Viewbox>
                 </Grid>
@@ -159,7 +159,7 @@
                             Style="{StaticResource MaterialDesignRaisedLightButton}"
                             materialDesign:ButtonAssist.CornerRadius="5"
                             Foreground="#242423"
-                            Content="Câu hỏi/Gợi ý"  Background="#00b4d8" Click="BtnQuestionHint_Click"/>
+                            Content="Câu hỏi/Gợi ý" Background="#caf0f8" Click="BtnQuestionHint_Click"/>
                     </Viewbox>
                     <Viewbox Grid.Row="1">
 
