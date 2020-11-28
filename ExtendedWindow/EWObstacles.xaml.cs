@@ -51,5 +51,19 @@ namespace ServerDTT_New_.ExtendedWindow
             mediaAct.Upload(imgHider4, "Obstacles_Hider4.png");
             mediaAct.Upload(imgHider5, "Obstacles_Hider5.png");
         }
+        
+        public void HideAll()
+        {
+            gridRows.Visibility = Visibility.Hidden;
+            gridShowAns.Visibility = Visibility.Hidden;
+            gridKeyImage.Visibility = Visibility.Hidden;
+            gridBell.Visibility = Visibility.Hidden;
+            VideoShowAnswer.Visibility = Visibility.Hidden;
+        }
+
+        private void VideoIntro_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            VideoIntro.Visibility = Visibility.Hidden;
+        }
     }
 }

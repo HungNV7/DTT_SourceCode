@@ -122,16 +122,34 @@ namespace ServerDTT_New_.ExtendedWindow
 
                 int count = Convert.ToInt32(DataProvider.Instance.ExecuteScalar(command)) + 1;
                 command = string.Empty;
+                int position = 0;
                 for (int i = 2; i <= worksheet.Rows.Length; i++)
                 {
                     count++;
+                    if(i <= 16)
+                    {
+                        position = 1;
+                    }
+                    else if(i <= 31)
+                    {
+                        position = 2;
+                    }
+                    else if (i <= 46)
+                    {
+                        position = 3;
+                    }
+                    else
+                    {
+                        position = 4;
+                    }
+ 
                     for (int j = 1; j <= worksheet.Columns.Length; j++)
                         if (worksheet[i, j].NumberValue.ToString() != "NaN")
                             worksheet[i, j].Text = worksheet[i, j].NumberValue.ToString();
                     command += "INSERT INTO tblQuestion(questionID, detail, questionImageName, questionVideoName, answer, questionTypeID, position, matchID, isBackup) VALUES(";
                     command += "" + count + ", ";
                     command += "N'" + worksheet[i, 2].Text + "',N'" + worksheet[i, 4].Text + "',N'" + worksheet[i, 5].Text;
-                    command += "',N'" + worksheet[i, 3].Text + "','1','0', N'" + txtMatch.Text + "', 0)\n";
+                    command += "',N'" + worksheet[i, 3].Text + "','1'," + position +", N'" + txtMatch.Text + "', 0)\n";
                 }
                 DataProvider.Instance.ExecuteQuery(command);
 
@@ -260,19 +278,35 @@ namespace ServerDTT_New_.ExtendedWindow
 
                 command = string.Empty;
                 command = "SELECT COUNT(questionID) FROM tblQuestion";
-
+                int position = 0;
                 int count = Convert.ToInt32(DataProvider.Instance.ExecuteScalar(command)) + 1;
                 command = string.Empty;
                 for (int i = 2; i <= worksheet.Rows.Length; i++)
                 {
                     count++;
+                    if (i <= 16)
+                    {
+                        position = 1;
+                    }
+                    else if (i <= 31)
+                    {
+                        position = 2;
+                    }
+                    else if (i <= 46)
+                    {
+                        position = 3;
+                    }
+                    else
+                    {
+                        position = 4;
+                    }
                     for (int j = 1; j <= worksheet.Columns.Length; j++)
                         if (worksheet[i, j].NumberValue.ToString() != "NaN")
                             worksheet[i, j].Text = worksheet[i, j].NumberValue.ToString();
                     command += "INSERT INTO tblQuestion(questionID, detail, questionImageName, questionVideoName, answer, questionTypeID, position, matchID, isBackup) VALUES(";
                     command += "" + count + ", ";
                     command += "N'" + worksheet[i, 2].Text + "',N'" + worksheet[i, 4].Text + "',N'" + worksheet[i, 5].Text;
-                    command += "',N'" + worksheet[i, 3].Text + "','1','0', N'" + txtMatch.Text + "', 1)\n";
+                    command += "',N'" + worksheet[i, 3].Text + "','1'," + position + ", N'" + txtMatch.Text + "', 1)\n";
                 }
                 DataProvider.Instance.ExecuteQuery(command);
 
@@ -406,8 +440,8 @@ namespace ServerDTT_New_.ExtendedWindow
 
                 command = String.Format("INSERT INTO tblDetailMatch(No, studentID, matchID, position, point) VALUES({0}, {1}, N'{2}', {3}, 0)", no, studentId, matchID, i+1);
                 DataProvider.Instance.ExecuteNonQuery(command);
-                mainWindow.GetMatch();
             }
+            mainWindow.GetMatch();
         }
 
         private void btnCreateDB_Click(object sender, RoutedEventArgs e)

@@ -61,7 +61,6 @@ namespace ServerDTT_New_.User_Control
             studentList = students;
             server = _server;
             this.matchID = matchID;
-            InitControl();
 
             foreach (Question question in questionList)
             {
@@ -78,7 +77,9 @@ namespace ServerDTT_New_.User_Control
         private void btnIntroVideo_Click(object sender, RoutedEventArgs e)
         {
             eWindow.Content = eWObstacles;
-            eWObstacles.VideoIntro.Visibility = Visibility.Visible;
+            InitControl();
+            eWObstacles.HideAll();
+            eWObstacles.VideoIntro.Visibility = Visibility.Visible; 
             eWObstacles.VideoIntro.Stop();
             eWObstacles.VideoIntro.Play();
             eWObstacles.VideoIntro.MediaEnded += VideoIntro_MediaEnded;
@@ -283,6 +284,7 @@ namespace ServerDTT_New_.User_Control
         private void VideoIntro_MediaEnded(object sender, RoutedEventArgs e)
         {
             eWObstacles.VideoIntro.Visibility = Visibility.Hidden;
+            eWObstacles.textboxContent.Visibility = Visibility.Visible;
         }
 
         private void VideoTiming_MediaEnded(object sender, RoutedEventArgs e)
@@ -588,7 +590,8 @@ namespace ServerDTT_New_.User_Control
                     eWObstacles.MainObstacle = question.QuestionImageName;
                 }
             }
-
+            for (int i = 0; i < server.ClientList.Count; i++)
+                server.Send(server.ClientList[i], "2_3");
             eWObstacles.InitEWControl();
         }
     }

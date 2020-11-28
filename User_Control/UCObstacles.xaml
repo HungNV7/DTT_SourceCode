@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:ServerDTT_New_.User_Control"
              mc:Ignorable="d" 
                d:DesignHeight="450" d:DesignWidth="800"
-             Background="DarkBlue">
+             Background="#439889">
     <Grid>
         <!--Khung lớn-->
         <Grid.RowDefinitions>
@@ -27,7 +27,7 @@
 
         <Grid Grid.Row="0" Margin="150,0,-150,0">
             <Viewbox>
-                <TextBlock Name="TitleTextBlock" Text="VƯỢT CHƯỚNG NGẠI VẬT" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center"  Foreground="#EBEBEB" />
+                <TextBlock Name="TitleTextBlock" Text="VƯỢT CHƯỚNG NGẠI VẬT" HorizontalAlignment="Right" FontFamily="Calibri " TextWrapping="Wrap" VerticalAlignment="Center"  Foreground="Black" />
             </Viewbox>
         </Grid>
         <!--Nút điều khiển-->
@@ -40,16 +40,16 @@
                     <ColumnDefinition Width="0.7*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Viewbox Grid.Column="0" Margin="2">
-                    <Button x:Name="btnIntroVideo"   Content="Video Intro"  Background="#323456" Foreground="#EBEBEB" Click="btnIntroVideo_Click"/>
+                    <Button x:Name="btnIntroVideo" Style="{StaticResource MaterialDesignRaisedLightButton}"  Content="Video Intro"  Click="btnIntroVideo_Click"/>
                 </Viewbox>
                 <Viewbox Grid.Column="1" Margin="2">
-                    <Button x:Name="btnIntroMusic"  Content="Nhạc Intro"  Background="#323456" Foreground="#EBEBEB" Click="btnIntroMusic_Click" />
+                    <Button x:Name="btnIntroMusic" Style="{StaticResource MaterialDesignRaisedButton}" Content="Nhạc Intro"  Click="btnIntroMusic_Click" />
                 </Viewbox>
                 <Viewbox Grid.Column="2" Margin="2">
-                    <Button x:Name="btnShowRows"  Content="Hiện hàng ngang"  Background="#323456" Foreground="#EBEBEB" Click="btnShowRows_Click"/>
+                    <Button x:Name="btnShowRows" Style="{StaticResource MaterialDesignRaisedDarkButton}" Content="Hiện hàng ngang"  Click="btnShowRows_Click"/>
                 </Viewbox>
                 <Viewbox Grid.Column="3" Margin="2">
-                    <Button x:Name="btnChooseRow"  Content="Chọn câu hỏi"  Background="#323456" Foreground="#EBEBEB" Click="btnChooseRow_Click"/>
+                    <Button x:Name="btnChooseRow" Style="{StaticResource MaterialDesignRaisedDarkButton}" Content="Chọn câu hỏi" Click="btnChooseRow_Click"/>
                 </Viewbox>
             </Grid>
         </Border>
@@ -63,16 +63,16 @@
                 </Grid.ColumnDefinitions>
 
                 <Viewbox Grid.Column="0" Margin="2,10,2,10">
-                    <Button x:Name="btnStartTiming"   Content="Tính giờ"  Background="#323456" Foreground="#EBEBEB" Click="btnStartTiming_Click"/>
+                    <Button x:Name="btnStartTiming" Style="{StaticResource MaterialDesignRaisedLightButton}"  Content="Tính giờ" Click="btnStartTiming_Click"/>
                 </Viewbox>
                 <Viewbox Grid.Column="1" Margin="2,10,2,10" >
-                    <Button x:Name="btnShowAnswer"   Content="Hiện trả lời"  Background="#323456" Foreground="#EBEBEB" Click="btnShowAnswer_Click"/>
+                    <Button x:Name="btnShowAnswer"  Style="{StaticResource MaterialDesignRaisedButton}" Content="Hiện trả lời"   Click="btnShowAnswer_Click"/>
                 </Viewbox>
                 <Viewbox Grid.Column="2" Margin="2,10,2,10">
-                    <Button x:Name="btnAddPoint"   Content="Cộng điểm"  Background="#323456" Foreground="#EBEBEB" Click="btnAddPoint_Click"/>
+                    <Button x:Name="btnAddPoint" Style="{StaticResource MaterialDesignRaisedDarkButton}"  Content="Cộng điểm"   Click="btnAddPoint_Click"/>
                 </Viewbox>
                 <Viewbox Grid.Column="3" Margin="2,10,2,10">
-                    <Button x:Name="btnShowHint"   Content="Hiện gợi ý"  Background="#323456" Foreground="#EBEBEB" Click="btnShowHint_Click"/>
+                    <Button x:Name="btnShowHint" Style="{StaticResource MaterialDesignRaisedDarkButton}"  Content="Hiện gợi ý"  Click="btnShowHint_Click"/>
                 </Viewbox>
             </Grid>
         </Border>
@@ -106,33 +106,33 @@
             <!--Cụm tên thí sinh-->
             <Border Margin="5,0,0,0" Grid.Row="0" Grid.Column="0" BorderBrush="Black" BorderThickness="1" >
                 <Grid >
-                    <TextBlock Name="textboxName" Text="Tên" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="15" Foreground="#EBEBEB"/>
+                    <TextBlock Name="textboxName" Text="Tên" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="15" Foreground="Black"/>
                 </Grid>
             </Border>
             <Border Margin="5,0,0,0" Grid.Row="1" Grid.Column="0" BorderBrush="Black" BorderThickness="1">
                 <Grid>
-                    <TextBlock Name="textboxName1" Text="Thí sinh 1" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="15" Foreground="#EBEBEB"/>
+                    <TextBlock Name="textboxName1" Text="Thí sinh 1" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="15" Foreground="Black"/>
                 </Grid>
             </Border>
             <Border Margin="5,0,0,0" Grid.Row="2" Grid.Column="0" BorderBrush="Black" BorderThickness="1">
                 <Grid >
-                    <TextBlock Name="textboxName2" Text="Thí sinh 2" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="15" Foreground="#EBEBEB"/>
+                    <TextBlock Name="textboxName2" Text="Thí sinh 2" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="15" Foreground="Black"/>
                 </Grid>
             </Border>
             <Border Margin="5,0,0,0" Grid.Row="3" Grid.Column="0" BorderBrush="Black" BorderThickness="1">
                 <Grid >
-                    <TextBlock Name="textboxName3" Text="Thí sinh 3" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="15" Foreground="#EBEBEB"/>
+                    <TextBlock Name="textboxName3" Text="Thí sinh 3" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="15" Foreground="Black"/>
                 </Grid>
             </Border>
             <Border  Margin="5,0,0,0" Grid.Row="4" Grid.Column="0" BorderBrush="Black" BorderThickness="1">
                 <Grid >
-                    <TextBlock Name="textboxName4" Text="Thí sinh 4" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="15" Foreground="#EBEBEB"/>
+                    <TextBlock Name="textboxName4" Text="Thí sinh 4" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="15" Foreground="Black"/>
                 </Grid>
             </Border>
             <!--Cụm câu trả lời-->
             <Border Grid.Row="0" Grid.Column="1" BorderBrush="Black" BorderThickness="1">
                 <Grid >
-                    <TextBlock Text="Câu trả lời" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="15" Foreground="#EBEBEB"/>
+                    <TextBlock Text="Câu trả lời" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="15" Foreground="Black"/>
                 </Grid>
             </Border>
             <Border Grid.Row="1" Grid.Column="1" BorderBrush="Black" BorderThickness="1">
@@ -158,7 +158,7 @@
             <!--Cụm checkbox-->
             <Border Grid.Row="0" Grid.Column="2" BorderBrush="Black" BorderThickness="1">
                 <Grid >
-                    <TextBlock Name="textboxCheckBox" Text="Chọn thí sinh" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="15" Foreground="#EBEBEB"/>
+                    <TextBlock Name="textboxCheckBox" Text="Chọn thí sinh" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="15" Foreground="Black"/>
                 </Grid>
             </Border>
             <Border Grid.Row="1" Grid.Column="2" BorderBrush="Black" BorderThickness="1">
@@ -185,7 +185,7 @@
             <!--Chuông-->
             <Border Grid.Row="0" Grid.Column="3" BorderBrush="Black" BorderThickness="1" Margin="0,0,5,0">
                 <Grid >
-                    <TextBlock Text="Chuông" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="15" Foreground="#EBEBEB"/>
+                    <TextBlock Text="Chuông" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="15" Foreground="Black"/>
                 </Grid>
             </Border>
             <Border Margin="0,0,5,0" Grid.Row="1" Grid.Column="3" BorderBrush="Black" BorderThickness="1">
@@ -228,10 +228,10 @@
                     </Grid.ColumnDefinitions>
 
                     <Viewbox Grid.Column="0"  Margin="5,0,0,0">
-                        <Button x:Name="btnEliminate"   Content="Loại thí sinh"  Background="#323456" Foreground="#EBEBEB" Click="btnEliminate_Click"/>
+                        <Button x:Name="btnEliminate"   Content="Loại thí sinh"  Background="#3949ab" Foreground="#EBEBEB" Click="btnEliminate_Click"/>
                     </Viewbox>
                     <Viewbox Grid.Column="1" Margin="5,0,0,0" HorizontalAlignment="Left">
-                        <Button x:Name="btnBackUpQuestion"  Grid.Column="1"  Content="Đề dự phòng"  Background="#323456" Foreground="#EBEBEB" Click="BtnBackUpQuestion_Click"/>
+                        <Button x:Name="btnBackUpQuestion"  Grid.Column="1"  Content="Đề dự phòng"  Background="#283593" Foreground="#EBEBEB" Click="BtnBackUpQuestion_Click"/>
                     </Viewbox>
 
                 </Grid>
@@ -243,10 +243,10 @@
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Viewbox Grid.Column="0" Margin="5,0,0,0">
-                        <Button x:Name="btnAddKeyPoint" Margin="0,5,5,5"   Content="Cộng điểm gợi ý" Background="#323456" Foreground="#EBEBEB" Click="btnAddKeyPoint_Click"/>
+                        <Button x:Name="btnAddKeyPoint" Margin="0,5,5,5"   Content="Cộng điểm gợi ý" Background="#311b92" Foreground="#EBEBEB" Click="btnAddKeyPoint_Click"/>
                     </Viewbox>
                     <Viewbox Grid.Column="1" >
-                        <Button x:Name="btnShowAllHint" Margin ="0,5,5,5"  Content="Mở hết gợi ý"  Background="#323456" Foreground="#EBEBEB" Click="btnShowAllHint_Click"/>
+                        <Button x:Name="btnShowAllHint" Margin ="0,5,5,5"  Content="Mở hết gợi ý"  Background="#1a237e" Foreground="#EBEBEB" Click="btnShowAllHint_Click"/>
                     </Viewbox>
                 </Grid>
             </Border>

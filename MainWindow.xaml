@@ -144,6 +144,14 @@
                         <TextBlock Background="Transparent" FontSize="30" Foreground="Black" FontFamily="Times new roman" Text="Điểm" VerticalAlignment="Center" HorizontalAlignment="Center"   Margin="5 0 0 5 "/>
                     </Viewbox>
                         </Border>
+                        <Border Grid.Column="0" Grid.Row="1" BorderThickness="0.5" BorderBrush="Black" Margin="2,0,0,0"></Border>
+                        <Border Grid.Column="0" Grid.Row="2" BorderThickness="0.5" BorderBrush="Black" Margin="2,0,0,0"></Border>
+                        <Border Grid.Column="0" Grid.Row="3" BorderThickness="0.5" BorderBrush="Black" Margin="2,0,0,0"></Border>
+                        <Border Grid.Column="0" Grid.Row="4" BorderThickness="0.5" BorderBrush="Black" Margin="2,0,0,0"></Border>
+                        <Border Grid.Column="1" Grid.Row="1" BorderThickness="0.5" BorderBrush="Black" ></Border>
+                        <Border Grid.Column="1" Grid.Row="2" BorderThickness="0.5" BorderBrush="Black" ></Border>
+                        <Border Grid.Column="1" Grid.Row="3" BorderThickness="0.5" BorderBrush="Black" ></Border>
+                        <Border Grid.Column="1" Grid.Row="4" BorderThickness="0.5" BorderBrush="Black" ></Border>
                     </Grid>
                 </Border>
                 <Border Grid.Row="3" BorderBrush="Black" BorderThickness="0.5">

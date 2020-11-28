@@ -63,21 +63,22 @@ namespace ServerDTT_New_
             
             
             for (int i = 0; i < numberOfStudent; i++)
-                {
+            {
+                Viewbox viewbox = new Viewbox();
+                TextBox txtBoxName = new TextBox { FontSize = 35, Background = Brushes.Transparent,Foreground=Brushes.Black, Text = studentList[i].Name, TextAlignment = TextAlignment.Center, Margin=new Thickness(0,15,0,0)};
+                viewbox.Child = txtBoxName;
+                viewbox.SetValue(Grid.RowProperty, i + 1);
+                viewbox.SetValue(Grid.ColumnProperty, 0);
+                gridStudentInformation.Children.Add(viewbox);
+                txtBoxStudentNameList.Add(txtBoxName);
 
-                    TextBox txtBoxName = new TextBox { FontSize = 35, Background = Brushes.Transparent,Foreground=Brushes.Black, Text = studentList[i].Name, TextAlignment = TextAlignment.Center, Margin=new Thickness(0,15,0,5) };
-                    txtBoxName.SetValue(Grid.RowProperty, i + 1);
-                    txtBoxName.SetValue(Grid.ColumnProperty, 0);
-                    gridStudentInformation.Children.Add(txtBoxName);
-                    txtBoxStudentNameList.Add(txtBoxName);
+                TextBox txtBoxPoint = new TextBox { FontSize = 35, Background = Brushes.Transparent, Foreground = Brushes.Black, Text = studentList[i].Point.ToString(),TextAlignment = TextAlignment.Center, Margin = new Thickness(0,15,0,0) };
+                txtBoxPoint.SetValue(Grid.RowProperty, i + 1);
+                txtBoxPoint.SetValue(Grid.ColumnProperty, 1);
+                gridStudentInformation.Children.Add(txtBoxPoint);
+                txtBoxStudentPointList.Add(txtBoxPoint);
 
-                    TextBox txtBoxPoint = new TextBox { FontSize = 35, Background = Brushes.Transparent, Foreground = Brushes.Black, Text = studentList[i].Point.ToString(),TextAlignment = TextAlignment.Center, Margin = new Thickness(0,15,0,5) };
-                    txtBoxPoint.SetValue(Grid.RowProperty, i + 1);
-                    txtBoxPoint.SetValue(Grid.ColumnProperty, 1);
-                    gridStudentInformation.Children.Add(txtBoxPoint);
-                    txtBoxStudentPointList.Add(txtBoxPoint);
-
-                }
+            }
            
                 eWMainWindow = new EWMainWindow();
                 eWMainWindow.Show();

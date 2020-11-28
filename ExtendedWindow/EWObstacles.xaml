@@ -10,7 +10,7 @@
         <Viewbox Margin="100">
             <TextBlock Name="textboxContent" Text="VƯỢT CHƯỚNG NGẠI VẬT" Foreground="White" FontWeight="Black"/>
         </Viewbox>
-        <MediaElement Name="VideoIntro" Visibility="Hidden" LoadedBehavior="Manual" Stretch="Fill"/>
+        <MediaElement Name="VideoIntro" Visibility="Hidden" LoadedBehavior="Manual" Stretch="Fill" MediaEnded="VideoIntro_MediaEnded"/>
 
         <!--Phần hàng ngang và câu hỏi-->
         <Grid Name="gridRows" Visibility="Hidden">
@@ -120,7 +120,7 @@
 
             </Grid.RowDefinitions>
 
-            <Image Name="imgShowAnswer" Visibility="Hidden" Grid.RowSpan="10" Stretch="Fill" Margin="0,0,0,0.499"/>
+            <Image Name="imgShowAnswer" Visibility="Hidden"  Grid.RowSpan="10" Stretch="Fill" Margin="0,0,0,0.499"/>
 
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
@@ -288,7 +288,7 @@
         </Grid>
 
         <!-- Nhấn chuông -->
-        <Grid>
+        <Grid x:Name="gridBell">
             <Grid.RowDefinitions>
                 <RowDefinition Height="277*"></RowDefinition>
                 <RowDefinition Height="173*"></RowDefinition>

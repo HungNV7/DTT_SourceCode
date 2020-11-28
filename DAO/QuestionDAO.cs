@@ -25,11 +25,11 @@ namespace ServerDTT_New_.DAO
             //
         }
 
-        public List<Question> getStartQuestion(String matchID, int isBackup = 0)
+        public List<Question> getStartQuestion(String matchID, int position, int isBackup = 0)
         {
             string query = string.Format(
                 @"SELECT * FROM tblQuestion q
-                WHERE q.questionTypeID = '1' AND q.isBackup = {0} AND q.matchID = '{1}'", isBackup, matchID);
+                WHERE q.questionTypeID = '1' AND q.isBackup = {0} AND q.matchID = '{1}' AND q.position = {2}", isBackup, matchID, position);
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             List<Question> result = new List<Question>();
             foreach (DataRow row in data.Rows)

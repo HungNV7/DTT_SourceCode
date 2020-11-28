@@ -67,9 +67,6 @@ namespace ServerDTT_New_.User_Control
                 btnStudentList.Add(btnStudent);
                 gridBtnStudent.Children.Add(btnStudent);
             }
-
-            questionList = DAO.QuestionDAO.Instance.getStartQuestion(matchID);// get question from database
-            bUQuestionList = DAO.QuestionDAO.Instance.getStartQuestion(matchID, 1);//get backup question from database
             eWStart.UpdateUC(this);
             UpdateInfoOnScreen();
         }
@@ -103,6 +100,12 @@ namespace ServerDTT_New_.User_Control
             eWStart.txtBlockStudentNameList[currentStudentID].VerticalAlignment = VerticalAlignment.Center;
             eWStart.txtBlockStudentPointList[currentStudentID].Text = "";
             eWStart.txtBlockStudentNameList[currentStudentID].SetValue(Grid.RowSpanProperty, 3);
+            questionList = DAO.QuestionDAO.Instance.getStartQuestion(matchID, currentStudentID + 1);// get question from database
+            bUQuestionList = DAO.QuestionDAO.Instance.getStartQuestion(matchID, currentStudentID + 1, 1);//get backup question from database
+            currentQuestionID = 0;
+            currentBUQuestionID = 0;
+            btnFalseAnswer.IsEnabled = true;
+            btnTrueAnswer.IsEnabled = true;
         }
 
 
@@ -115,16 +118,39 @@ namespace ServerDTT_New_.User_Control
 
         public void ShowNextQuestion(int IsCorrect)
         {
-            if (currentQuestionID < questionList.Count && IsBackup == false)
-            {
-                currentQuestion = questionList[currentQuestionID];
-                currentQuestionID++;
-            }
+            //if (currentQuestionID < questionList.Count && IsBackup == false)
+            //{
+            //    currentQuestion = questionList[currentQuestionID];
+            //    currentQuestionID++;
+            //}
 
-            else if (currentBUQuestionID < bUQuestionList.Count)
+            //else if (currentBUQuestionID < bUQuestionList.Count)
+            //{
+            //    currentQuestion = bUQuestionList[currentBUQuestionID];
+            //    currentBUQuestionID++;
+            //}
+
+            if (IsBackup)
             {
+                if (currentBUQuestionID > 14)
+                {
+                    btnTrueAnswer.IsEnabled = false;
+                    btnFalseAnswer.IsEnabled = false;
+                    return;
+                }
                 currentQuestion = bUQuestionList[currentBUQuestionID];
                 currentBUQuestionID++;
+            }
+            else
+            {
+                if (currentQuestionID > 14)
+                {
+                    btnTrueAnswer.IsEnabled = false;
+                    btnFalseAnswer.IsEnabled = false;
+                    return;
+                }
+                currentQuestion = questionList[currentQuestionID];
+                currentQuestionID++;
             }
 
             eWStart.txtBlockQuestion.Text = txtBlockQuestion.Text = currentQuestion.Detail;
@@ -193,6 +219,8 @@ namespace ServerDTT_New_.User_Control
         private void BtnBackupQuestion_Click(object sender, RoutedEventArgs e)
         {
             IsBackup = true;
+            btnFalseAnswer.IsEnabled = true;
+            btnTrueAnswer.IsEnabled = true;
         }
 
         private void UserControl_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -204,7 +232,7 @@ namespace ServerDTT_New_.User_Control
                     btn.Height = 70;
                     btn.FontSize = 30;
                 }
-
+                btnIntroVideo.Margin = new Thickness(4, 40, 4, 0);
             }
             else
             {
@@ -213,6 +241,7 @@ namespace ServerDTT_New_.User_Control
                     btn.Height = 45;
                     btn.FontSize = 20;
                 }
+                btnIntroVideo.Margin = new Thickness(4, 20, 4, 0);
             }
         }
     }
