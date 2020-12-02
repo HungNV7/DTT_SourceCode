@@ -73,7 +73,7 @@
         </Grid>
 
         <Border Grid.Row="1" Grid.Column="1" BorderBrush="Black" BorderThickness="0.5" CornerRadius="7" >
-            <Grid Name="gridChooseQuestionPack"   Background="Transparent">
+            <Grid Name="gridChooseQuestionPack" Background="Transparent">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
@@ -84,6 +84,12 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" Grid.Row="0" BorderThickness="0.5" BorderBrush="Black"></Border>
+                <Border Grid.Column="0" Grid.Row="1" BorderThickness="0.5" BorderBrush="Black"></Border>
+                <Border Grid.Column="0" Grid.Row="2" BorderThickness="0.5" BorderBrush="Black"></Border>
+                <Border Grid.Column="1" Grid.Row="0" BorderThickness="0.5" BorderBrush="Black"></Border>
+                <Border Grid.Column="1" Grid.Row="1" BorderThickness="0.5" BorderBrush="Black"></Border>
+                <Border Grid.Column="1" Grid.Row="2" BorderThickness="0.5" BorderBrush="Black"></Border>
                 <Viewbox Grid.Row="0"  >
                     <TextBlock Text="Câu hỏi 1" Background="Transparent" Foreground="Black" Margin="0,5,0,5"/>
                 </Viewbox>
@@ -94,9 +100,8 @@
                     <TextBlock Text="Câu hỏi 3" Background="Transparent" Foreground="Black" Margin="0,5,0,5"/>
                 </Viewbox>
                 <Viewbox Grid.Row="3" Grid.ColumnSpan="2" >
-                    <Button Name="btnSaveQuestionPack" Style="{StaticResource MaterialDesignRaisedDarkButton}"
-                                
-                                 Content="Lưu" Click="BtnSaveQuestionPack_Click" Margin="0,5,0,5"/>
+                    <Button Name="btnSaveQuestionPack" Style="{StaticResource MaterialDesignRaisedDarkButton}"         
+                    Content="Lưu" Click="BtnSaveQuestionPack_Click" Margin="0,5,0,5"/>
                 </Viewbox>
             </Grid>
         </Border>

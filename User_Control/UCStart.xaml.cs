@@ -98,8 +98,10 @@ namespace ServerDTT_New_.User_Control
 
             eWStart.txtBlockStudentNameList[currentStudentID].FontSize = 35;
             eWStart.txtBlockStudentNameList[currentStudentID].VerticalAlignment = VerticalAlignment.Center;
-            eWStart.txtBlockStudentPointList[currentStudentID].Text = "";
+            //eWStart.txtBlockStudentPointList[currentStudentID].Text = "";
             eWStart.txtBlockStudentNameList[currentStudentID].SetValue(Grid.RowSpanProperty, 3);
+            //var bc = new BrushConverter();
+            eWStart.txtBackGroundNameList[currentStudentID].Background = Brushes.DarkRed;
             questionList = DAO.QuestionDAO.Instance.getStartQuestion(matchID, currentStudentID + 1);// get question from database
             bUQuestionList = DAO.QuestionDAO.Instance.getStartQuestion(matchID, currentStudentID + 1, 1);//get backup question from database
             currentQuestionID = 0;
@@ -196,8 +198,8 @@ namespace ServerDTT_New_.User_Control
         {
             for (int i = 0; i < numberOfStudent; i++)
             {
-                eWStart.txtBlockStudentNameList[i].Text = studentList[i].Name;
-                eWStart.txtBlockStudentPointList[i].Text = studentList[i].Point.ToString();
+                eWStart.txtBlockStudentNameList[i].Text = studentList[i].Name + " (" + studentList[i].Point.ToString() + ")";
+                //eWStart.txtBlockStudentPointList[i].Text = studentList[i].Point.ToString();
                 btnStudentList[i].Content = studentList[i].Name;
             }
         }
@@ -209,9 +211,11 @@ namespace ServerDTT_New_.User_Control
             UpdateInfoOnScreen();
 
             eWStart.txtBlockStudentNameList[currentStudentID].SetValue(Grid.RowSpanProperty, 2);
-            eWStart.txtBlockStudentNameList[currentStudentID].FontSize = 30;
-            eWStart.txtBlockStudentPointList[currentStudentID].Text = studentList[currentStudentID].Point.ToString();
-            eWStart.txtBlockStudentNameList[currentStudentID].VerticalAlignment = VerticalAlignment.Bottom;
+            eWStart.txtBlockStudentNameList[currentStudentID].FontSize = 25;
+            //eWStart.txtBlockStudentPointList[currentStudentID].Text = studentList[currentStudentID].Point.ToString();
+            eWStart.txtBlockStudentNameList[currentStudentID].VerticalAlignment = VerticalAlignment.Center;
+            var bc = new BrushConverter();
+            eWStart.txtBackGroundNameList[currentStudentID].Background = (Brush)bc.ConvertFrom("#2a2728");
 
             IsBackup = false;
         }

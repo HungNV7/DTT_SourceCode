@@ -24,7 +24,7 @@ namespace ServerDTT_New_.ExtendedWindow
     {
         MediaAct mediaAct = new MediaAct();
         public List<TextBlock> txtBlockStudentNameList = new List<TextBlock>();
-        public List<TextBlock> txtBlockStudentPointList = new List<TextBlock>();
+        public List<TextBlock> txtBackGroundNameList = new List<TextBlock>();
         Thread thread;
         User_Control.UCStart uCStart;
         double time = 0;
@@ -55,22 +55,23 @@ namespace ServerDTT_New_.ExtendedWindow
 
             for (int i = 0; i < 4; i++)
             {
-                TextBlock txtBlockStudentName = new TextBlock { Text = "Thi Sinh" + (i + 1).ToString(), FontWeight = FontWeights.DemiBold, FontFamily = new FontFamily("Open Sans"), Foreground = Brushes.White, FontSize = 28, TextAlignment = TextAlignment.Center, VerticalAlignment = VerticalAlignment.Bottom };
+                var bc = new BrushConverter();
+
+                TextBlock txtBackGroundName = new TextBlock();
+                txtBackGroundName.Background = (Brush)bc.ConvertFrom("#2a2728");
+                txtBackGroundName.SetValue(Grid.ColumnProperty, 2*i + 1);
+                txtBackGroundNameList.Add(txtBackGroundName);
+                gridStudentsName.Children.Add(txtBackGroundName);
+
+                TextBlock txtBlockStudentName = new TextBlock { Text = "Thi Sinh" + (i + 1).ToString(), FontWeight = FontWeights.DemiBold, FontFamily = new FontFamily("Open Sans"), Foreground = Brushes.White, FontSize = 25, TextAlignment = TextAlignment.Center, VerticalAlignment = VerticalAlignment.Center };
                 //Viewbox viewboxStudentName = new Viewbox();
                 //viewboxStudentName.Child = txtBlockStudentName;
                 //viewboxStudentName.SetValue(Grid.ColumnProperty, i + 1);
-                txtBlockStudentName.SetValue(Grid.ColumnProperty, i + 1);
+                txtBlockStudentName.SetValue(Grid.ColumnProperty, 2*i + 1);
                 txtBlockStudentName.SetValue(Grid.RowProperty, 0);
                 txtBlockStudentName.SetValue(Grid.RowSpanProperty, 2);
                 gridStudentsName.Children.Add(txtBlockStudentName);
                 txtBlockStudentNameList.Add(txtBlockStudentName);
-
-                TextBlock txtBlockStudentPoint = new TextBlock { Text = "0", FontWeight = FontWeights.DemiBold, FontFamily = new FontFamily("Open Sans"), FontSize = 25, Foreground = Brushes.White, TextAlignment = TextAlignment.Center, VerticalAlignment = VerticalAlignment.Top };
-                txtBlockStudentPoint.SetValue(Grid.ColumnProperty, i + 1);
-                txtBlockStudentPoint.SetValue(Grid.RowProperty, 1);
-                txtBlockStudentPoint.SetValue(Grid.RowSpanProperty, 2);
-                txtBlockStudentPointList.Add(txtBlockStudentPoint);
-                gridStudentsName.Children.Add(txtBlockStudentPoint);
             }
 
             HideAll();

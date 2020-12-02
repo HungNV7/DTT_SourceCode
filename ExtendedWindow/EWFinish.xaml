@@ -43,10 +43,10 @@
         <Grid Name="gridStudentContest">
             <Grid.RowDefinitions>
                 <RowDefinition Height="80*"/>
-                <RowDefinition Height="185*"/>
-                <RowDefinition Height="58*"/>
-                <RowDefinition Height="15*"/>
-                <RowDefinition Height="97*"/>
+                <RowDefinition Height="199*"/>
+                <RowDefinition Height="29*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="117*"/>
                 <RowDefinition Height="35*"/>
             </Grid.RowDefinitions>
 
@@ -61,61 +61,71 @@
             <Image Name="imgTimeVideo" Grid.RowSpan="6" Stretch="Fill"/>
             <MediaElement Name="videoTime" Grid.RowSpan="6" Stretch="Fill" LoadedBehavior="Manual"/>
             
-            <Grid Grid.Row="2">
+            <Grid Grid.Row="2" Grid.RowSpan="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="630*"/>
-                    <ColumnDefinition Width="100*"/>
-                    <ColumnDefinition Width="70*"/>
+                    <ColumnDefinition Width="110*"/>
+                    <ColumnDefinition Width="60*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Viewbox Grid.Column="1" Grid.Row="1">
+                <Viewbox Grid.Column="1" Grid.Row="2">
                     <TextBlock Name="txtBlockPackQuestion" Foreground="White" FontFamily="Open Sans"/>
                 </Viewbox>
             </Grid>
             <Viewbox Grid.Row="1" Margin="200,20,200,20">
                 <Image Name="imgQuestion" Stretch="Fill"/>
             </Viewbox>
+            
             <Grid Name="gridStudentsName" Grid.Row="2">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="98*"/>
-                    <ColumnDefinition Width="122*"/>
-                    <ColumnDefinition Width="122*"/>
-                    <ColumnDefinition Width="122*"/>
-                    <ColumnDefinition Width="122*"/>
-                    <ColumnDefinition Width="214*"/>
+                    <ColumnDefinition Width="102*"/>
+                    <ColumnDefinition Width="115*"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="115*"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="115*"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="115*"/>
+                    <ColumnDefinition Width="218*"/>
                 </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="0.75*"/>
-                    <RowDefinition Height="0.25*"/>
-                    <RowDefinition Height="3*"/>
-                </Grid.RowDefinitions>
+                <!--<TextBlock x:Name="txtBackGroundName0" Grid.Column="1" Background="#2a2728"></TextBlock>
+                <TextBlock x:Name="txtBackGroundName1" Grid.Column="3" Background="#2a2728"></TextBlock>
+                <TextBlock x:Name="txtBackGroundName2" Grid.Column="5" Background="#2a2728"></TextBlock>
+                <TextBlock x:Name="txtBackGroundName3" Grid.Column="7" Background="#2a2728"></TextBlock>-->
+            
             </Grid>
-            <Grid Grid.Row="3" Grid.RowSpan="2">
+            <Grid Grid.Row="4">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="95*"/>
-                    <ColumnDefinition Width="490*"/>
-                    <ColumnDefinition Width="215*"/>
+                    <ColumnDefinition Width="492*"/>
+                    <ColumnDefinition Width="213*"/>
                 </Grid.ColumnDefinitions>
                 <Image Name="imgHopeStar" Grid.Column="0"/>
                 <TextBlock Name="txtBlockQuestion" Grid.Column="1" FontFamily="Open Sans" Foreground="White" FontSize="35" TextWrapping="Wrap"/>
             </Grid>
             <Grid Grid.Row="4">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="630*"/>
-                    <ColumnDefinition Width="100*"/>
-                    <ColumnDefinition Width="70*"/>
+                    <ColumnDefinition Width="625*"/>
+                    <ColumnDefinition Width="117*"/>
+                    <ColumnDefinition Width="58*"/>
                 </Grid.ColumnDefinitions>
-                <Viewbox Grid.Column="1">
-                    <TextBlock Name="txtBlockPoint" Foreground="White" FontFamily="Barlow Semi Condensed" FontWeight="DemiBold"/>
-                </Viewbox>
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="4*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Viewbox Grid.Row="1">
+                        <TextBlock Name="txtBlockPoint" Foreground="White" FontFamily="Barlow Semi Condensed" FontWeight="DemiBold"/>
+                    </Viewbox>
+                </Grid>
             </Grid>
             <Viewbox Grid.RowSpan="6">
                 <MediaElement Name="mediaQuestion" LoadedBehavior="Manual" Stretch="Fill" MediaEnded="MediaQuestion_MediaEnded"/>
             </Viewbox>
         </Grid>
     </Grid>
+    
 </UserControl>

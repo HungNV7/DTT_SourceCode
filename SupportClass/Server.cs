@@ -43,7 +43,7 @@ namespace ServerDTT_New_.SupportClass
         {
             IP = new IPEndPoint(IPAddress.Any, 9999);
             ClientList = new List<Socket>();
-            server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
+            server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             server.Bind(IP);
             Thread Listen = new Thread(() =>
               {
@@ -62,7 +62,7 @@ namespace ServerDTT_New_.SupportClass
                   catch
                   {
                       IP = new IPEndPoint(IPAddress.Any, 9999);
-                      server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
+                      server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
                   }
               });
             Listen.IsBackground = true;

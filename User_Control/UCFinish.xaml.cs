@@ -66,8 +66,8 @@ namespace ServerDTT_New_.User_Control
             {
                 TextBox txtBoxChoosePackQuestion = new TextBox { Background = Brushes.White, Foreground = Brushes.Black, TextAlignment = TextAlignment.Center, Text = "10", FontSize = 20 };
                 Viewbox viewboxChoosePackQuestion = new Viewbox();
-                viewboxChoosePackQuestion.SetValue(Grid.ColumnProperty, i);
-                viewboxChoosePackQuestion.SetValue(Grid.RowProperty, 1);
+                viewboxChoosePackQuestion.SetValue(Grid.ColumnProperty, 1);
+                viewboxChoosePackQuestion.SetValue(Grid.RowProperty, i);
                 viewboxChoosePackQuestion.Child=txtBoxChoosePackQuestion;
                 txtBoxChoosePackQuestionList.Add(txtBoxChoosePackQuestion);
                 gridChooseQuestionPack.Children.Add(viewboxChoosePackQuestion);
@@ -124,14 +124,13 @@ namespace ServerDTT_New_.User_Control
             eWFinish.HideAll();
             eWFinish.gridChooseQuestion.Visibility = Visibility.Visible;
             currentStudentID = int.Parse((sender as Button).Uid);
-            eWFinish.txtBlockStudent.Text = studentList[currentStudentID].Name;
             eWFinish.txtBlockStudent.Visibility = Visibility.Visible;
+            eWFinish.txtBlockStudent.Text = studentList[currentStudentID].Name;
         }
 
         private void BtnStart_Click(object sender, RoutedEventArgs e)
         {
             mediaAct.Play(eWFinish.soundStart);
-            
         }
 
         private void BtnSaveQuestionPack_Click(object sender, RoutedEventArgs e)
@@ -225,18 +224,26 @@ namespace ServerDTT_New_.User_Control
             for (int i = 0; i < numberOfStudent; i++)
             {
                 mainWindow.txtBoxStudentNameList[i].Text = eWFinish.txtBlockStudentNameList[i].Text = studentList[i].Name;
+                eWFinish.txtBlockStudentNameList[i].FontSize = 25;
+                eWFinish.txtBlockStudentNameList[i].VerticalAlignment = VerticalAlignment.Center;
                 mainWindow.txtBoxStudentPointList[i].Text = studentList[i].Point.ToString();
 
                 btnChooseStudentList[i].Content = studentList[i].Name;
                 eWFinish.txtBlockStudentNameList[i].SetValue(Grid.RowSpanProperty, 2);
                 if (i != currentStudentID)
-                    eWFinish.txtBlockStudentPointList[i].Text = studentList[i].Point.ToString();
+                {
+                    //eWFinish.txtBlockStudentPointList[i].Text = studentList[i].Point.ToString();
+                    eWFinish.txtBlockStudentNameList[i].Text += " (" + studentList[i].Point.ToString() + ")";
+                    var bc = new BrushConverter();
+                    eWFinish.txtBackGroundNameList[i].Background = (Brush)bc.ConvertFrom("#2a2728");
+                }
                 else
                 {
                     eWFinish.txtBlockStudentNameList[i].FontSize = 35;
                     eWFinish.txtBlockStudentNameList[i].VerticalAlignment = VerticalAlignment.Center;
-                    eWFinish.txtBlockStudentPointList[i].Text = "";
+                    //eWFinish.txtBlockStudentPointList[i].Text = "";
                     eWFinish.txtBlockStudentNameList[i].SetValue(Grid.RowSpanProperty, 4);
+                    eWFinish.txtBackGroundNameList[i].Background = Brushes.DarkRed;
                 }
             }
             
@@ -252,7 +259,7 @@ namespace ServerDTT_New_.User_Control
             currentBellStudentID = -1;
             for (int i = 0; i < numberOfStudent; i++)
             {
-                eWFinish.borderHighlightList[i].Visibility = Visibility.Hidden;
+                //eWFinish.borderHighlightList[i].Visibility = Visibility.Hidden;
                 btnChooseStudentList[i].Background = Brushes.LightBlue;
             }
 
@@ -327,7 +334,9 @@ namespace ServerDTT_New_.User_Control
                 currentBellStudentID = int.Parse(message[0] + "");
                 mediaAct.Play(eWFinish.soundBell);
                 btnChooseStudentList[int.Parse(message[0] + "")].Background = Brushes.Red;
-                eWFinish.borderHighlightList[int.Parse(message[0] + "")].Visibility = Visibility.Visible;
+                //eWFinish.borderHighlightList[int.Parse(message[0] + "")].Visibility = Visibility.Visible;
+                var bc = new BrushConverter(); 
+                eWFinish.txtBackGroundNameList[int.Parse(message[0] + "")].Background = (Brush)bc.ConvertFrom("#db6400");
             }
         }
 
@@ -339,10 +348,12 @@ namespace ServerDTT_New_.User_Control
 
             eWFinish.txtBlockStudentNameList[currentStudentID].SetValue(Grid.RowSpanProperty, 2);
             eWFinish.txtBlockStudentNameList[currentStudentID].FontSize = 25;
-            eWFinish.txtBlockStudentPointList[currentStudentID].Text = studentList[currentStudentID].Point.ToString();
-            eWFinish.txtBlockStudentNameList[currentStudentID].VerticalAlignment = VerticalAlignment.Bottom;
+            eWFinish.txtBlockStudentNameList[currentStudentID].Text += " (" + studentList[currentStudentID].Point.ToString() + ")";
+            //eWFinish.txtBlockStudentPointList[currentStudentID].Text = studentList[currentStudentID].Point.ToString();
+            eWFinish.txtBlockStudentNameList[currentStudentID].VerticalAlignment = VerticalAlignment.Center;
+            var bc = new BrushConverter();
+            eWFinish.txtBackGroundNameList[currentStudentID].Background = (Brush)bc.ConvertFrom("#2a2728");
 
-            
             IsHopeStar = 0;
             eWFinish.imgHopeStar.Visibility = Visibility.Hidden;
         }

@@ -62,15 +62,7 @@ namespace ServerDTT_New_.User_Control
             server = _server;
             this.matchID = matchID;
 
-            foreach (Question question in questionList)
-            {
-                if (question.QuestionTypeID == "02")
-                {
-                    eWObstacles.MainObstacle = question.QuestionImageName;
-                }
-            }
-
-            eWObstacles.InitEWControl();
+            
         }
 
         //1. The top part
@@ -78,12 +70,21 @@ namespace ServerDTT_New_.User_Control
         {
             eWindow.Content = eWObstacles;
             InitControl();
+            foreach (Question question in questionList)
+            {
+                if (question.QuestionTypeID == "02")
+                {
+                    eWObstacles.MainObstacle = question.QuestionImageName;
+                }
+            }
+            eWObstacles.InitEWControl();
             eWObstacles.HideAll();
             eWObstacles.VideoIntro.Visibility = Visibility.Visible; 
             eWObstacles.VideoIntro.Stop();
             eWObstacles.VideoIntro.Play();
             eWObstacles.VideoIntro.MediaEnded += VideoIntro_MediaEnded;
-
+            for (int i = 0; i < server.ClientList.Count; i++)
+                server.Send(server.ClientList[i], "2_3");
             server.SendTSInfo(currentRound, studentList);
         }
 
@@ -422,6 +423,7 @@ namespace ServerDTT_New_.User_Control
 
         public void BellHandler(int pos)
         {
+            eWObstacles.gridBell.Visibility = Visibility.Visible;
             eWObstacles_textboxBell[bellOrder].Text = studentList[pos].Name;
             eWObstacles_textboxBorderBell[bellOrder].Visibility = Visibility.Visible;
 

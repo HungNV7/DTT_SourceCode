@@ -23,7 +23,7 @@ namespace ServerDTT_New_.ExtendedWindow
     public partial class EWFinish : UserControl
     {
         public List<TextBlock> txtBlockStudentNameList = new List<TextBlock>();
-        public List<TextBlock> txtBlockStudentPointList = new List<TextBlock>();
+        public List<TextBlock> txtBackGroundNameList = new List<TextBlock>();
         public List<Image> imgCheckMarkList = new List<Image>();
         public List<Border> borderHighlightList = new List<Border>();
 
@@ -47,30 +47,38 @@ namespace ServerDTT_New_.ExtendedWindow
             //Tao ten Thi sinh
             for (int i = 0; i < numberOfStudent; i++)
             {
-                TextBlock txtBlockStudentName = new TextBlock { Text = "Thi Sinh" + (i + 1).ToString(), FontWeight = FontWeights.DemiBold, FontFamily = new FontFamily("Open Sans"), Foreground = Brushes.White, FontSize = 25, TextAlignment = TextAlignment.Center, VerticalAlignment = VerticalAlignment.Bottom};
+                var bc = new BrushConverter();
+
+                TextBlock txtBackGroundName = new TextBlock();
+                txtBackGroundName.Background = (Brush)bc.ConvertFrom("#2a2728");
+                txtBackGroundName.SetValue(Grid.ColumnProperty, 2 * i + 1);
+                txtBackGroundNameList.Add(txtBackGroundName);
+                gridStudentsName.Children.Add(txtBackGroundName);
+
+                TextBlock txtBlockStudentName = new TextBlock { Text = "Thi Sinh" + (i + 1).ToString(), FontWeight = FontWeights.DemiBold, FontFamily = new FontFamily("Open Sans"), Foreground = Brushes.White, FontSize = 25, TextAlignment = TextAlignment.Center, VerticalAlignment = VerticalAlignment.Center};
                 txtBlockStudentNameList.Add(txtBlockStudentName);
                 //Viewbox viewboxStudentName = new Viewbox { Margin = new Thickness(5) };
                 //viewboxStudentName.SetValue(Grid.ColumnProperty, i + 1);
                 //viewboxStudentName.Child = txtBlockStudentName;
                 //gridStudentsName.Children.Add(viewboxStudentName);
-                txtBlockStudentName.SetValue(Grid.ColumnProperty, i + 1);
-                txtBlockStudentName.SetValue(Grid.RowProperty, 0);
-                txtBlockStudentName.SetValue(Grid.RowSpanProperty, 2);
+                txtBlockStudentName.SetValue(Grid.ColumnProperty, 2*i + 1);
+                //txtBlockStudentName.SetValue(Grid.RowProperty, 0);
+                //txtBlockStudentName.SetValue(Grid.RowSpanProperty, 2);
                 gridStudentsName.Children.Add(txtBlockStudentName);
 
-                TextBlock txtBlockStudentPoint = new TextBlock {Margin=new Thickness(3), Text = "0", FontWeight = FontWeights.DemiBold, FontFamily = new FontFamily("Open Sans"), FontSize = 25, Foreground = Brushes.White, TextAlignment = TextAlignment.Center, VerticalAlignment = VerticalAlignment.Top};
-                txtBlockStudentPoint.SetValue(Grid.ColumnProperty, i + 1);
-                txtBlockStudentPoint.SetValue(Grid.RowProperty, 1);
-                txtBlockStudentPoint.SetValue(Grid.RowSpanProperty, 3);
-                txtBlockStudentPointList.Add(txtBlockStudentPoint);
-                gridStudentsName.Children.Add(txtBlockStudentPoint);
+                //TextBlock txtBlockStudentPoint = new TextBlock {Margin=new Thickness(3), Text = "0", FontWeight = FontWeights.DemiBold, FontFamily = new FontFamily("Open Sans"), FontSize = 25, Foreground = Brushes.White, TextAlignment = TextAlignment.Center, VerticalAlignment = VerticalAlignment.Top};
+                //txtBlockStudentPoint.SetValue(Grid.ColumnProperty, i + 1);
+                //txtBlockStudentPoint.SetValue(Grid.RowProperty, 1);
+                //txtBlockStudentPoint.SetValue(Grid.RowSpanProperty, 3);
+                //txtBlockStudentPointList.Add(txtBlockStudentPoint);
+                //gridStudentsName.Children.Add(txtBlockStudentPoint);
 
-                Border borderHighlight = new Border { Margin = new Thickness(3, 20, 3, 20), BorderBrush = Brushes.Yellow, BorderThickness=new Thickness(10), Background=Brushes.Transparent };
-                borderHighlight.SetValue(Grid.RowProperty, 0);
-                borderHighlight.SetValue(Grid.RowSpanProperty, 4);
-                borderHighlight.SetValue(Grid.ColumnProperty, i + 1);
-                borderHighlightList.Add(borderHighlight);
-                gridStudentsName.Children.Add(borderHighlight);
+                //Border borderHighlight = new Border { Margin = new Thickness(3, 20, 3, 20), BorderBrush = Brushes.Yellow, BorderThickness=new Thickness(10), Background=Brushes.Transparent };
+                //borderHighlight.SetValue(Grid.RowProperty, 0);
+                //borderHighlight.SetValue(Grid.RowSpanProperty, 4);
+                //borderHighlight.SetValue(Grid.ColumnProperty, i + 1);
+                //borderHighlightList.Add(borderHighlight);
+                //gridStudentsName.Children.Add(borderHighlight);
             }
             
             //Tao cac Check Mark         
