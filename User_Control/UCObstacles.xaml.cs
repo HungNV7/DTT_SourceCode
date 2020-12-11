@@ -110,37 +110,44 @@ namespace ServerDTT_New_.User_Control
         private void btnChooseRow_Click(object sender, RoutedEventArgs e)
         {
             //UC update part
-            rowChosenCount++;
-            currentQuestion = (int)comboBoxNumber.SelectedItem;
+            try
+            {
+                currentQuestion = (int)comboBoxNumber.SelectedItem;
+                rowChosenCount++;
+                textboxAns1.Text = String.Empty;
+                textboxAns2.Text = String.Empty;
+                textboxAns3.Text = String.Empty;
+                textboxAns4.Text = String.Empty;
 
-            textboxAns1.Text = String.Empty;
-            textboxAns2.Text = String.Empty;
-            textboxAns3.Text = String.Empty;
-            textboxAns4.Text = String.Empty;
+                RowChosenSound.Stop();
+                RowChosenSound.Play();
 
-            RowChosenSound.Stop();
-            RowChosenSound.Play();
+                textboxQuestion.Text = questionList[currentQuestion].Detail;
+                textboxTrueAnswer.Text = questionList[currentQuestion].Answer;
 
-            textboxQuestion.Text = questionList[currentQuestion].Detail;
-            textboxTrueAnswer.Text = questionList[currentQuestion].Answer;
+                //EW update part
+                if (currentQuestion < 5)
+                    for (int i = 0; i < eWObstacles_imgRowHider[currentQuestion - 1].Count; i++)
+                    {
+                        DoubleAnimation doubleAnimation = new DoubleAnimation(0, TimeSpan.FromSeconds(2));  //toValue == 0, hide the base element
+                        eWObstacles_imgRowHider[currentQuestion - 1][i].BeginAnimation(Image.OpacityProperty, doubleAnimation);
+                    }
 
-            //EW update part
-            if (currentQuestion < 5)
-                for (int i = 0; i < eWObstacles_imgRowHider[currentQuestion - 1].Count; i++)
-                {
-                    DoubleAnimation doubleAnimation = new DoubleAnimation(0, TimeSpan.FromSeconds(2));  //toValue == 0, hide the base element
-                    eWObstacles_imgRowHider[currentQuestion - 1][i].BeginAnimation(Image.OpacityProperty, doubleAnimation);
-                }
+                eWObstacles.VideoQuestionBox.Stop();
+                eWObstacles.VideoQuestionBox.Play();
+                eWObstacles.VideoQuestionBox.MediaEnded += eWObstacles_ShowQuestion;
 
-            eWObstacles.VideoQuestionBox.Stop();
-            eWObstacles.VideoQuestionBox.Play();
-            eWObstacles.VideoQuestionBox.MediaEnded += eWObstacles_ShowQuestion;
+                EraseEWContent();
 
-            EraseEWContent();
-
-            //Send Question Detail
-            for (int i = 0; i < server.ClientList.Count; i++)
-                server.Send(server.ClientList[i], "2_1_" + questionList[currentQuestion].Detail);
+                //Send Question Detail
+                for (int i = 0; i < server.ClientList.Count; i++)
+                    server.Send(server.ClientList[i], "2_1_" + questionList[currentQuestion].Detail);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            
         }
 
         private void btnStartTiming_Click(object sender, RoutedEventArgs e)

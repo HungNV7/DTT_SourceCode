@@ -171,5 +171,12 @@ namespace ServerDTT_New_.ExtendedWindow
             txtBlockStudent.Visibility = Visibility.Visible;
             mediaAct.Play(videoChooseQuestion);
         }
+
+        private void videoIntro_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            //txtNameRound.Visibility = Visibility.Visible;
+            videoIntro.Visibility = Visibility.Hidden;
+            gridIntro.Visibility = Visibility.Visible;
+        }
     }
 }

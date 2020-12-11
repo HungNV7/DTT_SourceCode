@@ -448,5 +448,43 @@ namespace ServerDTT_New_.ExtendedWindow
         {
             
         }
+
+        private void btnCandidate_Click(object sender, RoutedEventArgs e)
+        {
+            txtBlockFinish.Text = "Is Loading";
+            OpenFileDialog openFile = new OpenFileDialog();
+            openFile.Multiselect = true;
+            openFile.Filter = "Excel(*.xlsv,*.xls,*.csv,*.xlsx)|*.xlsv;*.xls;*.csv;*.xlsx";
+            Worksheet worksheet;
+            Workbook workbook;
+            if (openFile.ShowDialog() == true)
+            {
+                string fileName = openFile.FileNames[0];
+                workbook = new Workbook();
+                workbook.LoadFromFile(fileName);
+                string command = "Alter database DTT Set multi_user with rollback immediate;\n" + "Use master\n";
+                DataProvider.Instance.ExecuteQuery(command);
+                worksheet = workbook.Worksheets[0];
+                command = string.Empty;
+
+                for (int i = 2; i <= 5; i++)
+                {
+                    command += "INSERT INTO tblStudent(studentID, lastName) VALUES(";
+                    command += "N'" + worksheet[i, 1].Text + "',N'" + worksheet[i, 2].Text + "')\n";
+                }
+                DataProvider.Instance.ExecuteNonQuery(command);
+
+                command = string.Empty;
+                for (int i = 2; i <= 5; i++)
+                {
+                    command += "INSERT INTO tblDetailMatch(studentID, matchID, point, position) VALUES(";
+                    command += "N'" + worksheet[i, 1].Text + "',N'" + txtMatch.Text + "', 0, "+ (i - 1) + ")\n";
+                }
+                DataProvider.Instance.ExecuteNonQuery(command);
+
+                txtBlockFinish.Text = "Finished";
+                mainWindow.GetMatch();
+            }
+        }
     }
 }

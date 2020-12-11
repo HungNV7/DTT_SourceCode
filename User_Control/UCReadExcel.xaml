@@ -24,10 +24,12 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
             <Button Grid.Column="0" Name="btnLoadQuestion" Content="Offical" Click="BtnLoadQuestion_Click"/>
             <Button Grid.Column="1" Name="btnLoadBUQuestion" Content="Backup" Click="BtnLoadBUQuestion_Click"/>
-        </Grid>
+            <Button Grid.Column="2" Name="btnCandidate" Content="Candidate" Click="btnCandidate_Click"/>
+            </Grid>
         </Border>
         <Border Grid.Row="2" BorderBrush="Black" BorderThickness="1" CornerRadius="5" Margin="5">
         <Grid >

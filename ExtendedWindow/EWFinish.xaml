@@ -9,10 +9,10 @@
     <Grid>
         <Grid Name="gridIntro">
             <Viewbox Margin="150,50,150,50">
-                <TextBlock Text="VỀ ĐÍCH" Foreground="White" FontWeight="Black"/>
+                <TextBlock x:Name="txtNameRound" Text="VỀ ĐÍCH" Foreground="White" FontWeight="Black"/>
             </Viewbox>
             <MediaElement Name="soundIntro" LoadedBehavior="Manual" Stretch="Fill"/>
-            <MediaElement Name="videoIntro" LoadedBehavior="Manual" Stretch="Fill"/>
+            <MediaElement Name="videoIntro" LoadedBehavior="Manual" Stretch="Fill" MediaEnded="videoIntro_MediaEnded"/>
         </Grid>
         <Grid Name="gridChooseQuestion">
             <Grid.ColumnDefinitions>

@@ -100,8 +100,17 @@ namespace ServerDTT_New_.User_Control
             eWStart.txtBlockStudentNameList[currentStudentID].VerticalAlignment = VerticalAlignment.Center;
             //eWStart.txtBlockStudentPointList[currentStudentID].Text = "";
             eWStart.txtBlockStudentNameList[currentStudentID].SetValue(Grid.RowSpanProperty, 3);
-            //var bc = new BrushConverter();
             eWStart.txtBackGroundNameList[currentStudentID].Background = Brushes.DarkRed;
+            var bc = new BrushConverter();
+            for (int i = 0; i < 4; i++)
+            {
+                if(i != currentStudentID)
+                {
+                    eWStart.txtBlockStudentNameList[i].FontSize = 25;
+                    eWStart.txtBackGroundNameList[i].Background = (Brush)bc.ConvertFrom("#2a2728");
+                    eWStart.txtBlockStudentNameList[i].Text = studentList[i].Name + " (" + studentList[i].Point + ")";
+                }
+            }
             questionList = DAO.QuestionDAO.Instance.getStartQuestion(matchID, currentStudentID + 1);// get question from database
             bUQuestionList = DAO.QuestionDAO.Instance.getStartQuestion(matchID, currentStudentID + 1, 1);//get backup question from database
             currentQuestionID = 0;

@@ -59,7 +59,7 @@ namespace ServerDTT_New_.DAO
             return data;
         }
 
-        public int ExecuteNonQuery(string query, object[] parameters = null)
+        public int ExecuteNonQuery(string query, object[] parameters = null) 
         {
             int data = 0;
 
@@ -83,8 +83,14 @@ namespace ServerDTT_New_.DAO
                         }
                     }
                 }
-
-                data = command.ExecuteNonQuery();
+                try
+                {
+                    data = command.ExecuteNonQuery();
+                }
+                catch (Exception)
+                {
+                }
+                
 
                 connection.Close();
             }
