@@ -6,6 +6,13 @@
              xmlns:local="clr-namespace:ServerDTT_New_.ExtendedWindow"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <!--<UserControl.Background>
+        <ImageBrush>
+            <ImageBrush.ImageSource>
+                <BitmapImage UriSource="file:///D:/Pictures/Screenshots/Screenshot (101).png"/>
+            </ImageBrush.ImageSource>
+        </ImageBrush>
+    </UserControl.Background>-->
     <Grid>
         <Grid Name="gridIntro">
             <Viewbox Margin="150,50,150,50">
@@ -101,6 +108,8 @@
             </Grid.RowDefinitions>
             <MediaElement Name="videoAnswer" Grid.ColumnSpan="5" Grid.RowSpan="13" Stretch="Fill" LoadedBehavior="Manual" MediaEnded="VideoAnswer_MediaEnded"/>
             <MediaElement Name="soundTrueAnswer" LoadedBehavior="Manual"/>
+            <MediaElement Name="soundBell" LoadedBehavior="Manual"/>
+            <MediaElement Name="eliminateSound" LoadedBehavior="Manual"/>
             <MediaElement Name="soundFalseAnswer" LoadedBehavior="Manual"/>
         </Grid>
         <Grid Name="gridFinalAnswer">
@@ -108,5 +117,63 @@
                 <TextBlock Name="txtBlockMainAnswer" Text="Final Answer" Foreground="White" FontWeight="DemiBold" FontFamily="Open Sans"/>
             </Viewbox>
         </Grid>
+        <!-- Nhấn chuông -->
+        <Grid x:Name="gridBell">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="277*"></RowDefinition>
+                <RowDefinition Height="173*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30*"></RowDefinition>
+                    <RowDefinition Height="30*"></RowDefinition>
+                    <RowDefinition Height="143*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="43*"></ColumnDefinition>
+                    <ColumnDefinition Width="717*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+
+                <Grid Grid.Row="0" Grid.Column="1" Margin="0,0,300,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Border Visibility="Hidden" Name="borderBell1" Grid.Column="0" Grid.Row="0" BorderThickness="1" BorderBrush="White" Background="#821e03">
+                        <TextBlock Name="textboxBell1" Text="Thí sinh 1" Foreground="White" FontSize="25" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                    </Border>
+
+                    <Border Visibility="Hidden" Name="borderBell2" Grid.Column="1" BorderThickness="1" BorderBrush="White" Background="#821e03">
+                        <TextBlock Name="textboxBell2" Text="Thí sinh 2" Foreground="White" FontSize="25" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                    </Border>
+                </Grid>
+                <Grid Grid.Row="1" Grid.Column="1" Margin="0,0,300,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Border Visibility="Hidden" Name="borderBell3" Grid.Column="0" BorderThickness="1" BorderBrush="White" Background="#821e03">
+                        <TextBlock Name="textboxBell3" Text="Thí sinh 3" Foreground="White" FontSize="25" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                    </Border>
+
+                    <Border Visibility="Hidden" Name="borderBell4" Grid.Column="1" BorderThickness="1" BorderBrush="White" Background="#821e03">
+                        <TextBlock Name="textboxBell4" Text="Thí sinh 4" Foreground="White" FontSize="25" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                    </Border>
+
+                </Grid>
+            </Grid>
+        </Grid>
     </Grid>
+    
 </UserControl>

@@ -62,7 +62,6 @@ namespace ServerDTT_New_.User_Control
             server = _server;
             this.matchID = matchID;
 
-            
         }
 
         //1. The top part
@@ -79,12 +78,19 @@ namespace ServerDTT_New_.User_Control
             }
             eWObstacles.InitEWControl();
             eWObstacles.HideAll();
+            IntroMusic.Stop();
             eWObstacles.VideoIntro.Visibility = Visibility.Visible; 
             eWObstacles.VideoIntro.Stop();
             eWObstacles.VideoIntro.Play();
             eWObstacles.VideoIntro.MediaEnded += VideoIntro_MediaEnded;
             for (int i = 0; i < server.ClientList.Count; i++)
                 server.Send(server.ClientList[i], "2_3");
+
+            System.IO.StreamWriter streamWriter = new System.IO.StreamWriter("Round.txt");
+            streamWriter.Flush();
+            streamWriter.Write("2");
+            streamWriter.Close();
+
             server.SendTSInfo(currentRound, studentList);
         }
 
@@ -112,7 +118,7 @@ namespace ServerDTT_New_.User_Control
             //UC update part
             try
             {
-                currentQuestion = (int)comboBoxNumber.SelectedItem;
+                currentQuestion = Convert.ToInt32(comboBoxNumber.SelectedItem);
                 rowChosenCount++;
                 textboxAns1.Text = String.Empty;
                 textboxAns2.Text = String.Empty;
@@ -365,7 +371,7 @@ namespace ServerDTT_New_.User_Control
                 case 5:
                     return 10;
                 default:
-                    return 80; //when no row is opened
+                    return 10; //when no row is opened
             }
         }
 
@@ -602,6 +608,46 @@ namespace ServerDTT_New_.User_Control
             for (int i = 0; i < server.ClientList.Count; i++)
                 server.Send(server.ClientList[i], "2_3");
             eWObstacles.InitEWControl();
+        }
+
+        private void IntroMusic_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            IntroMusic.Stop();
+        }
+
+        private void ShowRowsSound_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            ShowHintSound.Stop();
+        }
+
+        private void RowChosenSound_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            RowChosenSound.Stop();
+        }
+
+        private void TrueRowSound_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            TrueRowSound.Stop();
+        }
+
+        private void ShowHintSound_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            ShowHintSound.Stop();
+        }
+
+        private void TrueKeySound_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            TrueKeySound.Stop();
+        }
+
+        private void EliminateSound_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            EliminateSound.Stop();
+        }
+
+        private void BellSound_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            BellSound.Stop();
         }
     }
 }

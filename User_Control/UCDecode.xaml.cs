@@ -33,13 +33,16 @@ namespace ServerDTT_New_.User_Control
         Server server;
 
         const int numberOfStudent = 4;
-        int currentQuestionID = 0;
         int maxRowLength, maxColLength;
         int currentRow = 0, currentCol = 0;
         int currentStudentID = 0;
         int numberOfHint = 0;
         int currentTime = 0;
         string matchID = "";
+        int bellOrder = 0;
+        List<Border> eWDecode_textboxBorderBell = new List<Border>();
+        List<TextBlock> eWDecode_textboxBell = new List<TextBlock>();
+        List<TextBlock> textboxBell = new List<TextBlock>();
 
         string mainQuestion = "", mainAnswer = "";
 
@@ -109,6 +112,25 @@ namespace ServerDTT_New_.User_Control
                 Answer answer = new Answer { studentID = i, answer = string.Empty, time = 0 };
                 answerList.Add(answer);
             }
+
+            eWDecode_textboxBell.Clear();
+            eWDecode_textboxBorderBell.Clear();
+            textboxBell.Clear();
+
+            eWDecode_textboxBell.Add(eWDecode.textboxBell1);
+            eWDecode_textboxBell.Add(eWDecode.textboxBell2);
+            eWDecode_textboxBell.Add(eWDecode.textboxBell3);
+            eWDecode_textboxBell.Add(eWDecode.textboxBell4);
+
+            eWDecode_textboxBorderBell.Add(eWDecode.borderBell1);
+            eWDecode_textboxBorderBell.Add(eWDecode.borderBell2);
+            eWDecode_textboxBorderBell.Add(eWDecode.borderBell3);
+            eWDecode_textboxBorderBell.Add(eWDecode.borderBell4);
+
+            textboxBell.Add(textboxBell1);
+            textboxBell.Add(textboxBell2);
+            textboxBell.Add(textboxBell3);
+            textboxBell.Add(textboxBell4);
         }
 
         void CreateMatrix()
@@ -250,7 +272,7 @@ namespace ServerDTT_New_.User_Control
             {
                 IsQuestionOrHint = 1;
                 mediaAct.Upload(eWDecode.videoTime, "Decode_Video" + timeMatrixCellArray[currentRow, currentCol].ToString() + "s.mp4");
-                currentTime = timeMatrixCellArray[currentRow, currentCol];
+                currentTime = timeMatrixCellArray[currentRow, currentCol];         
             }
 
             if(btnMatrixCell.Content=="")
@@ -299,9 +321,6 @@ namespace ServerDTT_New_.User_Control
             eWDecode.gridMatrix.Visibility = Visibility.Visible;
             mediaAct.Play(eWDecode.soundShowMatrix);
         }
-
-        
-
         private void BtnStudent_Click(object sender, RoutedEventArgs e)
         {
             currentStudentID = int.Parse((sender as Button).Uid);
@@ -349,18 +368,18 @@ namespace ServerDTT_New_.User_Control
             }
         }
 
-        private void BtnDisable_Click(object sender, RoutedEventArgs e)
-        {
-            Image disableIcon = new Image();
-            mediaAct.Upload(disableIcon, "Decode_ImgDisableIcon.png");
-            btnMatrixCellArray[currentRow, currentCol].Content = disableIcon;
+        //private void BtnDisable_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Image disableIcon = new Image();
+        //    mediaAct.Upload(disableIcon, "Decode_ImgDisableIcon.png");
+        //    btnMatrixCellArray[currentRow, currentCol].Content = disableIcon;
 
-            Image eWDisableIcon = new Image();
-            mediaAct.Upload(eWDisableIcon, "Decode_ImgDisableIcon.png");
-            eWDecode.btnMatrixCellArray[currentRow, currentCol].Content = eWDisableIcon;
+        //    Image eWDisableIcon = new Image();
+        //    mediaAct.Upload(eWDisableIcon, "Decode_ImgDisableIcon.png");
+        //    eWDecode.btnMatrixCellArray[currentRow, currentCol].Content = eWDisableIcon;
 
-            mediaAct.Play(eWDecode.soundFalseAnswer);
-        }
+        //    mediaAct.Play(eWDecode.soundFalseAnswer);
+        //}
 
         void ResetAnswerList()
         {
@@ -560,16 +579,63 @@ namespace ServerDTT_New_.User_Control
             return double.Parse(result);
         }
 
+        //public void SolveMessage(string message)
+        //{
+        //    string[] messageList = message.Split('_');
+        //    int StudentID = int.Parse(messageList[0]);
+        //    double time = Math.Round(currentTime - ConvertFromStringToDouble(messageList[2]), 2);
+        //    string answer = messageList[3];
+
+        //    txtBlockStudentAnswerList[StudentID].Text = answerList[StudentID].answer = answer;
+        //    answerList[StudentID].time = time;
+        //    answerList[StudentID].studentID = StudentID;
+        //}
+
         public void SolveMessage(string message)
         {
-            string[] messageList = message.Split('_');
-            int StudentID = int.Parse(messageList[0]);
-            double time = Math.Round(currentTime - ConvertFromStringToDouble(messageList[2]), 2);
-            string answer = messageList[3];
+            string[] messages = message.Split('_');
+            int position = int.Parse(messages[0]);
 
-            txtBlockStudentAnswerList[StudentID].Text = answerList[StudentID].answer = answer;
-            answerList[StudentID].time = time;
-            answerList[StudentID].studentID = StudentID;
+            switch (messages[1])
+            {
+                case "0":
+                    double time = Math.Round(currentTime - ConvertFromStringToDouble(messages[2]), 2);
+                    string answer = messages[3];
+
+                    txtBlockStudentAnswerList[position].Text = answerList[position].answer = answer;
+                    answerList[position].time = time;
+                    answerList[position].studentID = position;
+                    break;
+                case "1":
+                    BellHandler(position);
+                    break;
+            }
+        }
+
+        private void BtnDisableCell_Click(object sender, RoutedEventArgs e)
+        {
+            Image disableIcon = new Image();
+            mediaAct.Upload(disableIcon, "Decode_ImgDisableIcon.png");
+            btnMatrixCellArray[currentRow, currentCol].Content = disableIcon;
+
+            Image eWDisableIcon = new Image();
+            mediaAct.Upload(eWDisableIcon, "Decode_ImgDisableIcon.png");
+            eWDecode.btnMatrixCellArray[currentRow, currentCol].Content = eWDisableIcon;
+
+            mediaAct.Play(eWDecode.soundFalseAnswer);
+        }
+
+        private void btnDisableCandidate_Click(object sender, RoutedEventArgs e)
+        {
+            eWDecode.eliminateSound.Stop();
+            eWDecode.eliminateSound.Play();
+            HideBell();
+        }
+
+        private void btnResetBell_Click(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < server.ClientList.Count; i++)
+                server.Send(server.ClientList[i], "5_3");
         }
 
         private void BtnRule_Click(object sender, RoutedEventArgs e)
@@ -579,5 +645,28 @@ namespace ServerDTT_New_.User_Control
             mediaAct.Play(eWDecode.videoRule);
         }
 
+        private void HideBell()
+        {
+            bellOrder = 0;
+            for (int i = 0; i < textboxBell.Count(); i++)
+            {
+                textboxBell[i].Visibility = Visibility.Hidden;
+                eWDecode_textboxBorderBell[i].Visibility = Visibility.Hidden;
+            } 
+        }
+
+        public void BellHandler(int pos)
+        {
+            eWDecode.gridBell.Visibility = Visibility.Visible;
+            eWDecode_textboxBell[bellOrder].Text = studentList[pos].Name;
+            eWDecode_textboxBorderBell[bellOrder].Visibility = Visibility.Visible;
+
+            bellOrder++;
+            textboxBell[pos].Text = bellOrder.ToString();
+            textboxBell[pos].Visibility = Visibility.Visible;
+
+            eWDecode.soundBell.Stop();
+            eWDecode.soundBell.Play();
+        }
     }
 }

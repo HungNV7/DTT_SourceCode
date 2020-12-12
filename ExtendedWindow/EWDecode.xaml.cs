@@ -88,6 +88,8 @@ namespace ServerDTT_New_.ExtendedWindow
             mediaAct.Upload(videoIntro, "Decode_VideoIntro.mp4");
             mediaAct.Upload(videoQuestionStart, "Decode_VideoQuestionStart.mp4");
             mediaAct.Upload(videoRule, "Decode_VideoRule.mp4");
+            mediaAct.Upload(soundBell, "Obstacles_BellSound.mp3");
+            mediaAct.Upload(eliminateSound, "Obstacles_EliminateSound.mp3");
         }
 
         void HideGridIntro()
@@ -139,6 +141,8 @@ namespace ServerDTT_New_.ExtendedWindow
             mediaAct.Stop(soundShowMatrix);
             mediaAct.Stop(soundTrueAnswer);
             mediaAct.Stop(soundTrueChoose);
+            mediaAct.Stop(soundBell);
+            mediaAct.Stop(eliminateSound);
 
             HideGridIntro();
             HideGridMatrix();

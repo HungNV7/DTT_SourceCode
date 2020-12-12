@@ -277,14 +277,14 @@
         </Grid>
 
         <!--Media-->
-        <MediaElement Name="IntroMusic" LoadedBehavior="Manual" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Height="29" Margin="10,10,0,0" VerticalAlignment="Top" Width="41"/>
-        <MediaElement Name="ShowRowsSound" LoadedBehavior="Manual" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Height="29" Margin="56,10,0,0" VerticalAlignment="Top" Width="41"/>
-        <MediaElement Name="RowChosenSound" LoadedBehavior="Manual" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Height="29" Margin="56,10,0,0" VerticalAlignment="Top" Width="41"/>
-        <MediaElement Name="TrueRowSound" LoadedBehavior="Manual" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Height="29" Margin="102,10,0,0" VerticalAlignment="Top" Width="41"/>
-        <MediaElement Name="ShowHintSound" LoadedBehavior="Manual" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Height="29" Margin="148,10,0,0" VerticalAlignment="Top" Width="41"/>
-        <MediaElement Name="TrueKeySound" LoadedBehavior="Manual"  Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Height="29" Margin="10,10,0,0" VerticalAlignment="Top" Width="41" />
-        <MediaElement Name="EliminateSound" LoadedBehavior="Manual" Grid.Column="1" HorizontalAlignment="Left" Height="29" Margin="56,10,0,0" VerticalAlignment="Top" Width="41" Grid.Row="2"/>
-        <MediaElement Name="BellSound" LoadedBehavior="Manual" Grid.Column="1" HorizontalAlignment="Left" Height="29" Margin="102,10,0,0" VerticalAlignment="Top" Width="41" Grid.Row="2"/>
+        <MediaElement Name="IntroMusic" LoadedBehavior="Manual" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Height="29" Margin="10,10,0,0" VerticalAlignment="Top" Width="41" MediaEnded="IntroMusic_MediaEnded"/>
+        <MediaElement Name="ShowRowsSound" LoadedBehavior="Manual" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Height="29" Margin="56,10,0,0" VerticalAlignment="Top" Width="41" MediaEnded="ShowRowsSound_MediaEnded"/>
+        <MediaElement Name="RowChosenSound" LoadedBehavior="Manual" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Height="29" Margin="56,10,0,0" VerticalAlignment="Top" Width="41" MediaEnded="RowChosenSound_MediaEnded"/>
+        <MediaElement Name="TrueRowSound" LoadedBehavior="Manual" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Height="29" Margin="102,10,0,0" VerticalAlignment="Top" Width="41" MediaEnded="TrueRowSound_MediaEnded"/>
+        <MediaElement Name="ShowHintSound" LoadedBehavior="Manual" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Height="29" Margin="148,10,0,0" VerticalAlignment="Top" Width="41" MediaEnded="ShowHintSound_MediaEnded"/>
+        <MediaElement Name="TrueKeySound" LoadedBehavior="Manual"  Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Height="29" Margin="10,10,0,0" VerticalAlignment="Top" Width="41" MediaEnded="TrueKeySound_MediaEnded" />
+        <MediaElement Name="EliminateSound" LoadedBehavior="Manual" Grid.Column="1" HorizontalAlignment="Left" Height="29" Margin="56,10,0,0" VerticalAlignment="Top" Width="41" Grid.Row="2" MediaEnded="EliminateSound_MediaEnded"/>
+        <MediaElement Name="BellSound" LoadedBehavior="Manual" Grid.Column="1" HorizontalAlignment="Left" Height="29" Margin="102,10,0,0" VerticalAlignment="Top" Width="41" Grid.Row="2" MediaEnded="BellSound_MediaEnded"/>
 
 
 

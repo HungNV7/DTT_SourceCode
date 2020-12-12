@@ -59,6 +59,10 @@ namespace ServerDTT_New_.ExtendedWindow
             gridKeyImage.Visibility = Visibility.Hidden;
             gridBell.Visibility = Visibility.Hidden;
             VideoShowAnswer.Visibility = Visibility.Hidden;
+            mediaAct.Stop(VideoIntro);
+            mediaAct.Stop(VideoQuestionBox);
+            mediaAct.Stop(VideoTiming);
+            mediaAct.Stop(VideoShowAnswer);
         }
 
         private void VideoIntro_MediaEnded(object sender, RoutedEventArgs e)
