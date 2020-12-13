@@ -466,8 +466,7 @@ namespace ServerDTT_New_.User_Control
 
         private void BtnFinalHint_Click(object sender, RoutedEventArgs e)
         {
-            eWDecode.HideAll();
-            eWDecode.gridQuestion.Visibility = Visibility.Visible;
+            
             eWDecode.txtBlockQuestion2.Text = txtBlockQuestion.Text = mainQuestion;
             eWDecode.txtBlockQuestion1.Text = "";
             eWDecode.imgQuestion.Source = null;
@@ -475,6 +474,8 @@ namespace ServerDTT_New_.User_Control
 
             txtBlockAnswer.Text = mainAnswer;
             currentTime = 15;
+            eWDecode.HideAll();
+            eWDecode.gridQuestion.Visibility = Visibility.Visible;
             mediaAct.Play(eWDecode.videoQuestionStart);
 
             mediaAct.Upload(eWDecode.videoTime, "Decode_Video15s.mp4");
