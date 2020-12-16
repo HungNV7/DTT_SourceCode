@@ -110,6 +110,9 @@
     <Compile Include="ExtendedWindow\EWStart.xaml.cs">
       <DependentUpon>EWStart.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ExtendedWindow\EWSubQuestions.xaml.cs">
+      <DependentUpon>EWSubQuestions.xaml</DependentUpon>
+    </Compile>
     <Compile Include="User_Control\UCReadExcel.xaml.cs">
       <DependentUpon>UCReadExcel.xaml</DependentUpon>
     </Compile>
@@ -129,6 +132,9 @@
     </Compile>
     <Compile Include="User_Control\UCStart.xaml.cs">
       <DependentUpon>UCStart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="User_Control\UCSubQuestions.xaml.cs">
+      <DependentUpon>UCSubQuestions.xaml</DependentUpon>
     </Compile>
     <Page Include="ExtendedWindow\EWAccelerate.xaml">
       <SubType>Designer</SubType>
@@ -155,6 +161,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ExtendedWindow\EWStart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ExtendedWindow\EWSubQuestions.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -191,6 +201,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="User_Control\UCStart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="User_Control\UCSubQuestions.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

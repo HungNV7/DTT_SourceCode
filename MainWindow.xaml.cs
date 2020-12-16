@@ -43,6 +43,7 @@ namespace ServerDTT_New_
         UCDecode uCDecode;
         UCFinish uCFinish;
         UCReadExcel uCReadExcel;
+        UCSubQuestions uCSubQuestions;
 
         Server server;
         string matchID = "";
@@ -80,22 +81,23 @@ namespace ServerDTT_New_
 
             }
            
-                eWMainWindow = new EWMainWindow();
-                eWMainWindow.Show();
-                eWPointSummarized = new EWPointSummarized();
-                eWStart = new EWStart();
-                eWObstacles = new EWObstacles();
-                eWAccelerate = new EWAccelerate();
-                eWDecode = new EWDecode();
-                eWFinish = new EWFinish();
+            eWMainWindow = new EWMainWindow();
+            eWMainWindow.Show();
+            eWPointSummarized = new EWPointSummarized();
+            eWStart = new EWStart();
+            eWObstacles = new EWObstacles();
+            eWAccelerate = new EWAccelerate();
+            eWDecode = new EWDecode();
+            eWFinish = new EWFinish();
                 
 
-                uCReadExcel = new UCReadExcel(this);
-                uCStart = new UCStart(this, eWMainWindow, eWStart, studentList, server, matchID);
-                uCObstacles = new UCObstacles(this, eWMainWindow, eWObstacles, studentList, server, matchID);
-                uCAccelerate = new UCAccelerate(this, eWMainWindow, eWAccelerate, studentList, server, matchID);
-                uCDecode = new UCDecode(this, eWMainWindow, eWDecode, studentList, server, matchID);
-                uCFinish = new UCFinish(this, eWMainWindow, eWFinish, studentList, server, matchID);
+            uCReadExcel = new UCReadExcel(this);
+            uCStart = new UCStart(this, eWMainWindow, eWStart, studentList, server, matchID);
+            uCObstacles = new UCObstacles(this, eWMainWindow, eWObstacles, studentList, server, matchID);
+            uCAccelerate = new UCAccelerate(this, eWMainWindow, eWAccelerate, studentList, server, matchID);
+            uCDecode = new UCDecode(this, eWMainWindow, eWDecode, studentList, server, matchID);
+            uCFinish = new UCFinish(this, eWMainWindow, eWFinish, studentList, server, matchID);
+            uCSubQuestions = new UCSubQuestions(this, eWMainWindow, studentList, server, matchID);
             while(tabMain.Items.Count != 0)
             {
                 tabMain.Items.RemoveAt(0);
@@ -106,6 +108,7 @@ namespace ServerDTT_New_
             tabMain.Items.Add(new TabItem { Content = uCAccelerate, Header = "Tăng Tốc", Width = 80, Height = 20, FontSize = 10 });
             tabMain.Items.Add(new TabItem { Content = uCDecode, Header = "Giải Mã", Width = 80, Height = 20, FontSize = 10 });
             tabMain.Items.Add(new TabItem { Content = uCFinish, Header = "Về Đích", Width = 80, Height = 20, FontSize = 10 });
+            tabMain.Items.Add(new TabItem { Content = uCSubQuestions, Header = "Câu hỏi phụ", Width = 80, Height = 20, FontSize = 10 });
             tabMain.Items.Add(new TabItem { Content = uCReadExcel, Header = "Read Excel", Width = 80, Height = 20, FontSize = 10 });
 
 
@@ -156,6 +159,9 @@ namespace ServerDTT_New_
                     break;
                 case '5':
                     uCDecode.SolveMessage(message.Substring(2));
+                    break;
+                case '6':
+                    uCSubQuestions.SolveMessage(message.Substring(2));
                     break;
             }
         }

@@ -205,6 +205,21 @@ namespace ServerDTT_New_.ExtendedWindow
                 }
                 DataProvider.Instance.ExecuteQuery(command);
 
+                //Read Cau hoi phu
+                worksheet = workbook.Worksheets[5];
+                command = string.Empty;
+                for (int i = 2; i <= worksheet.Rows.Length; i++)
+                {
+                    count++;
+                    for (int j = 1; j <= worksheet.Columns.Length; j++)
+                        if (worksheet[i, j].NumberValue.ToString() != "NaN")
+                            worksheet[i, j].Text = worksheet[i, j].NumberValue.ToString();
+                    command += "INSERT INTO tblQuestion(questionID, detail, questionImageName, questionVideoName, answer, questionTypeID, position, matchID, isBackup) VALUES(" + count;
+                    command += ", N'" + worksheet[i, 2].Text + "',N'" + worksheet[i, 4].Text + "',N'" + worksheet[i, 5].Text;
+                    command += "',N'" + worksheet[i, 3].Text + "','5','0', N'" + txtMatch.Text + "', 0)\n";
+                }
+                DataProvider.Instance.ExecuteQuery(command);
+
                 //Cau hoi phan GM
                 worksheet = workbook.Worksheets[4];
                 //command = "Create table DecodeQuestion (QuestionID INT IDENTITY(1,1) PRIMARY KEY, Row INT NOT NULL, Col INT NOT NULL, Detail NVARCHAR(1000) NOT NULL, QuestionImageName NVARCHAR(1000), QuestionVideoName NVARCHAR(1000), Answer NVARCHAR(1000) NOT NULL, QuestionTypeID INT Not Null)\n";
@@ -238,7 +253,6 @@ namespace ServerDTT_New_.ExtendedWindow
                     }
                     DataProvider.Instance.ExecuteQuery(command);
                 }
-
 
                 command = "Select * from tblQuestion;";
                 data = DataProvider.Instance.ExecuteQuery(command, null);

@@ -49,6 +49,19 @@ namespace ServerDTT_New_.SupportClass
             media.Visibility = Visibility.Hidden;
             media.Stop();
         }
+
+        public void Pause(MediaElement media)
+        {
+            if (media.Source == null) return;
+            media.Pause();
+        }
+
+        public void Continue(MediaElement media)
+        {
+            if (media.Source == null) return;
+            media.Play();
+        }
+
         public void Upload(Image image, string imageName)
         {
             try

@@ -131,6 +131,20 @@ namespace ServerDTT_New_.DAO
             return result > 0;
         }
 
+        public List<Question> GetSubQuestions(String matchID, int isBackup = 0)
+        {
+            string query = string.Format(
+                @"SELECT * FROM tblQuestion q
+                WHERE q.questionTypeID = '5' AND q.isBackup = {0} AND q.matchID = '{1}'", isBackup, matchID);
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            List<Question> result = new List<Question>();
+            foreach (DataRow row in data.Rows)
+            {
+                result.Add(new Question(row));
+            }
+            return result;
+        }
+
         public bool deleteQuestion(Int32 questionID)
         {
             string query = string.Format(
