@@ -15,7 +15,7 @@
     </UserControl.Background>-->
     <Grid>
         <Grid Name="gridIntro">
-            <!--<Grid.RowDefinitions>
+            <Grid.RowDefinitions>
                 <RowDefinition Height="150*"></RowDefinition>
                 <RowDefinition Height="140*"></RowDefinition>
                 <RowDefinition Height="160*"></RowDefinition>
@@ -29,12 +29,12 @@
                 <TextBlock Text="KHỞI ĐỘNG" FontWeight="Black" Foreground="White"/>
             </Viewbox>
             <MediaElement Grid.ColumnSpan="3" Grid.RowSpan="3" Name="videoIntro" Stretch="Fill" LoadedBehavior="Manual" MediaEnded="VideoIntro_MediaEnded"/>
-            <MediaElement Name="soundIntro" Stretch="Fill" LoadedBehavior="Manual"/>-->
-            <Viewbox  Margin="150,50,150,50">
+            <MediaElement Name="soundIntro" Stretch="Fill" LoadedBehavior="Manual"/>
+            <!--<Viewbox  Margin="150,50,150,50">
                 <TextBlock Text="KHỞI ĐỘNG" FontWeight="Black" Foreground="White"/>
             </Viewbox>
             <MediaElement Name="videoIntro" Stretch="Fill" LoadedBehavior="Manual" MediaEnded="VideoIntro_MediaEnded"/>
-            <MediaElement Name="soundIntro" Stretch="Fill" LoadedBehavior="Manual"/>
+            <MediaElement Name="soundIntro" Stretch="Fill" LoadedBehavior="Manual"/>-->
         </Grid>
         <Grid Name="gridStudentContest">
             <Grid.RowDefinitions>

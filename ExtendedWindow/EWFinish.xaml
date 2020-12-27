@@ -15,7 +15,7 @@
     </UserControl.Background>-->
     <Grid>
         <Grid Name="gridIntro">
-            <!--<Grid.RowDefinitions>
+            <Grid.RowDefinitions>
                 <RowDefinition Height="150*"></RowDefinition>
                 <RowDefinition Height="160*"></RowDefinition>
                 <RowDefinition Height="140*"></RowDefinition>
@@ -24,12 +24,12 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition Width="2*"></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>-->
-            <Viewbox Margin="150,50,150,50">
+            </Grid.ColumnDefinitions>
+            <Viewbox Grid.Column="1" Grid.Row="1">
                 <TextBlock x:Name="txtNameRound" Text="VỀ ĐÍCH" Foreground="White" FontWeight="Black"/>
             </Viewbox>
             <MediaElement Name="soundIntro" LoadedBehavior="Manual" Stretch="Fill"/>
-            <MediaElement Name="videoIntro" LoadedBehavior="Manual" Stretch="Fill" MediaEnded="videoIntro_MediaEnded"/>
+            <MediaElement Grid.ColumnSpan="3" Grid.RowSpan="3" Name="videoIntro" LoadedBehavior="Manual" Stretch="Fill" MediaEnded="videoIntro_MediaEnded"/>
         </Grid>
         <Grid Name="gridChooseQuestion">
             <Grid.ColumnDefinitions>

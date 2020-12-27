@@ -14,21 +14,22 @@
         </ImageBrush>
     </UserControl.Background>-->
     <Grid>
-        <!--<Grid.RowDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition Height="2*"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition Width="8*"></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>-->
-        <Viewbox Margin="100">
-            <TextBlock Name="textboxContent" Text="VƯỢT CHƯỚNG NGẠI VẬT" Foreground="White" FontWeight="Black" FontSize="155" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center"/>
-        </Viewbox>
-         <MediaElement Name="VideoIntro" Visibility="Hidden" LoadedBehavior="Manual" Stretch="Fill" MediaEnded="VideoIntro_MediaEnded"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="8*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="1" Grid.Column="1" Name="textboxContent" Text="VƯỢT CHƯỚNG NGẠI VẬT" Foreground="White" FontWeight="Black" FontSize="155" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center"/>
+            <MediaElement Grid.ColumnSpan="3" Grid.RowSpan="3" Name="VideoIntro" Visibility="Hidden" LoadedBehavior="Manual" Stretch="Fill" MediaEnded="VideoIntro_MediaEnded"/>
 
+        </Grid>
+        
         <!--Phần hàng ngang và câu hỏi-->
         <Grid Name="gridRows" Visibility="Hidden">
             <Grid.RowDefinitions>
