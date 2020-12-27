@@ -535,7 +535,7 @@ namespace ServerDTT_New_.User_Control
             eWDecode.txtBlockMainAnswer.Visibility = Visibility.Visible;
             eWDecode.txtBlockMainAnswer.BeginAnimation(OpacityProperty, doubleAnimation);
 
-            mediaAct.Play(eWDecode.soundTrueAnswer);
+            //mediaAct.Play(eWDecode.soundTrueAnswer);
         }
 
         private void BtnChooseHintTime_Click(object sender, RoutedEventArgs e)
@@ -637,6 +637,12 @@ namespace ServerDTT_New_.User_Control
         {
             for (int i = 0; i < server.ClientList.Count; i++)
                 server.Send(server.ClientList[i], "5_3");
+        }
+
+        private void btnFinish_Click(object sender, RoutedEventArgs e)
+        {
+            mediaAct.Stop(eWDecode.soundTrueKey);
+            mediaAct.Play(eWDecode.soundTrueKey);
         }
 
         private void BtnRule_Click(object sender, RoutedEventArgs e)

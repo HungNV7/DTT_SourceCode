@@ -136,9 +136,11 @@ namespace ServerDTT_New_.ExtendedWindow
 
         private void SoundStart_MediaEnded(object sender, RoutedEventArgs e)
         {
+            mediaAct.Stop(videoStudentStart);
             mediaAct.Play(videoStudentStart);
             time = 2.3;
             thread = new Thread(ThreadStart);
+            thread.IsBackground = true;
             thread.Start();
         }
 

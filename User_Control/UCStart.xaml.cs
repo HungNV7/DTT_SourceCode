@@ -226,6 +226,16 @@ namespace ServerDTT_New_.User_Control
             var bc = new BrushConverter();
             eWStart.txtBackGroundNameList[currentStudentID].Background = (Brush)bc.ConvertFrom("#2a2728");
 
+            for (int i = 0; i < server.ClientIDList.Count(); i++)
+            {
+                if (server.ClientIDList[i] == currentStudentID)
+                {
+                    server.Send(server.ClientList[i], "1_2");
+                    break;
+                }
+            }
+
+
             IsBackup = false;
         }
 

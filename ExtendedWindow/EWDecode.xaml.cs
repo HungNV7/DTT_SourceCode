@@ -90,6 +90,7 @@ namespace ServerDTT_New_.ExtendedWindow
             mediaAct.Upload(videoRule, "Decode_VideoRule.mp4");
             mediaAct.Upload(soundBell, "Obstacles_BellSound.mp3");
             mediaAct.Upload(eliminateSound, "Obstacles_EliminateSound.mp3");
+            mediaAct.Upload(soundTrueKey, "Obstacles_TrueKeySound.mp3");
         }
 
         void HideGridIntro()
@@ -143,12 +144,14 @@ namespace ServerDTT_New_.ExtendedWindow
             mediaAct.Stop(soundTrueChoose);
             mediaAct.Stop(soundBell);
             mediaAct.Stop(eliminateSound);
+            mediaAct.Stop(soundTrueKey);
 
             HideGridIntro();
             HideGridMatrix();
             HideGridQuestion();
             HideGridStudentAnswer();
             HideGridFinalAnswer();
+            gridBell.Visibility = Visibility.Hidden;
         }
 
         void ThreadAnswer()
@@ -229,6 +232,11 @@ namespace ServerDTT_New_.ExtendedWindow
             txtBlockQuestion2.Visibility = Visibility.Visible;
             imgQuestion.Visibility = Visibility.Visible;
             videoQuestion.Visibility = Visibility.Visible;
+        }
+
+        private void videoIntro_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            videoIntro.Visibility = Visibility.Hidden;
         }
     }
 }

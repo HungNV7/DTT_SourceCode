@@ -6,19 +6,36 @@
              xmlns:local="clr-namespace:ServerDTT_New_.ExtendedWindow"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <!--<UserControl.Background>
+        <ImageBrush>
+            <ImageBrush.ImageSource>
+                <BitmapImage UriSource="file:///D:/Pictures/Screenshots/screenshot (107).png"/>
+            </ImageBrush.ImageSource>
+        </ImageBrush>
+    </UserControl.Background>-->
     <Grid>
         <Grid Name="gridIntro">
-            <Viewbox Margin="100,50,100,50">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150*"></RowDefinition>
+                <RowDefinition Height="160*"></RowDefinition>
+                <RowDefinition Height="140*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Viewbox Grid.Row="1" Grid.Column="1">
                 <TextBlock Text="TĂNG TỐC" Foreground="White" FontWeight="Black"/>
             </Viewbox>
             <MediaElement Name="soundIntro" LoadedBehavior="Manual" Stretch="Fill"/>
-            <MediaElement Name="videoIntro" LoadedBehavior="Manual" Stretch="Fill" MediaEnded="VideoIntro_MediaEnded"/>
+            <MediaElement Grid.RowSpan="3" Grid.ColumnSpan="3" Name="videoIntro" LoadedBehavior="Manual" Stretch="Fill" MediaEnded="VideoIntro_MediaEnded"/>
         </Grid>
         <Grid Name="gridQuestion">
             <Grid.RowDefinitions>
-                <RowDefinition Height="14*"/>
-                <RowDefinition Height="40*"/>
-                <RowDefinition Height="29*"/>
+                <RowDefinition Height="17*"/>
+                <RowDefinition Height="46*"/>
+                <RowDefinition Height="22*"/>
                 <RowDefinition Height="334*"/>
                 <RowDefinition Height="33*"/>
             </Grid.RowDefinitions>
@@ -29,7 +46,8 @@
             </Grid.ColumnDefinitions>
             <MediaElement Name="videoQuestionStart" Grid.ColumnSpan="3" Grid.RowSpan="5" Stretch="Fill" LoadedBehavior="Manual" MediaEnded="VideoQuestionStart_MediaEnded"/>
             <MediaElement Name="videoTime" Grid.ColumnSpan="3" Grid.RowSpan="5" Stretch="Fill" LoadedBehavior="Manual"/>
-            <TextBlock Name="txtBlockQuestion" Grid.Row="1" Grid.Column="1" Foreground="White" FontFamily="Open Sans" FontSize="40" TextAlignment="Center" TextWrapping="Wrap"/>
+                <TextBlock Name="txtBlockQuestion" Grid.Row="1" Grid.Column="1" Foreground="White" FontFamily="Open Sans" FontStretch="Normal" FontSize="34" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" LineHeight="35" LineStackingStrategy="BlockLineHeight"/>
+
             <MediaElement Name="videoQuestion" Grid.Row="3" Grid.Column="1" Stretch="Fill" LoadedBehavior="Manual"/>
             <Image Name="imgQuestion" Grid.Row="3" Grid.Column="1" Stretch="Fill"/>
         </Grid>

@@ -263,7 +263,7 @@ namespace ServerDTT_New_.User_Control
                 btnChooseStudentList[i].Background = Brushes.LightBlue;
             }
 
-            IsHopeStar = 0;
+            //IsHopeStar = 0;
         }
 
         private void BtnTrue_Click(object sender, RoutedEventArgs e)

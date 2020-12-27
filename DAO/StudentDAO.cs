@@ -64,8 +64,8 @@ namespace ServerDTT_New_.DAO
         public bool UpdatePoint(string studentID, int Point, string matchID)
         {
             string query = string.Format(
-               "UPDATE tblDetailMatch SET point={1} WHERE studentID={0} AND matchID=N'{2}'",
-               studentID, Point,matchID);
+               "UPDATE tblDetailMatch SET point={1} WHERE studentID=N'{0}' AND matchID=N'{2}'",
+               studentID, Point, matchID);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }
@@ -73,7 +73,7 @@ namespace ServerDTT_New_.DAO
         public bool UpdateName(string studentID, string name)
         {
             string query = string.Format(
-               "UPDATE tblStudent SET lastName = N'{0}' WHERE studentID={1}", name, studentID);
+               "UPDATE tblStudent SET lastName = N'{0}' WHERE studentID=N'{1}'", name, studentID);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }

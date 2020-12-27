@@ -6,11 +6,26 @@
              xmlns:local="clr-namespace:ServerDTT_New_.ExtendedWindow"
              mc:Ignorable="d" 
               d:DesignHeight="450" d:DesignWidth="800">
+    <!--<UserControl.Background>
+        <ImageBrush>
+            <ImageBrush.ImageSource>
+                <BitmapImage UriSource="file:///D:/Pictures/Screenshots/Screenshot (106).png"/>
+            </ImageBrush.ImageSource>
+        </ImageBrush>
+    </UserControl.Background>-->
     <Grid>
-        <Viewbox Margin="100">
-            <TextBlock Name="textboxContent" Text="VƯỢT CHƯỚNG NGẠI VẬT" Foreground="White" FontWeight="Black"/>
-        </Viewbox>
-        <MediaElement Name="VideoIntro" Visibility="Hidden" LoadedBehavior="Manual" Stretch="Fill" MediaEnded="VideoIntro_MediaEnded"/>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="8*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="1" Grid.Column="1" Name="textboxContent" Text="VƯỢT CHƯỚNG NGẠI VẬT" Foreground="White" FontWeight="Black" FontSize="155" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center"/> 
+        <MediaElement Grid.ColumnSpan="3" Grid.RowSpan="3" Name="VideoIntro" Visibility="Hidden" LoadedBehavior="Manual" Stretch="Fill" MediaEnded="VideoIntro_MediaEnded"/>
 
         <!--Phần hàng ngang và câu hỏi-->
         <Grid Name="gridRows" Visibility="Hidden">
@@ -142,7 +157,9 @@
                 </Grid.ColumnDefinitions>
 
                 <Grid Grid.Column="1">
-                    <TextBlock Name="textboxAnswer1" VerticalAlignment="Center" HorizontalAlignment="Stretch" TextAlignment="Center" FontSize="40" FontWeight="DemiBold" Foreground="White" ></TextBlock>
+                    <Viewbox>
+                        <TextBlock Name="textboxAnswer1" VerticalAlignment="Center" HorizontalAlignment="Stretch" TextAlignment="Center" FontSize="40" FontWeight="DemiBold" Foreground="White" ></TextBlock>
+                    </Viewbox>
                 </Grid>
             </Grid>
 
@@ -166,7 +183,9 @@
                 </Grid.ColumnDefinitions>
 
                 <Grid Grid.Column="1">
-                    <TextBlock Name="textboxAnswer2" VerticalAlignment="Center" HorizontalAlignment="Stretch" TextAlignment="Center" FontSize="40" FontWeight="DemiBold" Foreground="White"></TextBlock>
+                    <Viewbox>
+                        <TextBlock Name="textboxAnswer2" VerticalAlignment="Center" HorizontalAlignment="Stretch" TextAlignment="Center" FontSize="40" FontWeight="DemiBold" Foreground="White"></TextBlock>
+                    </Viewbox>
                 </Grid>
             </Grid>
 
@@ -190,7 +209,9 @@
                 </Grid.ColumnDefinitions>
 
                 <Grid Grid.Column="1">
-                    <TextBlock Name="textboxAnswer3" VerticalAlignment="Center" HorizontalAlignment="Stretch" TextAlignment="Center" FontSize="40" FontWeight="DemiBold" Foreground="White"></TextBlock>
+                    <Viewbox>
+                        <TextBlock Name="textboxAnswer3" VerticalAlignment="Center" HorizontalAlignment="Stretch" TextAlignment="Center" FontSize="40" FontWeight="DemiBold" Foreground="White"></TextBlock>
+                    </Viewbox>
                 </Grid>
             </Grid>
 
@@ -214,7 +235,9 @@
                 </Grid.ColumnDefinitions>
 
                 <Grid Grid.Column="1">
-                    <TextBlock Name="textboxAnswer4" VerticalAlignment="Center" HorizontalAlignment="Stretch" TextAlignment="Center" FontSize="40" FontWeight="DemiBold" Foreground="White"></TextBlock>
+                    <Viewbox>
+                        <TextBlock Name="textboxAnswer4" VerticalAlignment="Center" HorizontalAlignment="Stretch" TextAlignment="Center" FontSize="40" FontWeight="DemiBold" Foreground="White"></TextBlock>
+                    </Viewbox>
                 </Grid>
             </Grid>
         </Grid>

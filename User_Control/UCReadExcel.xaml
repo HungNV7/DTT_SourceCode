@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ServerDTT_New_.ExtendedWindow"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Background="#439889">
+             d:DesignHeight="450" d:DesignWidth="800" Background="#bdbdbd">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
@@ -20,26 +20,26 @@
             </Viewbox>
         </Grid>
         <Border Grid.Row="1"  BorderBrush="Black" BorderThickness="1" CornerRadius="5" Margin="5">
-        <Grid >
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Name="btnLoadQuestion" Content="Offical" Click="BtnLoadQuestion_Click"/>
-            <Button Grid.Column="1" Name="btnLoadBUQuestion" Content="Backup" Click="BtnLoadBUQuestion_Click"/>
-            <Button Grid.Column="2" Name="btnCandidate" Content="Candidate" Click="btnCandidate_Click"/>
+                <Button Grid.Column="0" Name="btnLoadQuestion" Content="Offical" Click="BtnLoadQuestion_Click"/>
+                <Button Grid.Column="1" Name="btnLoadBUQuestion" Content="Backup" Click="BtnLoadBUQuestion_Click"/>
+                <Button Grid.Column="1" Name="btnCandidate" Content="Candidate" Click="btnCandidate_Click" Grid.ColumnSpan="2" Margin="262.8,7,-0.2,0" VerticalAlignment="Top"/>
             </Grid>
         </Border>
         <Border Grid.Row="2" BorderBrush="Black" BorderThickness="1" CornerRadius="5" Margin="5">
-        <Grid >
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <TextBox Grid.Column="0" x:Name="txtMatch" />
-            <TextBox Grid.Column="1" x:Name="txtName"/>
-        </Grid>
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBox Grid.Column="0" x:Name="txtMatch" />
+                <TextBox Grid.Column="1" x:Name="txtName"/>
+            </Grid>
         </Border>
         <Border Grid.Row="3" BorderBrush="Black" BorderThickness="1" CornerRadius="5" Margin="5">
             <Grid  x:Name="infoStudent">
@@ -58,7 +58,7 @@
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-            <Label Grid.Row="0" Grid.Column="0" FontSize="24" Foreground="Black" HorizontalAlignment="Center">Position</Label>
+                <Label Grid.Row="0" Grid.Column="0" FontSize="24" Foreground="Black" HorizontalAlignment="Center">Position</Label>
                 <Label Grid.Row="0" Grid.Column="1" FontSize="24" Foreground="Black" HorizontalAlignment="Center">First Name</Label>
                 <Label Grid.Row="0" Grid.Column="2" FontSize="24" Foreground="Black" HorizontalAlignment="Center">Last Name</Label>
                 <Label Grid.Row="0" Grid.Column="3" FontSize="24" Foreground="Black" HorizontalAlignment="Center">Class</Label>

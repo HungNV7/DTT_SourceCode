@@ -9,18 +9,29 @@
     <!--<UserControl.Background>
         <ImageBrush>
             <ImageBrush.ImageSource>
-                <BitmapImage UriSource="file:///D:/Pictures/Screenshots/Screenshot (101).png"/>
+                <BitmapImage UriSource="file:///D:/Pictures/Screenshots/Screenshot (108).png"/>
             </ImageBrush.ImageSource>
         </ImageBrush>
     </UserControl.Background>-->
     <Grid>
         <Grid Name="gridIntro">
-            <Viewbox Margin="150,50,150,50">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150*"></RowDefinition>
+                <RowDefinition Height="160*"></RowDefinition>
+                <RowDefinition Height="140*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Viewbox Grid.Row="1" Grid.Column="1">
                 <TextBlock Text="GIẢI MÃ" FontWeight="Black" Foreground="White"/>
             </Viewbox>
-            <MediaElement Name="videoIntro" Stretch="Fill" LoadedBehavior="Manual"/>
-            <MediaElement Name="videoRule" Stretch="Fill" LoadedBehavior="Manual"/>
+            <MediaElement Grid.RowSpan="3" Grid.ColumnSpan="3" Name="videoIntro" Stretch="Fill" LoadedBehavior="Manual" MediaEnded="videoIntro_MediaEnded" />
+            <MediaElement Grid.RowSpan="3" Grid.ColumnSpan="3" Name="videoRule" Stretch="Fill" LoadedBehavior="Manual"/>
             <MediaElement Name="soundIntro" Stretch="Fill" LoadedBehavior="Manual"/>
+            <MediaElement Name="soundTrueKey" Stretch="Fill" LoadedBehavior="Manual"/>
         </Grid>
         
         <Grid Name="gridMatrix">
@@ -77,7 +88,7 @@
                     <RowDefinition Height="310*"/>
                     <RowDefinition Height="90*"/>
                 </Grid.RowDefinitions>
-                <TextBlock Name="txtBlockQuestion2" Grid.Row="0" HorizontalAlignment="Center" TextAlignment="Center" VerticalAlignment="Center"  FontFamily="Open Sans" Foreground="White" FontSize="50" TextWrapping="Wrap"/>
+                <TextBlock Name="txtBlockQuestion2" Grid.Row="0" HorizontalAlignment="Center" TextAlignment="Center" VerticalAlignment="Center"  FontFamily="Open Sans" Foreground="White" FontSize="40" TextWrapping="Wrap"/>
                 <Image Name="imgQuestion" Grid.Row="0" Stretch="Fill"/>
                 <MediaElement Name="videoQuestion" Grid.Row="0" Stretch="Fill" LoadedBehavior="Manual"/>
             </Grid>
@@ -114,7 +125,7 @@
         </Grid>
         <Grid Name="gridFinalAnswer">
             <Viewbox Name="viewBoxMainAnswer">
-                <TextBlock Name="txtBlockMainAnswer" Text="Final Answer" Foreground="White" FontWeight="DemiBold" FontFamily="Open Sans"/>
+                <TextBlock Name="txtBlockMainAnswer" Text="" Foreground="White" FontWeight="DemiBold" FontFamily="Open Sans"/>
             </Viewbox>
         </Grid>
         <!-- Nhấn chuông -->

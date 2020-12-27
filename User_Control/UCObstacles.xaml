@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:ServerDTT_New_.User_Control"
              mc:Ignorable="d" 
                d:DesignHeight="450" d:DesignWidth="800"
-             Background="#439889">
+             Background="#bdbdbd">
     <Grid>
         <!--Khung lớn-->
         <Grid.RowDefinitions>
