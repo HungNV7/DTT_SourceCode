@@ -15,8 +15,7 @@
     </UserControl.Background>-->
     <Grid>
         <Grid Name="gridIntro">
-
-            <Grid.RowDefinitions>
+            <!--<Grid.RowDefinitions>
                 <RowDefinition Height="150*"></RowDefinition>
                 <RowDefinition Height="140*"></RowDefinition>
                 <RowDefinition Height="160*"></RowDefinition>
@@ -30,6 +29,11 @@
                 <TextBlock Text="KHỞI ĐỘNG" FontWeight="Black" Foreground="White"/>
             </Viewbox>
             <MediaElement Grid.ColumnSpan="3" Grid.RowSpan="3" Name="videoIntro" Stretch="Fill" LoadedBehavior="Manual" MediaEnded="VideoIntro_MediaEnded"/>
+            <MediaElement Name="soundIntro" Stretch="Fill" LoadedBehavior="Manual"/>-->
+            <Viewbox  Margin="150,50,150,50">
+                <TextBlock Text="KHỞI ĐỘNG" FontWeight="Black" Foreground="White"/>
+            </Viewbox>
+            <MediaElement Name="videoIntro" Stretch="Fill" LoadedBehavior="Manual" MediaEnded="VideoIntro_MediaEnded"/>
             <MediaElement Name="soundIntro" Stretch="Fill" LoadedBehavior="Manual"/>
         </Grid>
         <Grid Name="gridStudentContest">
@@ -67,7 +71,7 @@
                     <ColumnDefinition Width="115*"/>
                     <ColumnDefinition Width="218*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock x:Name="tbBackGroundName0" Grid.Column="1" Background="#2a2728"></TextBlock>
+                <!--<TextBlock x:Name="tbBackGroundName0" Grid.Column="1" Background="#2a2728"></TextBlock>
                 <TextBlock x:Name="tbBackGroundName1" Grid.Column="3" Background="#2a2728"></TextBlock>
                 <TextBlock x:Name="tbBackGroundName2" Grid.Column="5" Background="#2a2728"></TextBlock>
                 <TextBlock x:Name="tbBackGroundName3" Grid.Column="7" Background="#2a2728"></TextBlock>
@@ -75,7 +79,7 @@
                     <RowDefinition Height="3*"/>
                     <RowDefinition Height="0.75*"/>
                     <RowDefinition Height="2*"/>
-                </Grid.RowDefinitions>
+                </Grid.RowDefinitions>-->
             </Grid>
             <Grid Grid.Row="4">
                 <Grid.ColumnDefinitions>

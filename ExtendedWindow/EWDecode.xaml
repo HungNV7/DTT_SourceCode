@@ -15,7 +15,7 @@
     </UserControl.Background>-->
     <Grid>
         <Grid Name="gridIntro">
-            <Grid.RowDefinitions>
+            <!--<Grid.RowDefinitions>
                 <RowDefinition Height="150*"></RowDefinition>
                 <RowDefinition Height="160*"></RowDefinition>
                 <RowDefinition Height="140*"></RowDefinition>
@@ -24,12 +24,12 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition Width="2*"></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Viewbox Grid.Row="1" Grid.Column="1">
+            </Grid.ColumnDefinitions>-->
+            <Viewbox Margin="150,50,150,50">
                 <TextBlock Text="GIẢI MÃ" FontWeight="Black" Foreground="White"/>
             </Viewbox>
-            <MediaElement Grid.RowSpan="3" Grid.ColumnSpan="3" Name="videoIntro" Stretch="Fill" LoadedBehavior="Manual" MediaEnded="videoIntro_MediaEnded" />
-            <MediaElement Grid.RowSpan="3" Grid.ColumnSpan="3" Name="videoRule" Stretch="Fill" LoadedBehavior="Manual"/>
+            <MediaElement Name="videoIntro" Stretch="Fill" LoadedBehavior="Manual" MediaEnded="videoIntro_MediaEnded" />
+            <MediaElement Name="videoRule" Stretch="Fill" LoadedBehavior="Manual"/>
             <MediaElement Name="soundIntro" Stretch="Fill" LoadedBehavior="Manual"/>
             <MediaElement Name="soundTrueKey" Stretch="Fill" LoadedBehavior="Manual"/>
         </Grid>
