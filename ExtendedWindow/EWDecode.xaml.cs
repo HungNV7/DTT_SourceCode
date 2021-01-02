@@ -52,7 +52,7 @@ namespace ServerDTT_New_.ExtendedWindow
             for (int i = 0; i < numberOfStudent; i++)
             {
                 Viewbox viewboxStudentName = new Viewbox();
-                TextBlock txtBlockStudentName = new TextBlock { FontFamily = new FontFamily("Open Sans"), Foreground = Brushes.Black };
+                TextBlock txtBlockStudentName = new TextBlock { FontFamily = new FontFamily("Open Sans"), Foreground = Brushes.Black, HorizontalAlignment = HorizontalAlignment.Left };
                 viewboxStudentName.SetValue(Grid.RowProperty, 3 * i + 1);
                 viewboxStudentName.SetValue(Grid.ColumnProperty, 1);
                 viewboxStudentName.Child = txtBlockStudentName;
@@ -60,7 +60,7 @@ namespace ServerDTT_New_.ExtendedWindow
                 gridStudentAnswer.Children.Add(viewboxStudentName);
 
                 Viewbox viewboxStudentAnswer = new Viewbox();
-                TextBlock txtBlockStudentAnswer = new TextBlock { FontFamily = new FontFamily("Open Sans"), Foreground = Brushes.White };
+                TextBlock txtBlockStudentAnswer = new TextBlock { FontFamily = new FontFamily("Open Sans"), Foreground = Brushes.White};
                 viewboxStudentAnswer.SetValue(Grid.RowProperty, 3 * i + 2);
                 viewboxStudentAnswer.SetValue(Grid.ColumnProperty, 1);
                 viewboxStudentAnswer.SetValue(Grid.ColumnSpanProperty, 2);
