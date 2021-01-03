@@ -109,7 +109,10 @@ namespace ServerDTT_New_.ExtendedWindow
                 DataProvider.Instance.ExecuteQuery(command);
                 //command = "Create table Question (QuestionID INT IDENTITY(1,1) PRIMARY KEY, Detail NVARCHAR(1000) NOT NULL, QuestionImageName NVARCHAR(1000), QuestionVideoName NVARCHAR(1000), Answer NVARCHAR(1000) NOT NULL, AnswerImageName NVARCHAR(1000), AnswerVideoName NVARCHAR(1000), QuestionTypeID INT Not Null,Note NVARCHAR(1000),StudentID INT Not Null)\n";
                 //DataProvider.Instance.ExecuteQuery(command);
-
+                foreach (Worksheet tmp in workbook.Worksheets)
+                {
+                    CheckSpecialCharacter(tmp);
+                }
                 //Cau hoi KD
                 worksheet = workbook.Worksheets[0];
                 command = string.Empty;
@@ -123,7 +126,7 @@ namespace ServerDTT_New_.ExtendedWindow
                 int count = Convert.ToInt32(DataProvider.Instance.ExecuteScalar(command)) + 1;
                 command = string.Empty;
                 int position = 0;
-                for (int i = 2; i <= worksheet.Rows.Length; i++)
+                for (int i = 2; i <= 61; i++)
                 {
                     count++;
                     if(i <= 16)
@@ -286,6 +289,10 @@ namespace ServerDTT_New_.ExtendedWindow
                 DataProvider.Instance.ExecuteQuery(command);
                 //command = "Create table Question (QuestionID INT IDENTITY(1,1) PRIMARY KEY, Detail NVARCHAR(1000) NOT NULL, QuestionImageName NVARCHAR(1000), QuestionVideoName NVARCHAR(1000), Answer NVARCHAR(1000) NOT NULL, AnswerImageName NVARCHAR(1000), AnswerVideoName NVARCHAR(1000), QuestionTypeID INT Not Null,Note NVARCHAR(1000),StudentID INT Not Null)\n";
                 //DataProvider.Instance.ExecuteQuery(command);
+                foreach (Worksheet tmp in workbook.Worksheets)
+                {
+                    CheckSpecialCharacter(tmp);
+                }
 
                 //Cau hoi KD
                 worksheet = workbook.Worksheets[0];
@@ -295,7 +302,7 @@ namespace ServerDTT_New_.ExtendedWindow
                 int position = 0;
                 int count = Convert.ToInt32(DataProvider.Instance.ExecuteScalar(command)) + 1;
                 command = string.Empty;
-                for (int i = 2; i <= worksheet.Rows.Length; i++)
+                for (int i = 2; i <= 61; i++)
                 {
                     count++;
                     if (i <= 16)
@@ -499,6 +506,33 @@ namespace ServerDTT_New_.ExtendedWindow
                 txtBlockFinish.Text = "Finished";
                 mainWindow.GetMatch();
             }
+        }
+
+        private void CheckSpecialCharacter(Worksheet worksheet)
+        {
+            for (int i = 2; i <= worksheet.Rows.Length; i++)
+            {
+                for (int j = 1; j < worksheet.Columns.Length; j++)
+                {
+                    if(worksheet[i, j].Text != null)
+                    {
+                        string text = "";
+                        for (int k = 0; k < worksheet[i, j].Text.Length; k++)
+                        {
+                            if(worksheet[i, j].Text[k] == '\'')
+                            {
+                                text += "\''";
+                            }
+                            else
+                            {
+                                text += worksheet[i, j].Text[k];
+                            }
+                        }
+                        worksheet[i, j].Text = text;
+                    }
+                }
+            }
+            
         }
     }
 }

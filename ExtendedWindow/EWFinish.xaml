@@ -63,8 +63,8 @@
                 <RowDefinition Height="199*"/>
                 <RowDefinition Height="29*"/>
                 <RowDefinition Height="10*"/>
-                <RowDefinition Height="117*"/>
-                <RowDefinition Height="35*"/>
+                <RowDefinition Height="120*"/>
+                <RowDefinition Height="32*"/>
             </Grid.RowDefinitions>
 
             <MediaElement Name="soundOtherStudentChance" LoadedBehavior="Manual"/>

@@ -43,7 +43,7 @@ namespace ServerDTT_New_.ExtendedWindow
             for (int i = 0; i < 4; i++)
             {
                 Viewbox viewboxStudentName = new Viewbox();
-                TextBlock txtBlockStudentName = new TextBlock { FontFamily = new FontFamily("Open Sans"), FontWeight=FontWeights.DemiBold, Foreground = Brushes.Black};
+                TextBlock txtBlockStudentName = new TextBlock { FontFamily = new FontFamily("Open Sans"), FontWeight=FontWeights.DemiBold, Foreground = Brushes.Black, HorizontalAlignment = HorizontalAlignment.Left};
                 viewboxStudentName.SetValue(Grid.RowProperty, 3 * i + 1);
                 viewboxStudentName.SetValue(Grid.ColumnProperty, 1);
                 viewboxStudentName.Child = txtBlockStudentName;

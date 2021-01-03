@@ -597,6 +597,7 @@ namespace ServerDTT_New_.User_Control
         private void BtnBackUpQuestion_Click(object sender, RoutedEventArgs e)
         {
             isBackup = true;
+            rowChosenCount = 0;
             InitControl();
             foreach (Question question in questionList)
             {
