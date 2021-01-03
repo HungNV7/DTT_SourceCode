@@ -61,26 +61,34 @@ namespace ServerDTT_New_
        
         void InitMainWindow()
         {
-            
-            
-            for (int i = 0; i < numberOfStudent; i++)
+            if (txtBoxStudentNameList.Count != 4)
             {
-                Viewbox viewbox = new Viewbox();
-                TextBox txtBoxName = new TextBox { FontSize = 35, Background = Brushes.Transparent,Foreground=Brushes.Black, Text = studentList[i].Name, TextAlignment = TextAlignment.Center, Margin=new Thickness(0,15,0,0)};
-                viewbox.Child = txtBoxName;
-                viewbox.SetValue(Grid.RowProperty, i + 1);
-                viewbox.SetValue(Grid.ColumnProperty, 0);
-                gridStudentInformation.Children.Add(viewbox);
-                txtBoxStudentNameList.Add(txtBoxName);
+                for (int i = 0; i < numberOfStudent; i++)
+                {
+                    Viewbox viewbox = new Viewbox();
+                    TextBox txtBoxName = new TextBox { FontSize = 35, Background = Brushes.Transparent, Foreground = Brushes.Black, Text = studentList[i].Name, TextAlignment = TextAlignment.Center, Margin = new Thickness(0, 15, 0, 0) };
+                    viewbox.Child = txtBoxName;
+                    viewbox.SetValue(Grid.RowProperty, i + 1);
+                    viewbox.SetValue(Grid.ColumnProperty, 0);
+                    gridStudentInformation.Children.Add(viewbox);
+                    txtBoxStudentNameList.Add(txtBoxName);
 
-                TextBox txtBoxPoint = new TextBox { FontSize = 35, Background = Brushes.Transparent, Foreground = Brushes.Black, Text = studentList[i].Point.ToString(),TextAlignment = TextAlignment.Center, Margin = new Thickness(0,15,0,0) };
-                txtBoxPoint.SetValue(Grid.RowProperty, i + 1);
-                txtBoxPoint.SetValue(Grid.ColumnProperty, 1);
-                gridStudentInformation.Children.Add(txtBoxPoint);
-                txtBoxStudentPointList.Add(txtBoxPoint);
-
+                    TextBox txtBoxPoint = new TextBox { FontSize = 35, Background = Brushes.Transparent, Foreground = Brushes.Black, Text = studentList[i].Point.ToString(), TextAlignment = TextAlignment.Center, Margin = new Thickness(0, 15, 0, 0) };
+                    txtBoxPoint.SetValue(Grid.RowProperty, i + 1);
+                    txtBoxPoint.SetValue(Grid.ColumnProperty, 1);
+                    gridStudentInformation.Children.Add(txtBoxPoint);
+                    txtBoxStudentPointList.Add(txtBoxPoint);
+                }
             }
-           
+            else
+            {
+                for (int i = 0; i < numberOfStudent; i++)
+                {
+                    txtBoxStudentNameList[i].Text = studentList[i].Name;
+                    txtBoxStudentPointList[i].Text = studentList[i].Point.ToString();
+                }
+            }
+
             eWMainWindow = new EWMainWindow();
             eWMainWindow.Show();
             eWPointSummarized = new EWPointSummarized();
@@ -121,7 +129,7 @@ namespace ServerDTT_New_
 
         public void GetMatch()
         {
-
+            cbMatch.Items.Clear();
             matches = new Dictionary<string, string>();
 
             String command = "SELECT DISTINCT A.matchID, B.name FROM tblDetailMatch A, tblMatch B WHERE A.matchID = B.matchID";
