@@ -52,7 +52,7 @@ namespace ServerDTT_New_.User_Control
         }
 
 
-        void InitUC()
+        public void InitUC()
         {
             cbTS1.Content = studentList[0].Name;
             cbTS2.Content = studentList[1].Name;

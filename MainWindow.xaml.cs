@@ -190,6 +190,7 @@ namespace ServerDTT_New_
             uCAccelerate.UpdateInfoOnScreen();
             uCDecode.UpdateInfoOnScreen();
             uCFinish.UpdateInfoOnScreen();
+            uCSubQuestions.InitUC();
 
             System.IO.StreamReader stream = new System.IO.StreamReader("Round.txt");
             int round = int.Parse(stream.ReadLine());
@@ -207,6 +208,7 @@ namespace ServerDTT_New_
         private void BtnFinal_Click(object sender, RoutedEventArgs e)
         {
             eWMainWindow.Content = eWPointSummarized;
+            eWPointSummarized.soundFinishAll.Stop();
             eWPointSummarized.soundFinishAll.Play();
         }
 //
